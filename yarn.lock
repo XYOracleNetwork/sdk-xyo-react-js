@@ -984,6 +984,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@gerrit0/mini-shiki@npm:^3.17.0":
+  version: 3.18.0
+  resolution: "@gerrit0/mini-shiki@npm:3.18.0"
+  dependencies:
+    "@shikijs/engine-oniguruma": "npm:^3.18.0"
+    "@shikijs/langs": "npm:^3.18.0"
+    "@shikijs/themes": "npm:^3.18.0"
+    "@shikijs/types": "npm:^3.18.0"
+    "@shikijs/vscode-textmate": "npm:^10.0.2"
+  checksum: 10/540b94098b1f8b332e26101c34744e2240777c00e62a735bde25e57658ba11711cb5b439757e05307b4a20043a918a1e13ebafd55f8c7be8bbdcebb0521aebf4
+  languageName: node
+  linkType: hard
+
 "@humanfs/core@npm:^0.19.1":
   version: 0.19.1
   resolution: "@humanfs/core@npm:0.19.1"
@@ -2272,70 +2285,45 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@shikijs/core@npm:1.29.2":
-  version: 1.29.2
-  resolution: "@shikijs/core@npm:1.29.2"
+"@shikijs/engine-oniguruma@npm:^3.18.0":
+  version: 3.19.0
+  resolution: "@shikijs/engine-oniguruma@npm:3.19.0"
   dependencies:
-    "@shikijs/engine-javascript": "npm:1.29.2"
-    "@shikijs/engine-oniguruma": "npm:1.29.2"
-    "@shikijs/types": "npm:1.29.2"
-    "@shikijs/vscode-textmate": "npm:^10.0.1"
+    "@shikijs/types": "npm:3.19.0"
+    "@shikijs/vscode-textmate": "npm:^10.0.2"
+  checksum: 10/6bf6e35aa61f62b1a532071d11e1937a67fb68469c1886ab3c06c6d384b8feee589973ee101cbebefad9ff9405040ee640ced429e83b9dddd906f07d994a1939
+  languageName: node
+  linkType: hard
+
+"@shikijs/langs@npm:^3.18.0":
+  version: 3.19.0
+  resolution: "@shikijs/langs@npm:3.19.0"
+  dependencies:
+    "@shikijs/types": "npm:3.19.0"
+  checksum: 10/679d61b89132c858bd1e96fc7a46fbae56dc8e9be176586cabb57cd9504bb7ea45bbd22879f63d822957060fe322302ad9824b9a6f18415a86b54e22347c0c2d
+  languageName: node
+  linkType: hard
+
+"@shikijs/themes@npm:^3.18.0":
+  version: 3.19.0
+  resolution: "@shikijs/themes@npm:3.19.0"
+  dependencies:
+    "@shikijs/types": "npm:3.19.0"
+  checksum: 10/7eb53912fe8b877e6fc498c937188ae55b960c681f65cd4201f2c3a919b0f5951f9ce090819ded5dc4eb0aabe7a811ba705a19b5c003e0dbfebad08d1ba535d5
+  languageName: node
+  linkType: hard
+
+"@shikijs/types@npm:3.19.0, @shikijs/types@npm:^3.18.0":
+  version: 3.19.0
+  resolution: "@shikijs/types@npm:3.19.0"
+  dependencies:
+    "@shikijs/vscode-textmate": "npm:^10.0.2"
     "@types/hast": "npm:^3.0.4"
-    hast-util-to-html: "npm:^9.0.4"
-  checksum: 10/83dc5e86efc587d513268175ff43e8273567d2c6616d725bff15b08cf243d90f9371d6fa76ba49bb0e9823fc9947c8d8c650c81cfb19c3eb726178326f639a55
+  checksum: 10/3f0e79f2ecbb0754ad08626e14313701a15dd1dbda1a1295d1e35a172b4555339a135118fabcc3ebdbf5017ceb64dbe3e5096268c3034c0c91ba3b0848e4b162
   languageName: node
   linkType: hard
 
-"@shikijs/engine-javascript@npm:1.29.2":
-  version: 1.29.2
-  resolution: "@shikijs/engine-javascript@npm:1.29.2"
-  dependencies:
-    "@shikijs/types": "npm:1.29.2"
-    "@shikijs/vscode-textmate": "npm:^10.0.1"
-    oniguruma-to-es: "npm:^2.2.0"
-  checksum: 10/b49461ff7152650ffdbd77332d1c70e24a2ff1abe869e1038694b410194c6403fe5e8fce104fdd305d10c18702a50c1edbdb87172aa09f11340bc1203ed38488
-  languageName: node
-  linkType: hard
-
-"@shikijs/engine-oniguruma@npm:1.29.2":
-  version: 1.29.2
-  resolution: "@shikijs/engine-oniguruma@npm:1.29.2"
-  dependencies:
-    "@shikijs/types": "npm:1.29.2"
-    "@shikijs/vscode-textmate": "npm:^10.0.1"
-  checksum: 10/bb3e2c01da84d573251ebc289b1ecf815261024dea5bddb93ad56c3504a71cde3630db070be401ed3bbcd23a8a839ec78984a82317f9c9d0bba58daed935b781
-  languageName: node
-  linkType: hard
-
-"@shikijs/langs@npm:1.29.2":
-  version: 1.29.2
-  resolution: "@shikijs/langs@npm:1.29.2"
-  dependencies:
-    "@shikijs/types": "npm:1.29.2"
-  checksum: 10/01f62d31c653c718a992918357e54d2d312c8da407997565fc19056fbf47f0fadc0f9f4b5fe1e1ba7b7d08e3984fb1f962159503ef0edd81fab5ee8bfdbf9080
-  languageName: node
-  linkType: hard
-
-"@shikijs/themes@npm:1.29.2":
-  version: 1.29.2
-  resolution: "@shikijs/themes@npm:1.29.2"
-  dependencies:
-    "@shikijs/types": "npm:1.29.2"
-  checksum: 10/b81606dd882136e3fd751d0829133b5e66b10b8e32bd52ce16e7eac8755891c23e43f3ce06e65b97a75d2bc3b17e7fdb9115e9812679bb820ab163915868fd8b
-  languageName: node
-  linkType: hard
-
-"@shikijs/types@npm:1.29.2":
-  version: 1.29.2
-  resolution: "@shikijs/types@npm:1.29.2"
-  dependencies:
-    "@shikijs/vscode-textmate": "npm:^10.0.1"
-    "@types/hast": "npm:^3.0.4"
-  checksum: 10/579e64b6e8cb83023232b8060b08f51cff3909b199d0d1a0c58ed500c898dd34b74bf0457336fa2e6bee1005889e198d7d924347ad616eee30c6ae4c89a67ab8
-  languageName: node
-  linkType: hard
-
-"@shikijs/vscode-textmate@npm:^10.0.1":
+"@shikijs/vscode-textmate@npm:^10.0.2":
   version: 10.0.2
   resolution: "@shikijs/vscode-textmate@npm:10.0.2"
   checksum: 10/d924cba8a01cd9ca12f56ba097d628fdb81455abb85884c8d8a5ae85b628a37dd5907e7691019b97107bd6608c866adf91ba04a1c3bba391281c88e386c044ea
@@ -3029,7 +3017,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/hast@npm:^3.0.0, @types/hast@npm:^3.0.4":
+"@types/hast@npm:^3.0.4":
   version: 3.0.4
   resolution: "@types/hast@npm:3.0.4"
   dependencies:
@@ -3065,15 +3053,6 @@ __metadata:
   dependencies:
     "@types/unist": "npm:^2"
   checksum: 10/050a5c1383928b2688dd145382a22535e2af87dc3fd592c843abb7851bcc99893a1ee0f63be19fc4e89779387ec26a57486cfb425b016c0b2a98a17fc4a1e8b3
-  languageName: node
-  linkType: hard
-
-"@types/mdast@npm:^4.0.0":
-  version: 4.0.4
-  resolution: "@types/mdast@npm:4.0.4"
-  dependencies:
-    "@types/unist": "npm:*"
-  checksum: 10/efe3ec11b9ee0015a396c4fb4cd1b6f31b51b8ae9783c59560e6fc0bf6c2fa1dcc7fccaf45fa09a6c8b3397fab9dc8d431433935cae3835caa70a18f7fc775f8
   languageName: node
   linkType: hard
 
@@ -3159,7 +3138,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:~19":
+"@types/react@npm:*, @types/react@npm:^19.2.7":
   version: 19.2.7
   resolution: "@types/react@npm:19.2.7"
   dependencies:
@@ -3184,7 +3163,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/unist@npm:*, @types/unist@npm:^3.0.0":
+"@types/unist@npm:*":
   version: 3.0.3
   resolution: "@types/unist@npm:3.0.3"
   checksum: 10/96e6453da9e075aaef1dc22482463898198acdc1eeb99b465e65e34303e2ec1e3b1ed4469a9118275ec284dc98019f63c3f5d49422f0e4ac707e5ab90fb3b71a
@@ -3475,13 +3454,6 @@ __metadata:
     "@typescript-eslint/types": "npm:8.48.1"
     eslint-visitor-keys: "npm:^4.2.1"
   checksum: 10/63aa165c57e6b38700adf84da2e90537577cdeb69d05031e3e70785fa412d96d539dc4c1696a0b7bc93284613f8b92fb1bb40f6068bb75347a942120b246ac60
-  languageName: node
-  linkType: hard
-
-"@ungap/structured-clone@npm:^1.0.0":
-  version: 1.3.0
-  resolution: "@ungap/structured-clone@npm:1.3.0"
-  checksum: 10/80d6910946f2b1552a2406650051c91bbd1f24a6bf854354203d84fe2714b3e8ce4618f49cc3410494173a1c1e8e9777372fe68dce74bd45faf0a7a1a6ccf448
   languageName: node
   linkType: hard
 
@@ -6255,24 +6227,24 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-button": "npm:~7.1.8"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
     "@xylabs/tsconfig-dom": "npm:~7.2.8"
     "@xylabs/tsconfig-react": "npm:~7.2.8"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -6286,7 +6258,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/hex": "npm:~5.0.50"
     "@xylabs/react-async-effect": "npm:~7.1.8"
     "@xylabs/react-error": "npm:~7.1.8"
@@ -6312,17 +6284,17 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-table": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -6336,7 +6308,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/hex": "npm:~5.0.50"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -6347,17 +6319,17 @@ __metadata:
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     ethers: "npm:~6.16.0"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
     ethers: ~6
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -6368,7 +6340,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/hex": "npm:~5.0.50"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/react-hooks": "npm:~7.1.8"
@@ -6380,17 +6352,17 @@ __metadata:
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     ethers: "npm:~6.16.0"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -6403,18 +6375,18 @@ __metadata:
     "@emotion/styled": "npm:~11.14.1"
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xyo-network/react-address-history": "workspace:^"
     "@xyo-network/react-address-render": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
-    typescript: "npm:~5.9.3"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -6424,7 +6396,7 @@ __metadata:
   dependencies:
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-promise": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -6433,14 +6405,14 @@ __metadata:
     "@xyo-network/advertising-payload-plugins": "npm:~5.2.4"
     "@xyo-network/archivist-storage": "npm:~5.2.17"
     "@xyo-network/payload-model": "npm:~5.2.17"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -6455,7 +6427,7 @@ __metadata:
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
     "@types/luxon": "npm:~3.7.1"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/assert": "npm:~5.0.50"
     "@xylabs/decimal-precision": "npm:~5.0.50"
     "@xylabs/react-flexbox": "npm:~7.1.8"
@@ -6474,11 +6446,11 @@ __metadata:
     axios: "npm:^1.13.2"
     jsonpath-plus: "npm:^10.3.0"
     luxon: "npm:^3.7.2"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
@@ -6498,18 +6470,18 @@ __metadata:
   dependencies:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/assert": "npm:~5.0.50"
     "@xylabs/enum": "npm:~5.0.50"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
-    typescript: "npm:~5.9.3"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -6520,7 +6492,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/assert": "npm:~5.0.50"
     "@xylabs/enum": "npm:~5.0.50"
     "@xylabs/react-appbar": "npm:~7.1.8"
@@ -6535,18 +6507,18 @@ __metadata:
     "@xyo-network/react-network": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-wallet": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-icons: "npm:~5.5.0"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -6558,7 +6530,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/events": "npm:~5.0.50"
     "@xylabs/exists": "npm:~5.0.50"
     "@xylabs/hex": "npm:~5.0.50"
@@ -6582,18 +6554,18 @@ __metadata:
     "@xyo-network/react-module": "workspace:^"
     "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-wallet": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
-    react-icons: "npm:~5.5.0"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
+    react-icons: "npm:^5.5.0"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -6607,7 +6579,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/arraybuffer": "npm:~5.0.50"
     "@xylabs/eth-address": "npm:~5.0.50"
     "@xylabs/exists": "npm:~5.0.50"
@@ -6633,18 +6605,18 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-table": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-icons: "npm:~5.5.0"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -6658,7 +6630,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/arraybuffer": "npm:~5.0.50"
     "@xylabs/eth-address": "npm:~5.0.50"
     "@xylabs/hex": "npm:~5.0.50"
@@ -6687,18 +6659,18 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-table": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-icons: "npm:~5.5.0"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -6710,7 +6682,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/react-theme": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
@@ -6719,17 +6691,17 @@ __metadata:
     "@xylabs/tsconfig-react": "npm:~7.2.8"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -6743,7 +6715,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
     "@xylabs/tsconfig-dom": "npm:~7.2.8"
@@ -6753,16 +6725,16 @@ __metadata:
     "@xyo-network/react-aggregate-price-plugin": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -6773,7 +6745,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-crypto": "npm:~7.1.8"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
@@ -6782,17 +6754,17 @@ __metadata:
     "@xylabs/tsconfig-react": "npm:~7.2.8"
     "@xylabs/typeof": "npm:~5.0.50"
     "@xyo-network/react-table": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -6806,7 +6778,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/decimal-precision": "npm:~5.0.50"
     "@xylabs/enum": "npm:~5.0.50"
     "@xylabs/react-flexbox": "npm:~7.1.8"
@@ -6819,17 +6791,17 @@ __metadata:
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/uniswap-crypto-market-payload-plugin": "npm:~5.2.4"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -6842,7 +6814,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -6854,16 +6826,16 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/uniswap-crypto-market-payload-plugin": "npm:~5.2.4"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -6874,7 +6846,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-error": "npm:~7.1.8"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
@@ -6883,17 +6855,17 @@ __metadata:
     "@xylabs/tsconfig-react": "npm:~7.2.8"
     "@xyo-network/react-payload-raw-info": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -6905,12 +6877,12 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -6921,12 +6893,12 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -6942,12 +6914,12 @@ __metadata:
     "@xyo-network/diviner-model": "npm:~5.2.17"
     "@xyo-network/module-model": "npm:~5.2.17"
     "@xyo-network/react-node": "workspace:^"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -6957,21 +6929,21 @@ __metadata:
   dependencies:
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
     "@xylabs/tsconfig-dom": "npm:~7.2.8"
     "@xylabs/tsconfig-react": "npm:~7.2.8"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -6983,7 +6955,7 @@ __metadata:
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
     "@types/geojson": "npm:~7946.0.16"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-async-effect": "npm:~7.1.8"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/react-shared": "npm:~7.1.8"
@@ -6998,18 +6970,18 @@ __metadata:
     axios: "npm:^1.13.2"
     geojson: "npm:~0.5.0"
     mapbox-gl: "npm:~3.17.0"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
     axios: ~1.13.1
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -7023,7 +6995,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/delay": "npm:~5.0.50"
     "@xylabs/react-async-effect": "npm:~7.1.8"
     "@xylabs/react-error": "npm:~7.1.8"
@@ -7044,18 +7016,18 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/schema-cache": "npm:~5.2.17"
     luxon: "npm:^3.7.2"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
     luxon: ^3
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -7068,7 +7040,7 @@ __metadata:
     "@mui/material": "npm:~7.3.6"
     "@rollbar/react": "npm:~1.0.0"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-button": "npm:~7.1.8"
     "@xylabs/react-error": "npm:~7.1.8"
     "@xylabs/react-flexbox": "npm:~7.1.8"
@@ -7078,18 +7050,18 @@ __metadata:
     "@xylabs/tsconfig-react": "npm:~7.2.8"
     "@xyo-network/payload-model": "npm:~5.2.17"
     prop-types: "npm:~15.8.1"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     rollbar: "npm:~2.26.5"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
     rollbar: ~2
   peerDependenciesMeta:
@@ -7107,7 +7079,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -7119,16 +7091,16 @@ __metadata:
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7139,12 +7111,12 @@ __metadata:
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xyo-network/react-ethereum-gas-price-etherchain-v2-plugin": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7157,7 +7129,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -7169,16 +7141,16 @@ __metadata:
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7191,7 +7163,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -7203,16 +7175,16 @@ __metadata:
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7225,7 +7197,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -7237,16 +7209,16 @@ __metadata:
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7259,7 +7231,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -7271,16 +7243,16 @@ __metadata:
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7292,7 +7264,7 @@ __metadata:
     "@emotion/styled": "npm:~11.14.1"
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xyo-network/react-ethereum-gas-price-blocknative-plugin": "workspace:^"
     "@xyo-network/react-ethereum-gas-price-etherchain-plugins": "workspace:^"
@@ -7301,14 +7273,14 @@ __metadata:
     "@xyo-network/react-ethereum-gas-price-ethgasstation-plugin": "workspace:^"
     "@xyo-network/react-ethereum-gas-price-plugin": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
-    typescript: "npm:~5.9.3"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7321,7 +7293,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/react-quick-tip-button": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
@@ -7334,16 +7306,16 @@ __metadata:
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7353,10 +7325,10 @@ __metadata:
   dependencies:
     "@xylabs/assert": "npm:~5.0.50"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
   peerDependencies:
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7367,7 +7339,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/assert": "npm:~5.0.50"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/react-link": "npm:~7.1.8"
@@ -7376,18 +7348,18 @@ __metadata:
     "@xylabs/tsconfig": "npm:~7.2.8"
     "@xylabs/tsconfig-dom": "npm:~7.2.8"
     "@xylabs/tsconfig-react": "npm:~7.2.8"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-icons: "npm:~5.5.0"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -7399,7 +7371,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/assert": "npm:~5.0.50"
     "@xylabs/object": "npm:~5.0.50"
     "@xylabs/react-error": "npm:~7.1.8"
@@ -7415,17 +7387,17 @@ __metadata:
     "@xyo-network/react-form-group": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     card-validator: "npm:~10.0.3"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -7437,7 +7409,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/base": "npm:~5.0.50"
     "@xylabs/events": "npm:~5.0.50"
     "@xylabs/forget": "npm:~5.0.50"
@@ -7451,16 +7423,16 @@ __metadata:
     "@xyo-network/archivist-model": "npm:~5.2.17"
     "@xyo-network/module-event-emitter": "npm:~5.2.17"
     "@xyo-network/payload-model": "npm:~5.2.17"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7474,14 +7446,14 @@ __metadata:
     "@xylabs/tsconfig-react": "npm:~7.2.8"
     "@xyo-network/react-form-credit-card": "workspace:^"
     "@xyo-network/react-form-group": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -7493,7 +7465,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -7501,16 +7473,16 @@ __metadata:
     "@xylabs/tsconfig-react": "npm:~7.2.8"
     "@xyo-network/react-card": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7521,7 +7493,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/exists": "npm:~5.0.50"
     "@xylabs/forget": "npm:~5.0.50"
     "@xylabs/hex": "npm:~5.0.50"
@@ -7559,17 +7531,17 @@ __metadata:
     "@xyo-network/witness-timestamp": "npm:~5.2.17"
     async-mutex: "npm:~0.5.0"
     ethers: "npm:~6.16.0"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -7584,7 +7556,7 @@ __metadata:
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
     "@types/geojson": "npm:~7946.0.16"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-error": "npm:~7.1.8"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
@@ -7595,17 +7567,17 @@ __metadata:
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-map-model": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -7620,7 +7592,7 @@ __metadata:
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
     "@types/geojson": "npm:~7946.0.16"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -7632,17 +7604,17 @@ __metadata:
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-map-model": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -7657,7 +7629,7 @@ __metadata:
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
     "@types/geojson": "npm:~7946.0.16"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -7667,17 +7639,17 @@ __metadata:
     "@xyo-network/react-map": "workspace:^"
     "@xyo-network/react-map-model": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -7690,7 +7662,7 @@ __metadata:
     "@mui/material": "npm:~7.3.6"
     "@scure/bip39": "npm:~2.0.1"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-promise": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -7707,16 +7679,16 @@ __metadata:
     "@xyo-network/wallet": "npm:~5.2.17"
     "@xyo-network/wallet-model": "npm:~5.2.17"
     "@xyo-network/witness-timestamp": "npm:~5.2.17"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7727,7 +7699,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@types/geojson": "npm:7946.0.16"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/enum": "npm:~5.0.50"
     "@xylabs/hex": "npm:~5.0.50"
     "@xylabs/react-shared": "npm:~7.1.8"
@@ -7738,14 +7710,14 @@ __metadata:
     "@xyo-network/payload-model": "npm:~5.2.17"
     "@xyo-network/react-network": "workspace:^"
     geojson: "npm:~0.5.0"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
-    typescript: "npm:~5.9.3"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7757,7 +7729,7 @@ __metadata:
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
     "@types/geojson": "npm:7946.0.16"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/assert": "npm:~5.0.50"
     "@xylabs/delay": "npm:~5.0.50"
     "@xylabs/exists": "npm:~5.0.50"
@@ -7775,17 +7747,17 @@ __metadata:
     "@xyo-network/sdk-geo": "npm:~3.0.3"
     geojson: "npm:~0.5.0"
     mapbox-gl: "npm:~3.17.0"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -7797,7 +7769,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/eth-address": "npm:~5.0.50"
     "@xylabs/hex": "npm:~5.0.50"
     "@xylabs/react-async-effect": "npm:~7.1.8"
@@ -7817,17 +7789,17 @@ __metadata:
     "@xyo-network/module-model": "npm:~5.2.17"
     "@xyo-network/node-memory": "npm:~5.2.17"
     "@xyo-network/react-shared": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -7840,7 +7812,7 @@ __metadata:
     "@emotion/styled": "npm:~11.14.1"
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
     "@xylabs/tsconfig-dom": "npm:~7.2.8"
@@ -7851,15 +7823,15 @@ __metadata:
     "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-sentinel": "workspace:^"
     "@xyo-network/react-witness": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -7871,7 +7843,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/assert": "npm:~5.0.50"
     "@xylabs/hex": "npm:~5.0.50"
     "@xylabs/react-flexbox": "npm:~7.1.8"
@@ -7882,17 +7854,17 @@ __metadata:
     "@xylabs/tsconfig-dom": "npm:~7.2.8"
     "@xylabs/tsconfig-react": "npm:~7.2.8"
     "@xyo-network/network": "npm:~5.2.17"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7903,7 +7875,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -7915,16 +7887,16 @@ __metadata:
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7933,7 +7905,7 @@ __metadata:
   resolution: "@xyo-network/react-node-context@workspace:packages/modules/packages/node/packages/context"
   dependencies:
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-shared": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -7941,14 +7913,14 @@ __metadata:
     "@xylabs/tsconfig-react": "npm:~7.2.8"
     "@xyo-network/module-model": "npm:~5.2.17"
     "@xyo-network/node-model": "npm:~5.2.17"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
-    typescript: "npm:~5.9.3"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7958,7 +7930,7 @@ __metadata:
   dependencies:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/forget": "npm:~5.0.50"
     "@xylabs/react-async-effect": "npm:~7.1.8"
     "@xylabs/react-shared": "npm:~7.1.8"
@@ -7970,14 +7942,14 @@ __metadata:
     "@xyo-network/node-memory": "npm:~5.2.17"
     "@xyo-network/node-model": "npm:~5.2.17"
     "@xyo-network/react-node-context": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
-    typescript: "npm:~5.9.3"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -7989,7 +7961,7 @@ __metadata:
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
     "@types/cytoscape": "npm:~3.31.0"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@types/react-dom": "npm:~19.2.3"
     "@xylabs/events": "npm:~5.0.50"
     "@xylabs/exists": "npm:~5.0.50"
@@ -8030,17 +8002,17 @@ __metadata:
     cytoscape-cose-bilkent: "npm:~4.1.0"
     cytoscape-dagre: "npm:~2.5.0"
     cytoscape-euler: "npm:~1.2.3"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -8056,7 +8028,7 @@ __metadata:
     "@mui/system": "npm:~7.3.6"
     "@mui/x-tree-view": "npm:~8.19.0"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/exists": "npm:~5.0.50"
     "@xylabs/logger": "npm:~5.0.50"
     "@xylabs/object": "npm:~5.0.50"
@@ -8077,16 +8049,16 @@ __metadata:
     "@xyo-network/react-node-provider": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-wallet": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -8097,24 +8069,24 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
     "@xylabs/tsconfig-dom": "npm:~7.2.8"
     "@xylabs/tsconfig-react": "npm:~7.2.8"
     date-fns: "npm:~4.1.0"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -8125,7 +8097,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/hex": "npm:~5.0.50"
     "@xylabs/react-promise": "npm:~7.1.8"
     "@xylabs/react-shared": "npm:~7.1.8"
@@ -8139,16 +8111,16 @@ __metadata:
     "@xyo-network/react-event": "workspace:^"
     "@xyo-network/react-payload-table": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -8161,7 +8133,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/forget": "npm:~5.0.50"
     "@xylabs/react-button": "npm:~7.1.8"
     "@xylabs/react-flexbox": "npm:~7.1.8"
@@ -8179,19 +8151,19 @@ __metadata:
     "@xyo-network/react-schema": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@emotion/react": ~11
     "@emotion/styled": ~11
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -8201,7 +8173,7 @@ __metadata:
   dependencies:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/exists": "npm:~5.0.50"
     "@xylabs/react-async-effect": "npm:~7.1.8"
     "@xylabs/react-error": "npm:~7.1.8"
@@ -8212,15 +8184,15 @@ __metadata:
     "@xyo-network/diviner-payload-abstract": "npm:~5.2.17"
     "@xyo-network/payload-model": "npm:~5.2.17"
     "@xyo-network/react-payload-huri": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -8230,21 +8202,21 @@ __metadata:
   dependencies:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-promise": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xyo-network/diviner-huri": "npm:~5.2.17"
     "@xyo-network/diviner-model": "npm:~5.2.17"
     "@xyo-network/react-network": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -8256,7 +8228,7 @@ __metadata:
     "@emotion/styled": "npm:~11.14.1"
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/assert": "npm:~5.0.50"
     "@xylabs/react-hooks": "npm:~7.1.8"
     "@xylabs/react-shared": "npm:~7.1.8"
@@ -8265,15 +8237,15 @@ __metadata:
     "@xyo-network/payload-plugin": "npm:~5.2.17"
     "@xyo-network/payloadset-plugin": "npm:~5.2.17"
     "@xyo-network/react-payload-plugin": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -8286,21 +8258,21 @@ __metadata:
     "@emotion/styled": "npm:~11.14.1"
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/react-identicon": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xyo-network/payload-model": "npm:~5.2.17"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
-    typescript: "npm:~5.9.3"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -8314,7 +8286,7 @@ __metadata:
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
     "@textea/json-viewer": "npm:~4.0.1"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/object": "npm:~5.0.50"
     "@xylabs/react-button": "npm:~7.1.8"
     "@xylabs/react-flexbox": "npm:~7.1.8"
@@ -8327,17 +8299,17 @@ __metadata:
     "@xyo-network/payload-builder": "npm:~5.2.17"
     "@xyo-network/payload-model": "npm:~5.2.17"
     "@xyo-network/react-shared": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -8351,7 +8323,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/delay": "npm:~5.0.50"
     "@xylabs/hex": "npm:~5.0.50"
     "@xylabs/react-error": "npm:~7.1.8"
@@ -8374,17 +8346,17 @@ __metadata:
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/react-storybook": "workspace:^"
     "@xyo-network/react-table": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -8397,7 +8369,7 @@ __metadata:
     "@emotion/styled": "npm:~11.14.1"
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xyo-network/react-payload-context": "workspace:^"
     "@xyo-network/react-payload-details": "workspace:^"
@@ -8407,17 +8379,17 @@ __metadata:
     "@xyo-network/react-payload-plugin-resolver": "workspace:^"
     "@xyo-network/react-payload-raw-info": "workspace:^"
     "@xyo-network/react-payload-table": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@emotion/react": ~11
     "@emotion/styled": ~11
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -8428,21 +8400,21 @@ __metadata:
   dependencies:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/pixel": "npm:~5.0.50"
     "@xylabs/react-shared": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
     "@xylabs/tsconfig-dom": "npm:~7.2.8"
     "@xylabs/tsconfig-react": "npm:~7.2.8"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
-    typescript: "npm:~5.9.3"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -8454,7 +8426,7 @@ __metadata:
     "@emotion/styled": "npm:~11.14.1"
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
     "@xylabs/tsconfig-dom": "npm:~7.2.8"
@@ -8475,16 +8447,16 @@ __metadata:
     "@xyo-network/react-price-forecast-plugin": "workspace:^"
     "@xyo-network/react-schema-plugin": "workspace:^"
     luxon: "npm:^3.7.2"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
     luxon: ~3.7.2
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -8497,20 +8469,20 @@ __metadata:
     "@emotion/styled": "npm:~11.14.1"
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xyo-network/payload-model": "npm:~5.2.17"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
-    typescript: "npm:~5.9.3"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -8523,7 +8495,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/delay": "npm:~5.0.50"
     "@xylabs/forget": "npm:~5.0.50"
     "@xylabs/hex": "npm:~5.0.50"
@@ -8548,17 +8520,17 @@ __metadata:
     "@xyo-network/sentinel-model": "npm:~5.2.17"
     "@xyo-network/wallet": "npm:~5.2.17"
     "@xyo-network/witness-model": "npm:~5.2.17"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -8571,7 +8543,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-async-effect": "npm:~7.1.8"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/react-theme": "npm:~7.1.8"
@@ -8585,19 +8557,19 @@ __metadata:
     chart.js: "npm:~4.5.1"
     chartjs-adapter-luxon: "npm:~1.3.1"
     luxon: "npm:^3.7.2"
-    react: "npm:~19.2.1"
+    react: "npm:^19.2.1"
     react-chartjs-2: "npm:~5.3.1"
-    react-dom: "npm:~19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
     luxon: ~3.7.1
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -8609,7 +8581,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-button": "npm:~7.1.8"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/react-identicon": "npm:~7.1.8"
@@ -8621,17 +8593,17 @@ __metadata:
     "@xylabs/tsconfig-react": "npm:~7.2.8"
     "@xyo-network/react-shared": "workspace:^"
     "@xyo-network/typeof": "npm:~5.2.17"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -8643,7 +8615,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-async-effect": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -8653,16 +8625,16 @@ __metadata:
     "@xyo-network/node-model": "npm:~5.2.17"
     "@xyo-network/react-node-renderer": "workspace:^"
     "@xyo-network/react-standard-node": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -8674,21 +8646,21 @@ __metadata:
     "@emotion/styled": "npm:~11.14.1"
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xyo-network/payload-model": "npm:~5.2.17"
     "@xyo-network/react-payload-details": "workspace:^"
     "@xyo-network/react-payload-plugin": "workspace:^"
     "@xyo-network/schema-payload-plugin": "npm:~5.2.17"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
-    typescript: "npm:~5.9.3"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -8701,7 +8673,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/exists": "npm:~5.0.50"
     "@xylabs/hex": "npm:~5.0.50"
     "@xylabs/react-async-effect": "npm:~7.1.8"
@@ -8732,17 +8704,17 @@ __metadata:
     "@xyo-network/react-wallet": "workspace:^"
     "@xyo-network/schema-cache": "npm:~5.2.17"
     "@xyo-network/schema-payload-plugin": "npm:~5.2.17"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -8754,7 +8726,7 @@ __metadata:
     "@emotion/styled": "npm:~11.14.1"
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/pixel": "npm:~5.0.50"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -8792,16 +8764,16 @@ __metadata:
     "@xyo-network/react-wallet": "workspace:^"
     "@xyo-network/react-wallet-service": "workspace:^"
     "@xyo-network/react-xns": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
     "@xylabs/pixel": ~2
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -8815,7 +8787,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/enum": "npm:~5.0.50"
     "@xylabs/exists": "npm:~5.0.50"
     "@xylabs/react-async-effect": "npm:~7.1.8"
@@ -8845,18 +8817,18 @@ __metadata:
     "@xyo-network/wallet": "npm:~5.2.17"
     "@xyo-network/witness-model": "npm:~5.2.17"
     ethers: "npm:~6.16.0"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
     ethers: ~6
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   peerDependenciesMeta:
     ethers:
       optional: true
@@ -8870,7 +8842,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@types/react-helmet": "npm:~6.1.11"
     "@xylabs/forget": "npm:~5.0.50"
     "@xylabs/react-button": "npm:~7.1.8"
@@ -8878,18 +8850,18 @@ __metadata:
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/react-link": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-helmet: "npm:~6.1.0"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -8901,7 +8873,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/assert": "npm:~5.0.50"
     "@xylabs/decimal-precision": "npm:~5.0.50"
     "@xylabs/hex": "npm:~5.0.50"
@@ -8923,17 +8895,17 @@ __metadata:
     "@xyo-network/boundwitness-validator": "npm:~5.2.17"
     "@xyo-network/payload-builder": "npm:~5.2.17"
     "@xyo-network/payload-model": "npm:~5.2.17"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -8944,7 +8916,7 @@ __metadata:
   dependencies:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/assert": "npm:~5.0.50"
     "@xylabs/hex": "npm:~5.0.50"
     "@xylabs/react-async-effect": "npm:~7.1.8"
@@ -8971,16 +8943,16 @@ __metadata:
     "@xyo-network/sentinel-model": "npm:~5.2.17"
     "@xyo-network/wallet-model": "npm:~5.2.17"
     "@xyo-network/witness-model": "npm:~5.2.17"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -8992,7 +8964,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/hex": "npm:~5.0.50"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xylabs/tsconfig": "npm:~7.2.8"
@@ -9000,16 +8972,16 @@ __metadata:
     "@xylabs/tsconfig-react": "npm:~7.2.8"
     "@xyo-network/boundwitness-model": "npm:~5.2.17"
     "@xyo-network/payload-model": "npm:~5.2.17"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -9020,7 +8992,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-hooks": "npm:~7.1.8"
     "@xylabs/react-shared": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
@@ -9028,17 +9000,17 @@ __metadata:
     "@xylabs/tsconfig-dom": "npm:~7.2.8"
     "@xylabs/tsconfig-react": "npm:~7.2.8"
     "@xyo-network/react-storybook": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -9048,15 +9020,15 @@ __metadata:
   resolution: "@xyo-network/react-theme@workspace:packages/sdk/packages/theme"
   dependencies:
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
-    typescript: "npm:~5.9.3"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/material": ~7
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -9071,7 +9043,7 @@ __metadata:
     "@mui/system": "npm:~7.3.6"
     "@mui/x-tree-view": "npm:~8.19.0"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/assert": "npm:~5.0.50"
     "@xylabs/react-button": "npm:~7.1.8"
     "@xylabs/react-flexbox": "npm:~7.1.8"
@@ -9080,18 +9052,18 @@ __metadata:
     "@xylabs/tsconfig-dom": "npm:~7.2.8"
     "@xylabs/tsconfig-react": "npm:~7.2.8"
     "@xyo-network/react-payload-raw-info": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
     typedoc: "npm:~0.28.15"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -9102,7 +9074,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@types/mixpanel-browser": "npm:~2.66.0"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/object": "npm:~5.0.50"
     "@xylabs/pixel": "npm:~5.0.50"
     "@xylabs/promise": "npm:~5.0.50"
@@ -9112,16 +9084,16 @@ __metadata:
     "@xylabs/tsconfig-dom": "npm:~7.2.8"
     "@xylabs/tsconfig-react": "npm:~7.2.8"
     mixpanel-browser: "npm:~2.72.0"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
     "@xylabs/pixel": ~2
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -9132,19 +9104,19 @@ __metadata:
   dependencies:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/assert": "npm:~5.0.50"
     "@xylabs/react-shared": "npm:~7.1.8"
     "@xylabs/ts-scripts-yarn3": "npm:~7.2.8"
     "@xyo-network/metamask-connector": "npm:~5.2.17"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
-    typescript: "npm:~5.9.3"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
+    typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -9157,7 +9129,7 @@ __metadata:
     "@mui/material": "npm:~7.3.6"
     "@scure/bip39": "npm:~2.0.1"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/enum": "npm:~5.0.50"
     "@xylabs/eth-address": "npm:~5.0.50"
     "@xylabs/react-button": "npm:~7.1.8"
@@ -9181,17 +9153,17 @@ __metadata:
     "@xyo-network/wallet": "npm:~5.2.17"
     "@xyo-network/wallet-model": "npm:~5.2.17"
     async-mutex: "npm:~0.5.0"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -9203,7 +9175,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@types/react-helmet": "npm:~6.1.11"
     "@xylabs/react-appbar": "npm:~7.1.8"
     "@xylabs/react-async-effect": "npm:~7.1.8"
@@ -9219,16 +9191,16 @@ __metadata:
     "@xyo-network/react-appbar": "workspace:^"
     "@xyo-network/react-footer": "workspace:^"
     "@xyo-network/react-shared": "workspace:^"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-helmet: "npm:~6.1.0"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
-    react-dom: ~19
+    react-dom: ^19
   languageName: unknown
   linkType: soft
 
@@ -9241,7 +9213,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/exists": "npm:~5.0.50"
     "@xylabs/react-button": "npm:~7.1.8"
     "@xylabs/react-flexbox": "npm:~7.1.8"
@@ -9257,17 +9229,17 @@ __metadata:
     "@xyo-network/react-node": "workspace:^"
     "@xyo-network/react-payload-raw-info": "workspace:^"
     "@xyo-network/witness-model": "npm:~5.2.17"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -9279,7 +9251,7 @@ __metadata:
     "@mui/icons-material": "npm:~7.3.6"
     "@mui/material": "npm:~7.3.6"
     "@storybook/react-vite": "npm:~10.1.4"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@xylabs/react-button": "npm:~7.1.8"
     "@xylabs/react-flexbox": "npm:~7.1.8"
     "@xylabs/react-link": "npm:~7.1.8"
@@ -9290,18 +9262,18 @@ __metadata:
     "@xylabs/tsconfig-dom": "npm:~7.2.8"
     "@xylabs/tsconfig-react": "npm:~7.2.8"
     "@xyo-network/xns-record-payloadset-plugins": "npm:~5.2.4"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     storybook: "npm:~10.1.4"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
     "@xylabs/pixel": ~2
-    react: ~19
-    react-dom: ~19
+    react: ^19
+    react-dom: ^19
     react-router-dom: ^7
   languageName: unknown
   linkType: soft
@@ -9367,7 +9339,7 @@ __metadata:
     "@storybook/react-vite": "npm:~10.1.4"
     "@stylistic/eslint-plugin": "npm:~5.6.1"
     "@types/node": "npm:~24.10.1"
-    "@types/react": "npm:~19.2.7"
+    "@types/react": "npm:^19.2.7"
     "@typescript-eslint/eslint-plugin": "npm:~8.48.1"
     "@typescript-eslint/parser": "npm:~8.48.1"
     "@vitejs/plugin-react-swc": "npm:~4.2.2"
@@ -9392,17 +9364,17 @@ __metadata:
     eslint-plugin-storybook: "npm:10.1.4"
     knip: "npm:~5.71.0"
     luxon: "npm:~3.7.2"
-    react: "npm:~19.2.1"
-    react-dom: "npm:~19.2.1"
-    react-helmet: "npm:~6.1.0"
-    react-is: "npm:~19.2.1"
+    react: "npm:^19.2.1"
+    react-dom: "npm:^19.2.1"
+    react-helmet: "npm:^6.1.0"
+    react-is: "npm:^19.2.1"
     react-router-dom: "npm:^7.10.0"
     rimraf: "npm:~6.1.2"
     rollup: "npm:~4.53.3"
     storybook: "npm:~10.1.4"
     ts-api-utils: "npm:~2.1.0"
     typedoc: "npm:~0.28.15"
-    typescript: "npm:~5.9.3"
+    typescript: "npm:^5.9.3"
     vite: "npm:~7.2.6"
     vite-plugin-checker: "npm:~0.11.0"
     vite-plugin-svgr: "npm:^4.5.0"
@@ -10206,13 +10178,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ccount@npm:^2.0.0":
-  version: 2.0.1
-  resolution: "ccount@npm:2.0.1"
-  checksum: 10/48193dada54c9e260e0acf57fc16171a225305548f9ad20d5471e0f7a8c026aedd8747091dccb0d900cde7df4e4ddbd235df0d8de4a64c71b12f0d3303eeafd4
-  languageName: node
-  linkType: hard
-
 "chai@npm:^5.2.0":
   version: 5.3.3
   resolution: "chai@npm:5.3.3"
@@ -10268,24 +10233,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"character-entities-html4@npm:^2.0.0":
-  version: 2.1.0
-  resolution: "character-entities-html4@npm:2.1.0"
-  checksum: 10/7034aa7c7fa90309667f6dd50499c8a760c3d3a6fb159adb4e0bada0107d194551cdbad0714302f62d06ce4ed68565c8c2e15fdef2e8f8764eb63fa92b34b11d
-  languageName: node
-  linkType: hard
-
 "character-entities-legacy@npm:^1.0.0":
   version: 1.1.4
   resolution: "character-entities-legacy@npm:1.1.4"
   checksum: 10/fe03a82c154414da3a0c8ab3188e4237ec68006cbcd681cf23c7cfb9502a0e76cd30ab69a2e50857ca10d984d57de3b307680fff5328ccd427f400e559c3a811
-  languageName: node
-  linkType: hard
-
-"character-entities-legacy@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "character-entities-legacy@npm:3.0.0"
-  checksum: 10/7582af055cb488b626d364b7d7a4e46b06abd526fb63c0e4eb35bcb9c9799cc4f76b39f34fdccef2d1174ac95e53e9ab355aae83227c1a2505877893fce77731
   languageName: node
   linkType: hard
 
@@ -10461,13 +10412,6 @@ __metadata:
   dependencies:
     delayed-stream: "npm:~1.0.0"
   checksum: 10/2e969e637d05d09fa50b02d74c83a1186f6914aae89e6653b62595cc75a221464f884f55f231b8f4df7a49537fba60bdc0427acd2bf324c09a1dbb84837e36e4
-  languageName: node
-  linkType: hard
-
-"comma-separated-tokens@npm:^2.0.0":
-  version: 2.0.3
-  resolution: "comma-separated-tokens@npm:2.0.3"
-  checksum: 10/e3bf9e0332a5c45f49b90e79bcdb4a7a85f28d6a6f0876a94f1bb9b2bfbdbbb9292aac50e1e742d8c0db1e62a0229a106f57917e2d067fca951d81737651700d
   languageName: node
   linkType: hard
 
@@ -11041,13 +10985,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dequal@npm:^2.0.0":
-  version: 2.0.3
-  resolution: "dequal@npm:2.0.3"
-  checksum: 10/6ff05a7561f33603df87c45e389c9ac0a95e3c056be3da1a0c4702149e3a7f6fe5ffbb294478687ba51a9e95f3a60e8b6b9005993acd79c292c7d15f71964b6b
-  languageName: node
-  linkType: hard
-
 "detect-indent@npm:^7.0.1":
   version: 7.0.2
   resolution: "detect-indent@npm:7.0.2"
@@ -11059,15 +10996,6 @@ __metadata:
   version: 4.0.1
   resolution: "detect-newline@npm:4.0.1"
   checksum: 10/0409ecdfb93419591ccff24fccfe2ddddad29b66637d1ed898872125b25af05014fdeedc9306339577060f69f59fe6e9830cdd80948597f136dfbffefa60599c
-  languageName: node
-  linkType: hard
-
-"devlop@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "devlop@npm:1.1.0"
-  dependencies:
-    dequal: "npm:^2.0.0"
-  checksum: 10/3cc5f903d02d279d6dc4aa71ab6ed9898b9f4d1f861cc5421ce7357893c21b9520de78afb203c92bd650a6977ad0ca98195453a0707a39958cf5fea3b0a8ddd8
   languageName: node
   linkType: hard
 
@@ -11160,13 +11088,6 @@ __metadata:
   version: 1.5.263
   resolution: "electron-to-chromium@npm:1.5.263"
   checksum: 10/c74c6fedc38a0a5d823f4ed168efb6961972a30df443caa44265c85231087936673cdfbccfa0c14ba6f1a0fd6c634ef43b046fbdd3cdfce6c73523408d86caee
-  languageName: node
-  linkType: hard
-
-"emoji-regex-xs@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "emoji-regex-xs@npm:1.0.0"
-  checksum: 10/e216ec4270f765e1097cefc1b9518a7166b872b4424c60a85d79765f318d989cd458e036c76c13e9ce2ed1fe1bb5935a7fd5c1fab7600668bc8e92a789045b3c
   languageName: node
   linkType: hard
 
@@ -12591,34 +12512,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hast-util-to-html@npm:^9.0.4":
-  version: 9.0.5
-  resolution: "hast-util-to-html@npm:9.0.5"
-  dependencies:
-    "@types/hast": "npm:^3.0.0"
-    "@types/unist": "npm:^3.0.0"
-    ccount: "npm:^2.0.0"
-    comma-separated-tokens: "npm:^2.0.0"
-    hast-util-whitespace: "npm:^3.0.0"
-    html-void-elements: "npm:^3.0.0"
-    mdast-util-to-hast: "npm:^13.0.0"
-    property-information: "npm:^7.0.0"
-    space-separated-tokens: "npm:^2.0.0"
-    stringify-entities: "npm:^4.0.0"
-    zwitch: "npm:^2.0.4"
-  checksum: 10/4278e5246f43adf7a30bf3b87db4a4e628b5362b8c149eb4360bf7e0f731f81fa31e4e844e8090d1dd5f739d0884678f8165b28f97c14139e4da4f945f9ff5f7
-  languageName: node
-  linkType: hard
-
-"hast-util-whitespace@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "hast-util-whitespace@npm:3.0.0"
-  dependencies:
-    "@types/hast": "npm:^3.0.0"
-  checksum: 10/8c7e9eeb8131fc18702f3a42623eb6b0b09d470347aa8badacac70e6d91f79657ab8c6b57c4c6fee3658cff405fac30e816d1cdfb3ed1fbf6045d0a4555cf4d4
-  languageName: node
-  linkType: hard
-
 "hoist-non-react-statics@npm:^3.3.1":
   version: 3.3.2
   resolution: "hoist-non-react-statics@npm:3.3.2"
@@ -12632,13 +12525,6 @@ __metadata:
   version: 2.8.9
   resolution: "hosted-git-info@npm:2.8.9"
   checksum: 10/96da7d412303704af41c3819207a09ea2cab2de97951db4cf336bb8bce8d8e36b9a6821036ad2e55e67d3be0af8f967a7b57981203fbfb88bc05cd803407b8c3
-  languageName: node
-  linkType: hard
-
-"html-void-elements@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "html-void-elements@npm:3.0.0"
-  checksum: 10/59be397525465a7489028afa064c55763d9cccd1d7d9f630cca47137317f0e897a9ca26cef7e745e7cff1abc44260cfa407742b243a54261dfacd42230e94fce
   languageName: node
   linkType: hard
 
@@ -13534,23 +13420,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mdast-util-to-hast@npm:^13.0.0":
-  version: 13.2.1
-  resolution: "mdast-util-to-hast@npm:13.2.1"
-  dependencies:
-    "@types/hast": "npm:^3.0.0"
-    "@types/mdast": "npm:^4.0.0"
-    "@ungap/structured-clone": "npm:^1.0.0"
-    devlop: "npm:^1.0.0"
-    micromark-util-sanitize-uri: "npm:^2.0.0"
-    trim-lines: "npm:^3.0.0"
-    unist-util-position: "npm:^5.0.0"
-    unist-util-visit: "npm:^5.0.0"
-    vfile: "npm:^6.0.0"
-  checksum: 10/8fddf5e66ea24dc85c8fe1cc2acd8fbe36e9d4f21b06322e156431fd71385eab9d2d767646f50276ca4ce3684cb967c4e226c60c3fff3428feb687ccb598fa39
-  languageName: node
-  linkType: hard
-
 "mdast-util-to-string@npm:^2.0.0":
   version: 2.0.0
   resolution: "mdast-util-to-string@npm:2.0.0"
@@ -13578,48 +13447,6 @@ __metadata:
   version: 1.4.1
   resolution: "merge2@npm:1.4.1"
   checksum: 10/7268db63ed5169466540b6fb947aec313200bcf6d40c5ab722c22e242f651994619bcd85601602972d3c85bd2cc45a358a4c61937e9f11a061919a1da569b0c2
-  languageName: node
-  linkType: hard
-
-"micromark-util-character@npm:^2.0.0":
-  version: 2.1.1
-  resolution: "micromark-util-character@npm:2.1.1"
-  dependencies:
-    micromark-util-symbol: "npm:^2.0.0"
-    micromark-util-types: "npm:^2.0.0"
-  checksum: 10/85da8f8e5f7ed16046575bef5b0964ca3fca3162b87b74ae279f1e48eb7160891313eb64f04606baed81c58b514dbdb64f1a9d110a51baaaa79225d72a7b1852
-  languageName: node
-  linkType: hard
-
-"micromark-util-encode@npm:^2.0.0":
-  version: 2.0.1
-  resolution: "micromark-util-encode@npm:2.0.1"
-  checksum: 10/be890b98e78dd0cdd953a313f4148c4692cc2fb05533e56fef5f421287d3c08feee38ca679f318e740530791fc251bfe8c80efa926fcceb4419b269c9343d226
-  languageName: node
-  linkType: hard
-
-"micromark-util-sanitize-uri@npm:^2.0.0":
-  version: 2.0.1
-  resolution: "micromark-util-sanitize-uri@npm:2.0.1"
-  dependencies:
-    micromark-util-character: "npm:^2.0.0"
-    micromark-util-encode: "npm:^2.0.0"
-    micromark-util-symbol: "npm:^2.0.0"
-  checksum: 10/064c72abfc9777864ca0521a016dde62ab3e7af5215d10fd27e820798500d5d305da638459c589275c1a093cf588f493cc2f65273deac5a5331ecefc6c9ea78a
-  languageName: node
-  linkType: hard
-
-"micromark-util-symbol@npm:^2.0.0":
-  version: 2.0.1
-  resolution: "micromark-util-symbol@npm:2.0.1"
-  checksum: 10/497e6d95fc21c2bb5265b78a6a60db518c376dc438739b2e7d4aee6f9f165222711724b456c63163314f32b8eea68a064687711d41e986262926eab23ddb9229
-  languageName: node
-  linkType: hard
-
-"micromark-util-types@npm:^2.0.0":
-  version: 2.0.2
-  resolution: "micromark-util-types@npm:2.0.2"
-  checksum: 10/a9eb067bd9384eab61942285d53738aa22f3fef4819eaf20249bec6ec13f1e4da2800230fd0ceb7e705108987aa9062fe3e9a8e5e48aa60180db80b9489dc3e2
   languageName: node
   linkType: hard
 
@@ -14047,17 +13874,6 @@ __metadata:
   dependencies:
     wrappy: "npm:1"
   checksum: 10/cd0a88501333edd640d95f0d2700fbde6bff20b3d4d9bdc521bdd31af0656b5706570d6c6afe532045a20bb8dc0849f8332d6f2a416e0ba6d3d3b98806c7db68
-  languageName: node
-  linkType: hard
-
-"oniguruma-to-es@npm:^2.2.0":
-  version: 2.3.0
-  resolution: "oniguruma-to-es@npm:2.3.0"
-  dependencies:
-    emoji-regex-xs: "npm:^1.0.0"
-    regex: "npm:^5.1.1"
-    regex-recursion: "npm:^5.1.1"
-  checksum: 10/7ac89fe04791650c21a146e58c985de394597e0ab3eb7d7c46699d09f87d6aca63d9f2470f1473c5adfa16961c360df6858e6a24b2429ebd7c73620ca68aec98
   languageName: node
   linkType: hard
 
@@ -14577,13 +14393,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"property-information@npm:^7.0.0":
-  version: 7.1.0
-  resolution: "property-information@npm:7.1.0"
-  checksum: 10/896d38a52ad7170de73f832d277c69e76a9605d941ebb3f0d6e56271414a7fdf95ff6d2819e68036b8a0c7d2d4d88bf1d4a5765c032cb19c2343567ee3a14b15
-  languageName: node
-  linkType: hard
-
 "protocol-buffers-schema@npm:^3.3.1":
   version: 3.6.0
   resolution: "protocol-buffers-schema@npm:3.6.0"
@@ -14688,7 +14497,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0, react-dom@npm:~19.2.1":
+"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0, react-dom@npm:^19.2.1":
   version: 19.2.1
   resolution: "react-dom@npm:19.2.1"
   dependencies:
@@ -14706,7 +14515,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-helmet@npm:~6.1.0":
+"react-helmet@npm:^6.1.0, react-helmet@npm:~6.1.0":
   version: 6.1.0
   resolution: "react-helmet@npm:6.1.0"
   dependencies:
@@ -14720,7 +14529,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-icons@npm:~5.5.0":
+"react-icons@npm:^5.5.0, react-icons@npm:~5.5.0":
   version: 5.5.0
   resolution: "react-icons@npm:5.5.0"
   peerDependencies:
@@ -14736,7 +14545,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^19.2.0, react-is@npm:~19.2.1":
+"react-is@npm:^19.2.0, react-is@npm:^19.2.1":
   version: 19.2.1
   resolution: "react-is@npm:19.2.1"
   checksum: 10/d2d0f2b55710c73af1ee5c17e438a274a52758522af9cb1f1f6df35b233a5eb158f4dc8e38e0c058b090bf7d432f27fc6c59dd016c811109260097cea5268461
@@ -14814,7 +14623,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0, react@npm:~19.2.1":
+"react@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0, react@npm:^19.2.1":
   version: 19.2.1
   resolution: "react@npm:19.2.1"
   checksum: 10/7c7ab0f40b98e87e1466bea8c28564c5f3c384506cbda93d24788d32b40bf6059c991687c7e90a396b11f09223a779a81b1188af9acd839aaa0a672987c13107
@@ -14974,32 +14783,6 @@ __metadata:
   dependencies:
     "@eslint-community/regexpp": "npm:^4.8.0"
   checksum: 10/b89411434e31637a519c065acd8fd1ec9eabc1dec38eec58dbc69a386ec21d88f97fa175e56fb3133e21c090ddb68fe7b5653ffc4bbcc9f069abc0e88c0d290c
-  languageName: node
-  linkType: hard
-
-"regex-recursion@npm:^5.1.1":
-  version: 5.1.1
-  resolution: "regex-recursion@npm:5.1.1"
-  dependencies:
-    regex: "npm:^5.1.1"
-    regex-utilities: "npm:^2.3.0"
-  checksum: 10/9ec7e677743e00c14c3d5c63de1d15e5126a69c58da43e60b2c49abf940981f0269442c919e03f66d6837d0ac55ccf7981581e9d1be2a332a968c016edee226e
-  languageName: node
-  linkType: hard
-
-"regex-utilities@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "regex-utilities@npm:2.3.0"
-  checksum: 10/d11519c31f379488cbc6278b8645d72f16339ee325c79a4b8b3a6477738016a52983158dc69ae1b5867f8b06978ff5d83933520257a57f7e5c3e4ac6a1ea3cc7
-  languageName: node
-  linkType: hard
-
-"regex@npm:^5.1.1":
-  version: 5.1.1
-  resolution: "regex@npm:5.1.1"
-  dependencies:
-    regex-utilities: "npm:^2.3.0"
-  checksum: 10/956d0f34afa8086551dc9a0e2c575cb6d7ed5122d6d440a72cfbcd1f9adb5a3dcce4dcb61ec69eaecfcbc508cfd25075ac60d011bab5f28f1b2a36220e09a245
   languageName: node
   linkType: hard
 
@@ -15400,22 +15183,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shiki@npm:^1.9.1":
-  version: 1.29.2
-  resolution: "shiki@npm:1.29.2"
-  dependencies:
-    "@shikijs/core": "npm:1.29.2"
-    "@shikijs/engine-javascript": "npm:1.29.2"
-    "@shikijs/engine-oniguruma": "npm:1.29.2"
-    "@shikijs/langs": "npm:1.29.2"
-    "@shikijs/themes": "npm:1.29.2"
-    "@shikijs/types": "npm:1.29.2"
-    "@shikijs/vscode-textmate": "npm:^10.0.1"
-    "@types/hast": "npm:^3.0.4"
-  checksum: 10/93de1ebc768ff497ba36720f3b385bff65a853248fdfc0afcb2aea81a43560b1bdc7db9e8417df11a87e106b0de0943989c6301daf62a43d09bd9ac7bc776bf3
-  languageName: node
-  linkType: hard
-
 "siginfo@npm:^2.0.0":
   version: 2.0.0
   resolution: "siginfo@npm:2.0.0"
@@ -15545,13 +15312,6 @@ __metadata:
   version: 0.6.1
   resolution: "source-map@npm:0.6.1"
   checksum: 10/59ef7462f1c29d502b3057e822cdbdae0b0e565302c4dd1a95e11e793d8d9d62006cdc10e0fd99163ca33ff2071360cf50ee13f90440806e7ed57d81cba2f7ff
-  languageName: node
-  linkType: hard
-
-"space-separated-tokens@npm:^2.0.0":
-  version: 2.0.2
-  resolution: "space-separated-tokens@npm:2.0.2"
-  checksum: 10/202e97d7ca1ba0758a0aa4fe226ff98142073bcceeff2da3aad037968878552c3bbce3b3231970025375bbba5aee00c5b8206eda408da837ab2dc9c0f26be990
   languageName: node
   linkType: hard
 
@@ -15785,16 +15545,6 @@ __metadata:
   dependencies:
     safe-buffer: "npm:~5.1.0"
   checksum: 10/7c41c17ed4dea105231f6df208002ebddd732e8e9e2d619d133cecd8e0087ddfd9587d2feb3c8caf3213cbd841ada6d057f5142cae68a4e62d3540778d9819b4
-  languageName: node
-  linkType: hard
-
-"stringify-entities@npm:^4.0.0":
-  version: 4.0.4
-  resolution: "stringify-entities@npm:4.0.4"
-  dependencies:
-    character-entities-html4: "npm:^2.0.0"
-    character-entities-legacy: "npm:^3.0.0"
-  checksum: 10/42bd2f37528795a7b4386bd39dc4699515fb0f0b8c418a6bb29ae205ce66eaff9e8801a2bee65b8049c918c9475a71c7e5911f6a88c19f1d84ebdcba3d881a2d
   languageName: node
   linkType: hard
 
@@ -16081,13 +15831,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"trim-lines@npm:^3.0.0":
-  version: 3.0.1
-  resolution: "trim-lines@npm:3.0.1"
-  checksum: 10/7a1325e4ce8ff7e9e52007600e9c9862a166d0db1f1cf0c9357e359e410acab1278fcd91cc279dfa5123fc37b69f080de02f471e91dbbc61b155b9ca92597929
-  languageName: node
-  linkType: hard
-
 "ts-api-utils@npm:^2.0.0, ts-api-utils@npm:^2.1.0, ts-api-utils@npm:~2.1.0":
   version: 2.1.0
   resolution: "ts-api-utils@npm:2.1.0"
@@ -16249,20 +15992,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:0.26.3":
-  version: 0.26.3
-  resolution: "typedoc@npm:0.26.3"
+"typedoc@npm:~0.28.14, typedoc@npm:~0.28.15":
+  version: 0.28.15
+  resolution: "typedoc@npm:0.28.15"
   dependencies:
+    "@gerrit0/mini-shiki": "npm:^3.17.0"
     lunr: "npm:^2.3.9"
     markdown-it: "npm:^14.1.0"
     minimatch: "npm:^9.0.5"
-    shiki: "npm:^1.9.1"
-    yaml: "npm:^2.4.5"
+    yaml: "npm:^2.8.1"
   peerDependencies:
-    typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x || 5.5.x
+    typescript: 5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x || 5.5.x || 5.6.x || 5.7.x || 5.8.x || 5.9.x
   bin:
     typedoc: bin/typedoc
-  checksum: 10/55473079de55140d29299b449c0c8de6da1c6c76553bae17c11d1be9e4521612c5f0d9d5a6ee4e18ba7103f79de9ff98223fa0fb2d0e09b2bd535e54efe3d08d
+  checksum: 10/c4bfed5435c5fbd8a63f0e058b7d845c83872c2648c5db49c2ace613013dbce55ca04b30630db2c72abbbd0850d8c110781cd5da6c508e781f7a7845a0e9c0d7
   languageName: node
   linkType: hard
 
@@ -16276,7 +16019,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:>=5, typescript@npm:~5.9.3":
+"typescript@npm:>=5, typescript@npm:^5.9.3":
   version: 5.9.3
   resolution: "typescript@npm:5.9.3"
   bin:
@@ -16296,7 +16039,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A>=5#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A~5.9.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A>=5#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.9.3#optional!builtin<compat/typescript>":
   version: 5.9.3
   resolution: "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"
   bin:
@@ -16366,60 +16109,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unist-util-is@npm:^6.0.0":
-  version: 6.0.1
-  resolution: "unist-util-is@npm:6.0.1"
-  dependencies:
-    "@types/unist": "npm:^3.0.0"
-  checksum: 10/dc3ebfb481f097863ae3674c440add6fe2d51a4cfcd565b13fb759c8a2eaefb71903a619b385e892c2ad6db6a5b60d068dfc5592b6dd57f4b60180082b3136d6
-  languageName: node
-  linkType: hard
-
-"unist-util-position@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "unist-util-position@npm:5.0.0"
-  dependencies:
-    "@types/unist": "npm:^3.0.0"
-  checksum: 10/89d4da00e74618d7562ac7ac288961df9bcd4ccca6df3b5a90650f018eceb6b95de6e771e88bdbef46cc9d96861d456abe57b7ad1108921e0feb67c6292aa29d
-  languageName: node
-  linkType: hard
-
 "unist-util-stringify-position@npm:^2.0.0":
   version: 2.0.3
   resolution: "unist-util-stringify-position@npm:2.0.3"
   dependencies:
     "@types/unist": "npm:^2.0.2"
   checksum: 10/affbfd151f0df055ce0dddf443fc41353ab3870cdba6b3805865bd6a41ce22d9d8e65be0ed8839a8731d05b61421d2df9fd8c35b67adf86040bf4b1f8a04a42c
-  languageName: node
-  linkType: hard
-
-"unist-util-stringify-position@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "unist-util-stringify-position@npm:4.0.0"
-  dependencies:
-    "@types/unist": "npm:^3.0.0"
-  checksum: 10/d15c88aca7a31902d95d5b5355bbe09583cf6f6ff6e59e134ef76c76d3c30bc1021f2d7ea5b7897c6d0858ed5f3770c1b19de9c78274f50d72f95a0d05f1af71
-  languageName: node
-  linkType: hard
-
-"unist-util-visit-parents@npm:^6.0.0":
-  version: 6.0.2
-  resolution: "unist-util-visit-parents@npm:6.0.2"
-  dependencies:
-    "@types/unist": "npm:^3.0.0"
-    unist-util-is: "npm:^6.0.0"
-  checksum: 10/aa16e97e45bd1d641e1f933d2fb3bf0800865350eaeb5cc0317ab511075480fb4ac5e2a55f57dd72d27311e8ba29fd23908848bd83479849c626be1f7dabcae5
-  languageName: node
-  linkType: hard
-
-"unist-util-visit@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "unist-util-visit@npm:5.0.0"
-  dependencies:
-    "@types/unist": "npm:^3.0.0"
-    unist-util-is: "npm:^6.0.0"
-    unist-util-visit-parents: "npm:^6.0.0"
-  checksum: 10/f2bbde23641e9ade7640358c06ddeec0f38342322eb8e7819d9ee380b0f859d25d084dde22bf63db0280b3b2f36575f15aa1d6c23acf276c91c2493cf799e3b0
   languageName: node
   linkType: hard
 
@@ -16578,26 +16273,6 @@ __metadata:
     spdx-correct: "npm:^3.0.0"
     spdx-expression-parse: "npm:^3.0.0"
   checksum: 10/86242519b2538bb8aeb12330edebb61b4eb37fd35ef65220ab0b03a26c0592c1c8a7300d32da3cde5abd08d18d95e8dabfad684b5116336f6de9e6f207eec224
-  languageName: node
-  linkType: hard
-
-"vfile-message@npm:^4.0.0":
-  version: 4.0.3
-  resolution: "vfile-message@npm:4.0.3"
-  dependencies:
-    "@types/unist": "npm:^3.0.0"
-    unist-util-stringify-position: "npm:^4.0.0"
-  checksum: 10/7ba3dbeb752722a7913de8ea77c56be58cf805b5e5ccff090b2c4f8a82a32d91e058acb94d1614a40aa28191a5db99fb64014c7dfcad73d982f5d9d6702d2277
-  languageName: node
-  linkType: hard
-
-"vfile@npm:^6.0.0":
-  version: 6.0.3
-  resolution: "vfile@npm:6.0.3"
-  dependencies:
-    "@types/unist": "npm:^3.0.0"
-    vfile-message: "npm:^4.0.0"
-  checksum: 10/a5a85293c9eb8787aa42e180edaef00c13199a493d6ed82fecf13ab29a68526850788e22434d77808ea6b17a74e03ff899b9b4711df5b9eee75afcddd7c2e1fb
   languageName: node
   linkType: hard
 
@@ -17052,7 +16727,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml@npm:^2.3.4, yaml@npm:^2.4.5":
+"yaml@npm:^2.3.4, yaml@npm:^2.8.1":
   version: 2.8.2
   resolution: "yaml@npm:2.8.2"
   bin:
@@ -17142,12 +16817,5 @@ __metadata:
     react:
       optional: true
   checksum: 10/21c47ea1c9bb0363b714a7e371a91b9afaeabc5c9c2f522803a0fb412605b1e037c4f975a7377529de8f2857e60d1f4586e7ade18444168ecc492e38779e605d
-  languageName: node
-  linkType: hard
-
-"zwitch@npm:^2.0.4":
-  version: 2.0.4
-  resolution: "zwitch@npm:2.0.4"
-  checksum: 10/f22ec5fc2d5f02c423c93d35cdfa83573a3a3bd98c66b927c368ea4d0e7252a500df2a90a6b45522be536a96a73404393c958e945fdba95e6832c200791702b6
   languageName: node
   linkType: hard
