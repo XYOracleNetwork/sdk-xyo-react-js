@@ -1,4 +1,6 @@
-import type { FormControlProps, StandardTextFieldProps } from '@mui/material'
+import type {
+  FormControlProps, StandardTextFieldProps, TextFieldProps,
+} from '@mui/material'
 import {
   FormControl, FormHelperText, TextField,
 } from '@mui/material'
@@ -12,7 +14,7 @@ import React, {
 import { formatBigIntInput } from './helpers/index.ts'
 import { FixedPointInputAdornment } from './InputAdornment.tsx'
 
-export interface BigIntTextFieldProps extends StandardTextFieldProps {
+export type BigIntTextFieldProps = TextFieldProps & {
   defaultFixedPoint?: number
   defaultRawValue?: string
   hideAdornment?: boolean
