@@ -1,4 +1,4 @@
-import type { EmptyObject } from '@xylabs/object'
+import type { EmptyObject } from '@xylabs/sdk-js'
 import { FormControlBase } from '@xyo-network/react-form-group'
 
 const CONTROL_NAME = 'Email'

@@ -1,3 +1,5 @@
+import { asSchema } from '@xyo-network/payload-model'
+
 export const sampleEthGasStationGasPricePayload = {
   baseFee: 37,
   blockNumber: 16_134_572,
@@ -13,6 +15,6 @@ export const sampleEthGasStationGasPricePayload = {
     instant: 14,
     standard: 2,
   },
-  schema: 'network.xyo.blockchain.ethereum.gas.ethgasstation',
+  schema: asSchema('network.xyo.blockchain.ethereum.gas.ethgasstation', true),
   timestamp: 1_670_437_200_687,
 }

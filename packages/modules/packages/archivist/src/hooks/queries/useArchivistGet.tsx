@@ -1,5 +1,5 @@
-import type { Hash } from '@xylabs/hex'
 import { usePromise } from '@xylabs/react-promise'
+import type { Hash } from '@xylabs/sdk-js'
 import type { ArchivistInstance } from '@xyo-network/archivist-model'
 import type { Payload, WithStorageMeta } from '@xyo-network/payload-model'
 import type { RefreshCallback } from '@xyo-network/react-module'

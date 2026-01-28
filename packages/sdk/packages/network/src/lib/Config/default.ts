@@ -4,7 +4,7 @@ import { NetworkSchema } from '@xyo-network/network'
 import { findArchivistPreset } from '../archivistPresets.ts'
 import { findDivinerPreset } from '../divinerPresets.ts'
 
-export const defaultNetworkConfigs: NetworkPayload[] = [
+export const defaultNetworkConfigs: (Omit<NetworkPayload, 'schema'> & { schema: NetworkSchema })[] = [
   {
     name: 'Kerplunk',
     nodes: [findArchivistPreset('kerplunk-archivist-xyo-network'), findDivinerPreset('beta-location-diviner-xyo-network')],

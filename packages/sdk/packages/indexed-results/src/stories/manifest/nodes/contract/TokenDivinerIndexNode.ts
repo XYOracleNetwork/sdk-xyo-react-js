@@ -38,5 +38,5 @@ export const TokenDivinerIndexManifestNode: CreatablePackageManifest = (locator:
     ),
   )
 
-  return tokenDivinerIndexManifest as PackageManifestPayload
+  return tokenDivinerIndexManifest as unknown as PackageManifestPayload
 }

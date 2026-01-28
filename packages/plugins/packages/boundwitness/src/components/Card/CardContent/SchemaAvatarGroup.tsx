@@ -1,13 +1,14 @@
 import type { AvatarGroupProps } from '@mui/material'
 import { Avatar, AvatarGroup } from '@mui/material'
 import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
+import type { Schema } from '@xyo-network/payload-model'
 import { usePayloadRenderPluginResolver } from '@xyo-network/react-payload-plugin-resolver'
 import React, { useCallback } from 'react'
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
 
 interface SchemaAvatarGroupProps extends AvatarGroupProps {
   maxAvatars?: number
-  schemas?: string[]
+  schemas?: Schema[]
 }
 
 export const SchemaAvatarGroup: React.FC<SchemaAvatarGroupProps> = ({
@@ -16,7 +17,7 @@ export const SchemaAvatarGroup: React.FC<SchemaAvatarGroupProps> = ({
   const { resolver } = usePayloadRenderPluginResolver()
 
   const resolveSchemaToIcon = useCallback(
-    (schema: string, index: number) => {
+    (schema: Schema, index: number) => {
       const SchemaAvatar = resolver?.resolve({ schema })?.components.avatar.image
       return SchemaAvatar
         ? <SchemaAvatar key={index + schema} />

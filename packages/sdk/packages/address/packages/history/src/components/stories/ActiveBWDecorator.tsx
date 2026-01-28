@@ -1,5 +1,5 @@
 import type { Decorator } from '@storybook/react-vite'
-import type { Hash } from '@xylabs/hex'
+import type { Hash } from '@xylabs/sdk-js'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'

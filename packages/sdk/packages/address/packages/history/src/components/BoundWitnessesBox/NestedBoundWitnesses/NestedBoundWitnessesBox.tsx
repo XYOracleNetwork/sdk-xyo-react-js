@@ -1,7 +1,7 @@
 import { Slide } from '@mui/material'
-import type { Hash } from '@xylabs/hex'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol } from '@xylabs/react-flexbox'
+import type { Hash } from '@xylabs/sdk-js'
 import { BoundWitnessDetailsCard } from '@xyo-network/react-boundwitness-plugin'
 import type { EventNoun, EventVerb } from '@xyo-network/react-event'
 import { useEvent } from '@xyo-network/react-event'

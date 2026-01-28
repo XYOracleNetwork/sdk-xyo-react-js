@@ -1,8 +1,8 @@
-import type { EmptyObject } from '@xylabs/object'
 import type {
   PurchaseFields, UserClickFields, ViewContentFields,
 } from '@xylabs/pixel'
 import { GoogleCustomEvent, GoogleStandardEvents } from '@xylabs/react-pixel'
+import type { EmptyObject } from '@xylabs/sdk-js'
 
 export interface GoogleViewContent extends Record<string, unknown> {
   name: string

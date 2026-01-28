@@ -1,5 +1,5 @@
-import type { EmptyObject } from '@xylabs/object'
 import { FacebookCustomEvent, FacebookStandardEvents } from '@xylabs/react-pixel'
+import type { EmptyObject } from '@xylabs/sdk-js'
 
 export interface FacebookUserClick extends Record<string, unknown> {
   elementName: string

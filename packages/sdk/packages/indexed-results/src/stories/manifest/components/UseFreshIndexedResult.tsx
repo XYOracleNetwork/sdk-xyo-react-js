@@ -1,6 +1,6 @@
 import { exists } from '@xylabs/exists'
-import type { Hash } from '@xylabs/hex'
 import { FlexCol } from '@xylabs/react-flexbox'
+import type { Hash } from '@xylabs/sdk-js'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadDivinerQuerySchema } from '@xyo-network/diviner-payload-model'
 import type { EvmContract } from '@xyo-network/evm-contract-witness'

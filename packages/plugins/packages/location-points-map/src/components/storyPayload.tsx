@@ -1,3 +1,5 @@
+import { asSchema } from '@xyo-network/payload-model'
+
 export const locationRangeAnswerPayload = {
   result: {
     features: [
@@ -172,5 +174,5 @@ export const locationRangeAnswerPayload = {
     ],
     type: 'FeatureCollection',
   },
-  schema: 'network.xyo.location.range.answer',
+  schema: asSchema('network.xyo.location.range.answer', true),
 }

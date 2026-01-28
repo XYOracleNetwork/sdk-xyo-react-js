@@ -1,5 +1,5 @@
-import type { Hash } from '@xylabs/hex'
 import { useMounted } from '@xylabs/react-shared'
+import type { Hash } from '@xylabs/sdk-js'
 import type { EventNoun } from '@xyo-network/react-event'
 import { useCallback } from 'react'
 

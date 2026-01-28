@@ -1,5 +1,5 @@
 import { assertEx } from '@xylabs/assert'
-import type { Payload } from '@xyo-network/payload-model'
+import type { Payload, Schema } from '@xyo-network/payload-model'
 import type { PayloadRenderPlugin } from '@xyo-network/react-payload-plugin'
 
 export class PayloadRenderPluginResolver {
@@ -20,7 +20,7 @@ export class PayloadRenderPluginResolver {
     return result
   }
 
-  register(plugin: PayloadRenderPlugin, defaultForSchema?: string[]) {
+  register(plugin: PayloadRenderPlugin, defaultForSchema?: Schema[]) {
     this.plugins.push(plugin)
     if (defaultForSchema)
       for (const schema of defaultForSchema) {

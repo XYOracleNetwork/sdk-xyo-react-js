@@ -1,4 +1,4 @@
-import type { Hash } from '@xylabs/hex'
+import type { Hash } from '@xylabs/sdk-js'
 import type { NetworkNodePayload } from '@xyo-network/network'
 import { NetworkNodeSchema } from '@xyo-network/network'
 

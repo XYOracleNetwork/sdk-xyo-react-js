@@ -2,8 +2,8 @@ import type { ListProps } from '@mui/material'
 import {
   Divider, List, Skeleton, styled, useTheme,
 } from '@mui/material'
-import type { Hash } from '@xylabs/hex'
 import { usePromise } from '@xylabs/react-promise'
+import type { Hash } from '@xylabs/sdk-js'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessRendererCard } from '@xyo-network/react-boundwitness-plugin'
 import { useEvent } from '@xyo-network/react-event'

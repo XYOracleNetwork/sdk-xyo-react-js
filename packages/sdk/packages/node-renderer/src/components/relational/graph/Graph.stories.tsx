@@ -6,6 +6,7 @@ import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist-memory'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge-http'
 import { IdWitness, IdWitnessConfigSchema } from '@xyo-network/id-plugin'
+import type { AttachableModuleInstance } from '@xyo-network/module-model'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'
 import {
@@ -144,7 +145,7 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props)
   const handleAddWitness = async () => {
     if (node && idWitness) {
       const memoryNode = node.deref() as MemoryNode | undefined
-      await memoryNode?.register(idWitness)
+      await memoryNode?.register(idWitness as unknown as AttachableModuleInstance)
       await memoryNode?.attach(idWitness.address, true)
     }
   }
@@ -153,7 +154,7 @@ const TemplateAttachDetach: StoryFn<typeof NodeRelationalGraphFlexBox> = (props)
     if (node && idWitness) {
       const memoryNode = node.deref() as MemoryNode | undefined
       if (((await memoryNode?.registered()) ?? []).includes(idWitness.address)) {
-        await memoryNode?.unregister(idWitness)
+        await memoryNode?.unregister(idWitness as unknown as AttachableModuleInstance)
       }
     }
   }

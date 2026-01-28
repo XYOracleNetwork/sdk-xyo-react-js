@@ -5,13 +5,14 @@ import type { Decorator, StoryFn } from '@storybook/react-vite'
 import { usePromise } from '@xylabs/react-promise'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist-memory'
 import type { ArchivistInstance } from '@xyo-network/archivist-model'
+import { asSchema } from '@xyo-network/payload-model'
 import { usePayloadHash } from '@xyo-network/react-shared'
 import React, { useState } from 'react'
 
 import { PayloadProvider } from './Provider.tsx'
 import { usePayload } from './use.ts'
 
-const testPayload = { schema: 'network.xyo.payload' }
+const testPayload = { schema: asSchema('network.xyo.payload', true) }
 
 const PayloadProviderDecorator: Decorator = (Story, args) => {
   const [archivist, setArchivist] = useState<ArchivistInstance>()

@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react-vite'
-import { asAddress, toHex } from '@xylabs/hex'
+import { asAddress, toHex } from '@xylabs/sdk-js'
 import { useEvent } from '@xyo-network/react-event'
 import { randomBytes } from 'ethers'
 import React, { useState } from 'react'

@@ -41,7 +41,7 @@ const loadFromManifest = async () => {
     { 'network.xyo.evm.interface': 'Erc1155' },
   )
 
-  const manifest = new ManifestWrapper(NftSentinelManifest as PackageManifestPayload, wallet, locator)
+  const manifest = new ManifestWrapper(NftSentinelManifest as unknown as PackageManifestPayload, wallet, locator)
   const node = await manifest.loadNodeFromIndex(0)
   console.log(`node: ${(await node.resolve()).length}`)
   return node

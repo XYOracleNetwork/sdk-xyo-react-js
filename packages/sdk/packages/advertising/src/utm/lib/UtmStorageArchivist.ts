@@ -1,7 +1,8 @@
 import type { Utm, UtmSchema } from '@xyo-network/advertising-payload-plugins'
 import { isUtm } from '@xyo-network/advertising-payload-plugins'
+import type { StorageArchivistParams } from '@xyo-network/archivist-storage'
 import { StorageArchivist, StorageArchivistConfigSchema } from '@xyo-network/archivist-storage'
-import type { Payload } from '@xyo-network/payload-model'
+import type { Payload, Schema } from '@xyo-network/payload-model'
 
 const STORAGE_NAME_SPACE = 'utm' as const
 
@@ -20,12 +21,12 @@ export const UtmStorageArchivist = async () => {
       config: {
         schema: StorageArchivistConfigSchema, namespace: STORAGE_NAME_SPACE, type: 'session',
       },
-    })
+    } as StorageArchivistParams)
     return archivist
   }
 }
 
-export const LatestUtmPayload = async (): Promise<Payload<Utm, UtmSchema> | undefined> => {
+export const LatestUtmPayload = async (): Promise<Payload<Utm, Schema<UtmSchema>> | undefined> => {
   const archivist = await UtmStorageArchivist()
-  return (await archivist.next()).find(isUtm) as Payload<Utm, UtmSchema>
+  return (await archivist.next()).find(isUtm) as Payload<Utm, Schema<UtmSchema>>
 }

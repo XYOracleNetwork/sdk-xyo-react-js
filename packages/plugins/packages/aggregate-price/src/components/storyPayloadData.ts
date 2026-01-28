@@ -1,3 +1,5 @@
+import { asSchema } from '@xyo-network/payload-model'
+
 export const payloadData = {
   assets: {
     ada: {
@@ -69,12 +71,12 @@ export const payloadData = {
       },
     },
   },
-  schema: 'network.xyo.crypto.asset',
+  schema: asSchema('network.xyo.crypto.asset', true),
   timestamp: 1_659_625_815_232,
 }
 
 export const payloadDataMissingAssets = {
   assets: {},
-  schema: 'network.xyo.crypto.asset',
+  schema: asSchema('network.xyo.crypto.asset', true),
   timestamp: 1_659_071_465_718,
 }

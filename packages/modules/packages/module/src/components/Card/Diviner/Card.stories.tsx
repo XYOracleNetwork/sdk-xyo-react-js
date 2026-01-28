@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react-vite'
-import type { Address } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
+import type { Address } from '@xylabs/sdk-js'
 import { AddressHistoryDiviner, AddressHistoryDivinerConfigSchema } from '@xyo-network/diviner-address-history'
 import type { DivinerInstance } from '@xyo-network/diviner-model'
 import React, { useState } from 'react'

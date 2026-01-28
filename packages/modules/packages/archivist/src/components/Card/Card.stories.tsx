@@ -8,6 +8,7 @@ import type { ArchivistInstance } from '@xyo-network/archivist-model'
 import { ArchivistInsertQuerySchema } from '@xyo-network/archivist-model'
 import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 import { MemoryNode } from '@xyo-network/node-memory'
+import { asSchema } from '@xyo-network/payload-model'
 import React from 'react'
 
 import { ArchivistCard } from './Card.tsx'
@@ -20,7 +21,7 @@ const StorybookEntry = {
 
 const insertPayload = async (archivist?: ArchivistInstance) => {
   if (archivist) {
-    const payload = { schema: 'network.xyo.payload', timestamp: Date.now() }
+    const payload = { schema: asSchema('network.xyo.payload', true), timestamp: Date.now() }
     const insertQuery = { schema: ArchivistInsertQuerySchema }
     const account = await Account.random()
     const builder = new QueryBoundWitnessBuilder().payloads([insertQuery, payload]).signer(account).query(insertQuery)

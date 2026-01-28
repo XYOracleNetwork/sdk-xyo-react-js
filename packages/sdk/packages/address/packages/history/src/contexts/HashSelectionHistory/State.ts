@@ -1,5 +1,5 @@
-import type { Hash } from '@xylabs/hex'
 import type { ContextExState } from '@xylabs/react-shared'
+import type { Hash } from '@xylabs/sdk-js'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import type { ModuleError } from '@xyo-network/payload-model'
 

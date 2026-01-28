@@ -38,5 +38,5 @@ export const ContractWitnessManifestNode: CreatablePackageManifest = (locator: M
     ),
   )
 
-  return contractWitnessManifest as PackageManifestPayload
+  return contractWitnessManifest as unknown as PackageManifestPayload
 }

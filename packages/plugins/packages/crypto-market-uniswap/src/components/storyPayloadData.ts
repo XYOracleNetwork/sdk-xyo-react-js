@@ -1,3 +1,5 @@
+import { asSchema } from '@xyo-network/payload-model'
+
 export const payloadData = {
   pairs: [
     {
@@ -183,7 +185,7 @@ export const payloadData = {
       ],
     },
   ],
-  schema: 'network.xyo.crypto.market.uniswap',
+  schema: asSchema('network.xyo.crypto.market.uniswap', true),
   timestamp: 1_659_071_465_718,
 }
 
@@ -204,12 +206,12 @@ export const payloadDataMissingSymbol = {
       ],
     },
   ],
-  schema: 'network.xyo.crypto.market.uniswap',
+  schema: asSchema('network.xyo.crypto.market.uniswap', true),
   timestamp: 1_659_071_465_718,
 }
 
 export const payloadDataMissingPairs = {
   pairs: [],
-  schema: 'network.xyo.crypto.market.uniswap',
+  schema: asSchema('network.xyo.crypto.market.uniswap', true),
   timestamp: 1_659_071_465_718,
 }

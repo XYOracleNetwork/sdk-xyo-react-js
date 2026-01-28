@@ -1,5 +1,5 @@
-import type { Hash } from '@xylabs/hex'
 import { FlexCol } from '@xylabs/react-flexbox'
+import type { Hash } from '@xylabs/sdk-js'
 import { PayloadDivinerQuerySchema } from '@xyo-network/diviner-payload-model'
 import type { Payload } from '@xyo-network/payload-model'
 import { useWeakArchivistFromNode } from '@xyo-network/react-archivist'

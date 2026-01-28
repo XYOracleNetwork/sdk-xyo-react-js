@@ -1,14 +1,16 @@
 import type { Meta, StoryFn } from '@storybook/react-vite'
 import { FlexCol } from '@xylabs/react-flexbox'
-import type { Payload } from '@xyo-network/payload-model'
+import {
+  asSchema, type Payload, type Schema,
+} from '@xyo-network/payload-model'
 import React from 'react'
 
 import { RawInfoIconButton } from './RawInfoIconButton.tsx'
 
-type TestPayload = Payload<{ id: string; schema: string; type: string }, 'network.xyo.test'>
+type TestPayload = Payload<{ id: string; schema: string; type: string }, Schema<'network.xyo.test'>>
 const TestPayload: TestPayload = {
   id: '123',
-  schema: 'network.xyo.test',
+  schema: asSchema('network.xyo.test', true),
   type: 'test',
 }
 

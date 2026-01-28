@@ -1,4 +1,4 @@
-import type { Hash } from '@xylabs/hex'
+import type { Hash } from '@xylabs/sdk-js'
 import React from 'react'
 
 import type { EllipsisTableCellProps } from './EllipsisTableCell.tsx'

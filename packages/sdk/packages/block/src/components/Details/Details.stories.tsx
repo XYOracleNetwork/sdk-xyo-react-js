@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react-vite'
-import type { Hash } from '@xylabs/hex'
+import type { Hash } from '@xylabs/sdk-js'
 import { useEvent } from '@xyo-network/react-event'
 import { DeprecateStory, sampleBlock } from '@xyo-network/react-storybook'
 import React, { createRef } from 'react'

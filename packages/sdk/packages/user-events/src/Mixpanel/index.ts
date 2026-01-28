@@ -1,5 +1,5 @@
-import type { EmptyObject } from '@xylabs/object'
 import { MixpanelCustomEvent, MixpanelPageViewEvent } from '@xylabs/react-pixel'
+import type { EmptyObject } from '@xylabs/sdk-js'
 import type { Mixpanel } from 'mixpanel-browser'
 
 export class MixpanelEvents<TData extends EmptyObject = EmptyObject> {

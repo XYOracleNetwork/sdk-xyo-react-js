@@ -1,6 +1,6 @@
-import { toSafeJson } from '@xylabs/object'
 import type { ButtonExProps } from '@xylabs/react-button'
 import { ButtonEx } from '@xylabs/react-button'
+import { toSafeJson } from '@xylabs/sdk-js'
 import type { MouseEventHandler, ReactNode } from 'react'
 import React, { useMemo, useState } from 'react'
 

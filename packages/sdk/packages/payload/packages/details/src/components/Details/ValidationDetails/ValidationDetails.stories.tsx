@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react-vite'
-import type { Payload } from '@xyo-network/payload-model'
+import { asSchema, type Payload } from '@xyo-network/payload-model'
 import { sampleIdPayload } from '@xyo-network/react-storybook'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
@@ -44,7 +44,7 @@ SkipBody.args = {
   value: {
     _hash: '44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a',
     _timestamp: Date.now(),
-    schema: 'network.xyo.test',
+    schema: asSchema('network.xyo.test', true),
   } as Payload,
 }
 

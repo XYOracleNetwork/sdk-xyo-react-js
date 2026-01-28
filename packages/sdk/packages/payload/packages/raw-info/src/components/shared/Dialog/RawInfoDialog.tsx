@@ -2,7 +2,7 @@ import type { DialogProps } from '@mui/material'
 import {
   Button, Dialog, DialogActions, DialogContent, DialogTitle,
 } from '@mui/material'
-import type { JsonValue } from '@xylabs/object'
+import type { JsonValue } from '@xylabs/sdk-js'
 import type { MouseEventHandler, ReactNode } from 'react'
 import React from 'react'
 

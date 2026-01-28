@@ -1,3 +1,5 @@
+import { asSchema } from '@xyo-network/payload-model'
+
 export const sampleCoinGeckoPayload = {
   assets: {
     ada: {
@@ -67,6 +69,6 @@ export const sampleCoinGeckoPayload = {
       usd: 0.008_656_4,
     },
   },
-  schema: 'network.xyo.crypto.market.coingecko',
+  schema: asSchema('network.xyo.crypto.market.coingecko', true),
   timestamp: 1_661_188_759_757,
 }

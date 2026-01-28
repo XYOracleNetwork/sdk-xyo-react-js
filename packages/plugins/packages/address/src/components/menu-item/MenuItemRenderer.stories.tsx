@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react-vite'
-import type { Address } from '@xylabs/hex'
-import { toAddress, toHex } from '@xylabs/hex'
+import type { Address } from '@xylabs/sdk-js'
+import { toAddress, toHex } from '@xylabs/sdk-js'
 import type { AddressPayload } from '@xyo-network/module-model'
 import { AddressSchema } from '@xyo-network/module-model'
 import { useEvent } from '@xyo-network/react-event'

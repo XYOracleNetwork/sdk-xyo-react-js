@@ -2,7 +2,7 @@ import {
   TableBody, TableCell, TableHead, TableRow,
 } from '@mui/material'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { isDefined } from '@xylabs/typeof'
+import { isDefined } from '@xylabs/sdk-js'
 import { usePayloadHashes } from '@xyo-network/react-shared'
 import { TableEx } from '@xyo-network/react-table'
 import React from 'react'

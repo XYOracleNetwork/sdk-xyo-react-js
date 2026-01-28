@@ -1,6 +1,7 @@
 {
   "name": "@xyo-network/sdk-xyo-react",
   "version": "7.4.2",
+  "private": true,
   "description": "Common React library for all XYO projects that use React",
   "keywords": [
     "xyo",
@@ -50,23 +51,21 @@
     "start": "storybook dev -p 6006"
   },
   "dependencies": {
-    "@xyo-network/react-modules": "workspace:^",
-    "@xyo-network/react-plugins": "workspace:^",
-    "@xyo-network/react-sdk": "workspace:^"
+    "@xyo-network/react-modules": "7.4.2",
+    "@xyo-network/react-plugins": "7.4.2",
+    "@xyo-network/react-sdk": "7.4.2"
   },
   "devDependencies": {
     "@emotion/react": "~11.14.0",
     "@emotion/styled": "~11.14.1",
-    "@eslint-react/eslint-plugin": "~2.7.4",
     "@mui/icons-material": "~7.3.7",
     "@mui/material": "~7.3.7",
     "@storybook/addon-docs": "~10.2.1",
     "@storybook/addon-links": "~10.2.1",
     "@storybook/react-vite": "~10.2.1",
     "@stylistic/eslint-plugin": "~5.7.1",
-    "@types/node": "~24.10.9",
+    "@types/node": "~25.0.10",
     "@types/react": "^19.2.10",
-    "@typescript-eslint/eslint-plugin": "~8.54.0",
     "@typescript-eslint/parser": "~8.54.0",
     "@vitejs/plugin-react-swc": "~4.2.2",
     "@xylabs/eslint-config-flat": "~7.3.2",
@@ -77,7 +76,7 @@
     "@xylabs/tsconfig": "~7.3.2",
     "@xylabs/tsconfig-dom": "~7.3.2",
     "@xylabs/tsconfig-react": "~7.3.2",
-    "@xyo-network/hash": "~5.2.27",
+    "@xyo-network/hash": "~5.3.2",
     "axios": "^1.13.4",
     "chromatic": "~13.3.5",
     "copyfiles": "~2.4.1",
@@ -85,7 +84,7 @@
     "eslint": "~9.39.2",
     "eslint-import-resolver-typescript": "~4.4.4",
     "eslint-plugin-storybook": "10.2.1",
-    "knip": "~5.71.0",
+    "knip": "~5.82.1",
     "luxon": "~3.7.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
@@ -118,7 +117,7 @@
     "yarn": "1.22.22"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "restricted"
   },
   "//": [
     "devDep"

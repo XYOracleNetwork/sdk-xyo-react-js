@@ -1,3 +1,5 @@
+import { asSchema } from '@xyo-network/payload-model'
+
 export const quadKeyHeatMapPayload = {
   result: [
     {
@@ -21,5 +23,5 @@ export const quadKeyHeatMapPayload = {
       quadkey: '300',
     },
   ],
-  schema: 'network.xyo.location.heatmap.quadkey.answer',
+  schema: asSchema('network.xyo.location.heatmap.quadkey.answer', true),
 }

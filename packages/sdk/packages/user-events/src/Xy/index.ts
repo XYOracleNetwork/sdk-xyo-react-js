@@ -1,8 +1,8 @@
-import type { EmptyObject } from '@xylabs/object'
 import type {
   PurchaseFields, UserClickFields, ViewContentFields,
 } from '@xylabs/pixel'
 import { XyCustomEvent } from '@xylabs/react-pixel'
+import type { EmptyObject } from '@xylabs/sdk-js'
 
 export class XyEvents<T extends EmptyObject> {
   custom(name: string) {

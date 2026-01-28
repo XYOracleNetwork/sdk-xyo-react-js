@@ -1,3 +1,5 @@
+import { asSchema } from '@xyo-network/payload-model'
+
 export const sampleEthereumGasDivinerPayload = {
   baseFee: 13.364_650_519_8,
   feePerGas: {
@@ -12,13 +14,13 @@ export const sampleEthereumGasDivinerPayload = {
     medium: 0.856_666_666_666_666_8,
     veryHigh: 1.276_666_666_666_666_6,
   },
-  schema: 'network.xyo.blockchain.ethereum.gas',
+  schema: asSchema('network.xyo.blockchain.ethereum.gas', true),
   timestamp: 1_669_819_808_305,
 }
 
 export const sampleEthereumGasDivinerPayloadMissingFees = {
   feePerGas: {},
   priorityFeePerGas: {},
-  schema: 'network.xyo.blockchain.ethereum.gas',
+  schema: asSchema('network.xyo.blockchain.ethereum.gas', true),
   timestamp: 1_659_071_465_718,
 }

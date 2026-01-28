@@ -6,6 +6,7 @@ import type { ArchivistInstance } from '@xyo-network/archivist-model'
 import { ArchivistInsertQuerySchema } from '@xyo-network/archivist-model'
 import { QueryBoundWitnessBuilder } from '@xyo-network/boundwitness-builder'
 import { MemoryNode } from '@xyo-network/node-memory'
+import { asSchema } from '@xyo-network/payload-model'
 import React, { useState } from 'react'
 
 import { MemoryArchivistsStats } from './MemoryArchivistStats.tsx'
@@ -33,7 +34,7 @@ const Template: StoryFn<typeof MemoryArchivistsStats> = () => {
             schema: MemoryArchivistConfigSchema,
           },
         })
-        const payload = { schema: 'network.xyo.payload' }
+        const payload = { schema: asSchema('network.xyo.payload', true) }
         const insertQuery = { schema: ArchivistInsertQuerySchema }
         const account = await Account.random()
         const builder = new QueryBoundWitnessBuilder().payloads([insertQuery, payload]).signer(account).query(insertQuery)

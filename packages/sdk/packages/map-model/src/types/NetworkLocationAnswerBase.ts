@@ -1,5 +1,5 @@
 import type { Payload } from '@xyo-network/payload-model'
-import { isPayloadOfSchemaType } from '@xyo-network/payload-model'
+import { asSchema, isPayloadOfSchemaType } from '@xyo-network/payload-model'
 import type {
   Feature, Point, Polygon,
 } from 'geojson'
@@ -8,21 +8,21 @@ export interface NetworkLocationAnswerBase<T> {
   result: T
 }
 
-export const NetworkLocationAnswerSchema = 'network.xyo.location.range.answer'
-export type NetworkLocationAnswerSchema = 'network.xyo.location.range.answer'
+export const NetworkLocationAnswerSchema = asSchema('network.xyo.location.range.answer', true)
+export type NetworkLocationAnswerSchema = typeof NetworkLocationAnswerSchema
 export type NetworkLocationAnswerPayload = Payload<NetworkLocationAnswerBase<{ features: Feature<Point>[] }>, NetworkLocationAnswerSchema>
 export const isNetworkLocationAnswer = isPayloadOfSchemaType<NetworkLocationAnswerPayload>(NetworkLocationAnswerSchema)
 
-export const NetworkLocationHeatmapAnswerSchema = 'network.xyo.location.heatmap.answer'
-export type NetworkLocationHeatmapAnswerSchema = 'network.xyo.location.heatmap.answer'
+export const NetworkLocationHeatmapAnswerSchema = asSchema('network.xyo.location.heatmap.answer', true)
+export type NetworkLocationHeatmapAnswerSchema = typeof NetworkLocationHeatmapAnswerSchema
 export type NetworkLocationHeatmapAnswerPayload = Payload<
   NetworkLocationAnswerBase<{ features: Feature<Polygon>[] }>,
   NetworkLocationHeatmapAnswerSchema
 >
 export const isNetworkLocationHeatmapAnswer = isPayloadOfSchemaType<NetworkLocationHeatmapAnswerPayload>(NetworkLocationHeatmapAnswerSchema)
 
-export const NetworkLocationHeatmapQuadkeyAnswerSchema = 'network.xyo.location.heatmap.quadkey.answer'
-export type NetworkLocationHeatmapQuadkeyAnswerSchema = 'network.xyo.location.heatmap.quadkey.answer'
+export const NetworkLocationHeatmapQuadkeyAnswerSchema = asSchema('network.xyo.location.heatmap.quadkey.answer', true)
+export type NetworkLocationHeatmapQuadkeyAnswerSchema = typeof NetworkLocationHeatmapQuadkeyAnswerSchema
 export type NetworkLocationHeatmapQuadkeyAnswerPayload = Payload<
   NetworkLocationAnswerBase<{ density: number; quadkey: string }[]>,
   NetworkLocationHeatmapQuadkeyAnswerSchema

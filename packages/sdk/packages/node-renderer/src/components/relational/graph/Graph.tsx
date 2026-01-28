@@ -2,13 +2,12 @@ import type { CardProps } from '@mui/material'
 import {
   Box, Button, ButtonGroup, Card, CardHeader, Paper, useTheme,
 } from '@mui/material'
-import type { Address } from '@xylabs/hex'
-import { asAddress } from '@xylabs/hex'
 import {
   FlexCol, FlexGrowRow, FlexRow,
 } from '@xylabs/react-flexbox'
 import { Identicon } from '@xylabs/react-identicon'
-import { isDefined } from '@xylabs/typeof'
+import type { Address } from '@xylabs/sdk-js'
+import { asAddress, isDefined } from '@xylabs/sdk-js'
 import { useWeakModuleFromNode } from '@xyo-network/react-node'
 import type {
   Core, EventHandler, NodeSingular,

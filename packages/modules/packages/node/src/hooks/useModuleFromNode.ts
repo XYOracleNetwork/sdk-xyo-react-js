@@ -1,5 +1,5 @@
-import type { TypeCheck } from '@xylabs/object'
 import { usePromise } from '@xylabs/react-promise'
+import type { TypeCheck } from '@xylabs/sdk-js'
 import type { ModuleInstance } from '@xyo-network/module-model'
 import { isModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'

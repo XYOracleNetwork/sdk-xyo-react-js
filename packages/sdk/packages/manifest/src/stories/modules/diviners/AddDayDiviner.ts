@@ -1,18 +1,20 @@
 import { AbstractDiviner } from '@xyo-network/diviner-abstract'
 import type { DivinerParams } from '@xyo-network/diviner-model'
-import type { Payload, Schema } from '@xyo-network/payload-model'
+import {
+  asSchema, type Payload, type Schema,
+} from '@xyo-network/payload-model'
 import type { TimeStamp } from '@xyo-network/witness-timestamp'
 import { isTimestamp } from '@xyo-network/witness-timestamp'
 
-export const AddDayDivinerResultSchema = 'network.xyo.timestamp.add.day'
-export type AddDayDivinerResultSchema = 'network.xyo.timestamp.add.day'
+export const AddDayDivinerResultSchema = asSchema('network.xyo.timestamp.add.day', true)
+export type AddDayDivinerResultSchema = typeof AddDayDivinerResultSchema
 
 export type AddDayDivinerResult = TimeStamp & {
   schema: AddDayDivinerResultSchema
 }
 
-export const AddDayDivinerConfigSchema = 'network.xyo.add.day.diviner.config' as const
-export type AddDayDivinerConfigSchema = 'network.xyo.add.day.diviner.config'
+export const AddDayDivinerConfigSchema = asSchema('network.xyo.add.day.diviner.config', true)
+export type AddDayDivinerConfigSchema = typeof AddDayDivinerConfigSchema
 
 export class AddDayDiviner<TParams extends DivinerParams = DivinerParams> extends AbstractDiviner<TParams> {
   static override readonly configSchemas: Schema[] = [...super.configSchemas, AddDayDivinerConfigSchema]

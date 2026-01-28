@@ -1,6 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react-vite'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import type { ArchivistModuleInstance } from '@xyo-network/archivist-model'
+import { asSchema } from '@xyo-network/payload-model'
 import { NodeProvider } from '@xyo-network/react-node'
 import type { FC } from 'react'
 import React, { useState } from 'react'
@@ -29,7 +30,7 @@ const TemplateInnerWithData: StoryFn<typeof ArchivistDetails> = (args) => {
   useAsyncEffect(
     async (mounted) => {
       if (archivist?.deref()) {
-        await archivist.deref()?.insert([{ schema: 'network.xyo.test' }])
+        await archivist.deref()?.insert([{ schema: asSchema('network.xyo.test', true) }])
         if (mounted()) {
           setArchivistWithData(archivist.deref())
         }

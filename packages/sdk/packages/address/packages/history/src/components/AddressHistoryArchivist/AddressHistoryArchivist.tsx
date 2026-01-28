@@ -1,5 +1,5 @@
-import type { Address } from '@xylabs/hex'
 import { ErrorRender } from '@xylabs/react-error'
+import type { Address } from '@xylabs/sdk-js'
 import { LoadResult } from '@xyo-network/react-shared'
 import type { PropsWithChildren } from 'react'
 import React from 'react'

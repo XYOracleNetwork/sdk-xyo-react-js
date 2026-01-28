@@ -65,7 +65,7 @@ const DivinerTemplate: StoryFn<typeof ModuleDetailsBox> = (args) => {
   useAsyncEffect(
 
     async (mounted) => {
-      const diviner = (await CryptoMarketAssetDiviner.create({})) as DivinerInstance
+      const diviner = (await CryptoMarketAssetDiviner.create({})) as unknown as DivinerInstance
       if (mounted()) {
         setDiviner(diviner)
       }

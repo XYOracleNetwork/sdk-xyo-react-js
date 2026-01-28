@@ -1,5 +1,5 @@
 import { assertEx } from '@xylabs/assert'
-import { isDefined, isDefinedNotNull } from '@xylabs/typeof'
+import { isDefined, isDefinedNotNull } from '@xylabs/sdk-js'
 import type { CryptoMarketAssetPayload } from '@xyo-network/crypto-asset-payload-plugin'
 import type { Payload } from '@xyo-network/payload-model'
 import { JSONPath } from 'jsonpath-plus'

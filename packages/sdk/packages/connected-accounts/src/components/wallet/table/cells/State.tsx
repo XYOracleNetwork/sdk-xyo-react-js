@@ -1,5 +1,5 @@
 import { Switch, TableCell } from '@mui/material'
-import { isDefined } from '@xylabs/typeof'
+import { isDefined } from '@xylabs/sdk-js'
 import type { ChangeEvent } from 'react'
 import React, { useMemo } from 'react'
 

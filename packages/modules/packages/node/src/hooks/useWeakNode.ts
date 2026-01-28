@@ -1,5 +1,5 @@
 import { usePromise } from '@xylabs/react-promise'
-import { isDefined } from '@xylabs/typeof'
+import { isDefined } from '@xylabs/sdk-js'
 import type { NodeInstance } from '@xyo-network/node-model'
 import { asNodeInstance } from '@xyo-network/node-model'
 

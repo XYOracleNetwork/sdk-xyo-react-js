@@ -1,6 +1,6 @@
 import { delay } from '@xylabs/delay'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import { isDefined } from '@xylabs/typeof'
+import { isDefined } from '@xylabs/sdk-js'
 import { Huri } from '@xyo-network/huri'
 import type {
   ModuleError, Payload, WithSources,

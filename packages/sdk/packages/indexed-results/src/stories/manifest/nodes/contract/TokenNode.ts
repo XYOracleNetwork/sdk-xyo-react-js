@@ -10,5 +10,5 @@ export const TokenManifestNode: CreatablePackageManifest = (locator: ModuleFacto
   locator.register(MemoryBoundWitnessDiviner.factory())
   locator.register(GenericPayloadDiviner.factory())
 
-  return tokenNodeManifest as PackageManifestPayload
+  return tokenNodeManifest as unknown as PackageManifestPayload
 }

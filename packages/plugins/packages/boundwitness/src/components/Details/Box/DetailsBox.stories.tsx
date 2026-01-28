@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react-vite'
-import type { Payload } from '@xyo-network/payload-model'
+import { asSchema, type Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
 import { sampleAddressHistory } from '@xyo-network/react-storybook'
 import React, { useRef } from 'react'
@@ -33,7 +33,7 @@ WithNoData.args = {
     payload_hashes: [],
     payload_schemas: [],
     previous_hashes: [],
-    schema: 'network.xyo.boundwitness',
+    schema: asSchema('network.xyo.boundwitness', true),
   } as Payload,
 }
 
@@ -53,7 +53,7 @@ WithNestedBWPayloads.args = {
     payload_schemas: ['network.xyo.boundwitness', 'network.xyo.id', 'network.xyo.query.archivist.insert'],
     previous_hashes: ['d67b91381ca8015613361470ff3e5dad3618d0ba471af21a1db89b0024c9322e'],
     query: 'c8ab93c970f4ef0d68ee22efd0119f228c089ae77551eda6e707b24bcec589ec',
-    schema: 'network.xyo.boundwitness.query',
+    schema: asSchema('network.xyo.boundwitness.query', true),
     timestamp: 1_676_043_487_737,
   } as Payload,
 }

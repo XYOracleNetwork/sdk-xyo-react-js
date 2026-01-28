@@ -1,7 +1,7 @@
 import { Chip } from '@mui/material'
 import type { Meta, StoryFn } from '@storybook/react-vite'
-import { isDefined } from '@xylabs/typeof'
-import type { Payload } from '@xyo-network/payload-model'
+import { isDefined } from '@xylabs/sdk-js'
+import { asSchema, type Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
 import { sampleIdPayload, sampleSystemInfoBrowserPayload } from '@xyo-network/react-storybook'
 import React, { useState } from 'react'
@@ -16,7 +16,7 @@ const payloads: Payload[] = [
   sampleIdPayload,
   sampleSystemInfoBrowserPayload,
   sampleIdPayload,
-  { schema: 'network.xyo.debug.super.long.schema.for.some.reason' },
+  { schema: asSchema('network.xyo.debug.super.long.schema.for.some.reason', true) },
   sampleSystemInfoBrowserPayload,
   sampleIdPayload,
   sampleSystemInfoBrowserPayload,

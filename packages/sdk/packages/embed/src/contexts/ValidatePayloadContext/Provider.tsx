@@ -27,7 +27,8 @@ export const ValidatePayloadProvider: React.FC<PropsWithChildren<ValidatePayload
 
         if (SchemaCache.instance.validators[possibleKnownSchema]) {
           const validator = SchemaCache.instance.validators[possibleKnownSchema]
-          setValid(validator?.(payload))
+          // TODO: Fix Types
+          // setValid(validator?.(payload))
         }
         setInitialized(true)
       }

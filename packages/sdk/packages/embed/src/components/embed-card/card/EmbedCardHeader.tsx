@@ -4,7 +4,7 @@ import {
   Avatar, CardHeader, Chip,
 } from '@mui/material'
 import { FlexRow } from '@xylabs/react-flexbox'
-import { isDefined } from '@xylabs/typeof'
+import { isDefined } from '@xylabs/sdk-js'
 import React from 'react'
 
 import { useEmbedPluginState, useResolvePayload } from '../../../contexts/index.ts'

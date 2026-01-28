@@ -3,7 +3,7 @@ import type {
   Decorator, Meta, StoryFn,
 } from '@storybook/react-vite'
 import { delay } from '@xylabs/delay'
-import type { Payload } from '@xyo-network/payload-model'
+import { asSchema, type Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
@@ -15,7 +15,7 @@ const newPayloads = () =>
     // eslint-disable-next-line unicorn/no-useless-undefined
     .fill(undefined)
     .map((_, index) => ({
-      index, random: Math.random(), schema: 'network.xyo.stories.test',
+      index, random: Math.random(), schema: asSchema('network.xyo.stories.test', true),
     }))
 
 // simulating the end of the list

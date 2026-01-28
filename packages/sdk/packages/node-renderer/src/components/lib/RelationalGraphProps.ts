@@ -1,5 +1,5 @@
-import type { Address } from '@xylabs/hex'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
+import type { Address } from '@xylabs/sdk-js'
 import type { NodeInstance } from '@xyo-network/node-model'
 import type { CytoscapeOptions } from 'cytoscape'
 import type { PropsWithChildren, ReactNode } from 'react'

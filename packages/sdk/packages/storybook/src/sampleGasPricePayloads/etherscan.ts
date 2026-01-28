@@ -1,3 +1,5 @@
+import { asSchema } from '@xyo-network/payload-model'
+
 export const sampleEtherscanGasPricePayload = {
   message: 'OK',
   result: {
@@ -8,7 +10,7 @@ export const sampleEtherscanGasPricePayload = {
     gasUsedRatio: '0.4491729,0.440816333333333,0.480461266666667,0.373305033333333,0.322907566666667',
     suggestBaseFee: '33.952097068',
   },
-  schema: 'network.xyo.blockchain.ethereum.gas.etherscan',
+  schema: asSchema('network.xyo.blockchain.ethereum.gas.etherscan', true),
   status: '1',
   timestamp: 1_670_437_200_510,
 }

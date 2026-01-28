@@ -1,4 +1,5 @@
 import { GeographicCoordinateSystemLocationSchema } from '@xyo-network/location-payload-plugin'
+import { asSchema } from '@xyo-network/payload-model'
 
 export const gcsLocationPayload = {
   accuracy: 58,
@@ -10,7 +11,7 @@ export const gcsLocationPayload = {
 }
 
 export const currentLocationPayload = {
-  schema: 'network.xyo.location.current',
+  schema: asSchema('network.xyo.location.current', true),
   currentLocation: {
     coords: {
       accuracy: 600,

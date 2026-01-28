@@ -1,6 +1,5 @@
-import type { EmptyObject } from '@xylabs/object'
 import type { UserEventHandler } from '@xylabs/pixel'
-import type { Promisable } from '@xylabs/promise'
+import type { EmptyObject, Promisable } from '@xylabs/sdk-js'
 
 export interface XnsEstimateFields extends EmptyObject {
   name: string

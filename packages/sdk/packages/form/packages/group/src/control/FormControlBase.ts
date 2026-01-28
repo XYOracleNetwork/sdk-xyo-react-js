@@ -1,4 +1,4 @@
-import type { EmptyObject } from '@xylabs/object'
+import type { EmptyObject } from '@xylabs/sdk-js'
 
 import { AbstractControl } from './AbstractControl.ts'
 import type { SetOptions } from './accessor/index.ts'

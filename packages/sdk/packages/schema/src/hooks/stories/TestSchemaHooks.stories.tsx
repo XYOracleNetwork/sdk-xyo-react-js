@@ -4,9 +4,9 @@ import {
 import type {
   Decorator, Meta, StoryFn,
 } from '@storybook/react-vite'
-import type { Address } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
+import type { Address } from '@xylabs/sdk-js'
 import { HttpBridge, HttpBridgeConfigSchema } from '@xyo-network/bridge-http'
 import { MemoryNode } from '@xyo-network/node-memory'
 import { NodeConfigSchema } from '@xyo-network/node-model'

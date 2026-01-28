@@ -1,5 +1,5 @@
-import type { EmptyObject } from '@xylabs/object'
 import type { GoogleCartProperties, GooglePurchaseProperties } from '@xylabs/react-pixel'
+import type { EmptyObject } from '@xylabs/sdk-js'
 
 import type { CustomProperties } from './CustomProperties.ts'
 import { GoogleEvents } from './Google/index.ts'

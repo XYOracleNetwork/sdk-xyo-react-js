@@ -1,3 +1,5 @@
+import { asSchema } from '@xyo-network/payload-model'
+
 export const MockSourcePayloads = () => {
   const tenMin = 600_000
   return [
@@ -9,7 +11,7 @@ export const MockSourcePayloads = () => {
       priorityFeePerGas: {
         high: 1.026_666_666_666_666_6, low: -0.410_000_000_000_000_03, medium: 0.38, veryHigh: 1.390_000_000_000_000_1,
       },
-      schema: 'network.xyo.blockchain.ethereum.gas',
+      schema: asSchema('network.xyo.blockchain.ethereum.gas', true),
       timestamp: Date.now() - tenMin,
     },
     {
@@ -20,7 +22,7 @@ export const MockSourcePayloads = () => {
       priorityFeePerGas: {
         high: 1.026_666_666_666_666_6, low: -0.410_000_000_000_000_03, medium: 0.38, veryHigh: 1.390_000_000_000_000_1,
       },
-      schema: 'network.xyo.blockchain.ethereum.gas',
+      schema: asSchema('network.xyo.blockchain.ethereum.gas', true),
       timestamp: Date.now(),
     },
   ]

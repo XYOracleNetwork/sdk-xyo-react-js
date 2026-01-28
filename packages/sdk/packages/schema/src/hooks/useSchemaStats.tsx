@@ -1,5 +1,5 @@
-import type { Address } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
+import type { Address } from '@xylabs/sdk-js'
 import type {
   SchemaStatsPayload,
   SchemaStatsQueryPayload,

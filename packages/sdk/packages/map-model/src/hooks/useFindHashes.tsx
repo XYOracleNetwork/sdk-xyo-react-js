@@ -1,4 +1,4 @@
-import type { Hash } from '@xylabs/hex'
+import type { Hash } from '@xylabs/sdk-js'
 import type { ArchivistPreset } from '@xyo-network/react-network'
 import { useNetwork } from '@xyo-network/react-network'
 import { useMemo } from 'react'

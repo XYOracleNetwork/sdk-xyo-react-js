@@ -1,7 +1,7 @@
 import type { Payload } from '@xyo-network/payload-model'
-import { isPayloadOfSchemaType } from '@xyo-network/payload-model'
+import { asSchema, isPayloadOfSchemaType } from '@xyo-network/payload-model'
 
-export const PriceWidgetConfigSchema = 'network.xyo.price.widget.config' as const
+export const PriceWidgetConfigSchema = asSchema('network.xyo.price.widget.config', true)
 export type PriceWidgetConfigSchema = typeof PriceWidgetConfigSchema
 
 export type PriceWidgetConfigFields = {

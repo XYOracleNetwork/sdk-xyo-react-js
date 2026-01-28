@@ -1,6 +1,6 @@
 import { CardContent } from '@mui/material'
 import { FlexGrowRow } from '@xylabs/react-flexbox'
-import { isTruthy } from '@xylabs/typeof'
+import { isTruthy } from '@xylabs/sdk-js'
 import { useListMode } from '@xyo-network/react-shared'
 import React from 'react'
 

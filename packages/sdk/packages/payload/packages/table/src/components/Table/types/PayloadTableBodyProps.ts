@@ -1,5 +1,5 @@
 import type { TableBodyProps, TableRowProps } from '@mui/material'
-import type { Hash } from '@xylabs/hex'
+import type { Hash } from '@xylabs/sdk-js'
 import type { Payload } from '@xyo-network/payload-model'
 import type { ComponentType, PropsWithChildren } from 'react'
 

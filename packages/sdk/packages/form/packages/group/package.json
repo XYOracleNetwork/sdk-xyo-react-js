@@ -48,9 +48,10 @@
     "@xylabs/object": "~5.0.64",
     "@xylabs/promise": "~5.0.64",
     "@xylabs/react-shared": "~7.1.9",
-    "@xyo-network/archivist-model": "~5.2.27",
-    "@xyo-network/module-event-emitter": "~5.2.27",
-    "@xyo-network/payload-model": "~5.2.27"
+    "@xylabs/sdk-js": "~5.0.64",
+    "@xyo-network/archivist-model": "~5.3.2",
+    "@xyo-network/module-event-emitter": "~5.3.2",
+    "@xyo-network/payload-model": "~5.3.2"
   },
   "devDependencies": {
     "@mui/icons-material": "~7.3.7",
@@ -66,13 +67,15 @@
     "react-dom": "^19.2.4",
     "storybook": "~10.2.1",
     "typescript": "^5.9.3",
-    "vite": "~7.3.1"
+    "vite": "~7.3.1",
+    "zod": "^4.3.6"
   },
   "peerDependencies": {
     "@mui/icons-material": ">=6 <8",
     "@mui/material": ">=6 <8",
     "react": "^19",
-    "react-dom": "^19"
+    "react-dom": "^19",
+    "zod": "^4"
   },
   "publishConfig": {
     "access": "public"

@@ -1,5 +1,5 @@
-import type { Hash } from '@xylabs/hex'
 import { usePromise } from '@xylabs/react-promise'
+import type { Hash } from '@xylabs/sdk-js'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
 import { type Payload } from '@xyo-network/payload-model'
 

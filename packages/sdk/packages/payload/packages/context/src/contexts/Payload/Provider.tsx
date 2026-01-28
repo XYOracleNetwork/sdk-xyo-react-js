@@ -1,5 +1,5 @@
-import type { Hash } from '@xylabs/hex'
 import { usePromise } from '@xylabs/react-promise'
+import type { Hash } from '@xylabs/sdk-js'
 import type { ArchivistInstance, ArchivistModuleInstance } from '@xyo-network/archivist-model'
 import type { Payload } from '@xyo-network/payload-model'
 import type { PropsWithChildren } from 'react'

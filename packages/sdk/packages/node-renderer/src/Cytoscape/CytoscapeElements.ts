@@ -1,5 +1,5 @@
 import { exists } from '@xylabs/exists'
-import { isFalsy } from '@xylabs/typeof'
+import { isFalsy } from '@xylabs/sdk-js'
 import type { ModuleInstance } from '@xyo-network/module-model'
 import type { ElementDefinition } from 'cytoscape'
 

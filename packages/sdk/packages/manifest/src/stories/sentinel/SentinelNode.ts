@@ -10,5 +10,5 @@ export const SentinelManifestNode: CreatablePackageManifest = (locator: ModuleFa
   locator.register(TimestampWitness.factory())
   locator.register(AddDayDiviner.factory())
 
-  return sentinelManifest as PackageManifestPayload
+  return sentinelManifest as unknown as PackageManifestPayload
 }

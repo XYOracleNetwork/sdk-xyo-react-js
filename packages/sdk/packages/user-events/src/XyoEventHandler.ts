@@ -1,9 +1,8 @@
-import type { EmptyObject } from '@xylabs/object'
 import type {
   FunnelStartedFields, PurchaseFields, TestStartedFields, UserClickFields, ViewContentFields,
 } from '@xylabs/pixel'
 import { UserEventHandler } from '@xylabs/pixel'
-import type { Promisable } from '@xylabs/promise'
+import type { EmptyObject, Promisable } from '@xylabs/sdk-js'
 
 import type {
   XnsEstimateAttemptedFields, XnsEstimateFailureFields, XnsEstimateSuccessFields,

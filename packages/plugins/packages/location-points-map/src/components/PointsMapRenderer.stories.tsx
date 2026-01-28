@@ -3,6 +3,7 @@
 import type {
   Decorator, Meta, StoryFn,
 } from '@storybook/react-vite'
+import { asSchema } from '@xyo-network/payload-model'
 import { MapboxAccessTokenProvider } from '@xyo-network/react-map-model'
 import React from 'react'
 
@@ -40,7 +41,7 @@ WithData.args = { payload: locationRangeAnswerPayload }
 
 const missingData = {
   result: { features: [] },
-  schema: 'network.xyo.location.range.answer',
+  schema: asSchema('network.xyo.location.range.answer', true),
 }
 
 const WithNoData = Template.bind({})

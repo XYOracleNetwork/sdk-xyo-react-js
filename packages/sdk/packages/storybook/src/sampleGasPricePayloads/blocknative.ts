@@ -1,3 +1,5 @@
+import { asSchema } from '@xyo-network/payload-model'
+
 export const sampleBlocknativeGasPricePayload = {
   blockPrices: [
     {
@@ -84,7 +86,7 @@ export const sampleBlocknativeGasPricePayload = {
   maxPrice: 64,
   msSinceLastBlock: 9645,
   network: 'main',
-  schema: 'network.xyo.blockchain.ethereum.gas.blocknative',
+  schema: asSchema('network.xyo.blockchain.ethereum.gas.blocknative', true),
   system: 'ethereum',
   timestamp: 1_670_437_800_246,
   unit: 'gwei',

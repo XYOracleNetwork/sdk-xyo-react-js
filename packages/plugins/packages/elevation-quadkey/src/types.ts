@@ -1,9 +1,9 @@
 import type { Payload } from '@xyo-network/payload-model'
-import { isPayloadOfSchemaType } from '@xyo-network/payload-model'
+import { asSchema, isPayloadOfSchemaType } from '@xyo-network/payload-model'
 import type { NetworkLocationAnswerBase } from '@xyo-network/react-map-model'
 
-export const NetworkElevationQuadkeyAnswerSchema = 'network.xyo.elevation.map.quadkey.answer' as const
-export type NetworkElevationQuadkeyAnswerSchema = 'network.xyo.elevation.map.quadkey.answer'
+export const NetworkElevationQuadkeyAnswerSchema = asSchema('network.xyo.elevation.map.quadkey.answer', true)
+export type NetworkElevationQuadkeyAnswerSchema = typeof NetworkElevationQuadkeyAnswerSchema
 
 export type NetworkElevationQuadkeyAnswerPayload = Payload<
   NetworkLocationAnswerBase<

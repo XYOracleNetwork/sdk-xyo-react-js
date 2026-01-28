@@ -1,5 +1,6 @@
 import type { CoingeckoCryptoMarketPayload } from '@xyo-network/coingecko-crypto-market-payload-plugin'
 import { CoingeckoCryptoMarketSchema } from '@xyo-network/coingecko-crypto-market-payload-plugin'
+import { asSchema } from '@xyo-network/payload-model'
 
 export const payloadData: CoingeckoCryptoMarketPayload = {
   assets: {
@@ -52,6 +53,6 @@ export const payloadData: CoingeckoCryptoMarketPayload = {
 
 export const payloadDataMissingAssets = {
   assets: {},
-  schema: 'network.xyo.crypto.market.coingecko',
+  schema: asSchema('network.xyo.crypto.market.coingecko', true),
   timestamp: 1_659_071_465_718,
 }

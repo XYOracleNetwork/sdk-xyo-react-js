@@ -1,4 +1,4 @@
-import { isDefined } from '@xylabs/typeof'
+import { isDefined } from '@xylabs/sdk-js'
 import type { CytoscapeOptions } from 'cytoscape'
 import { useMemo } from 'react'
 

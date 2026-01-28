@@ -8,5 +8,5 @@ import archivistManifest from './archivist-manifest.json' with { type: 'json' }
 export const ArchivistManifestNode: CreatablePackageManifest = (locator: ModuleFactoryLocator): PackageManifestPayload => {
   locator.register(GenericPayloadDiviner.factory())
 
-  return archivistManifest as PackageManifestPayload
+  return archivistManifest as unknown as PackageManifestPayload
 }

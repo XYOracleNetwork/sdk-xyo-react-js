@@ -7,10 +7,10 @@ import type { TableRowProps } from '@mui/material'
 import {
   alpha, Link, TableCell, TableRow, Typography,
 } from '@mui/material'
-import type { Hash } from '@xylabs/hex'
 import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { isDefined } from '@xylabs/typeof'
+import type { Hash } from '@xylabs/sdk-js'
+import { isDefined } from '@xylabs/sdk-js'
 import type { Payload } from '@xyo-network/payload-model'
 import { PayloadValidator } from '@xyo-network/payload-validator'
 import { useEvent } from '@xyo-network/react-event'

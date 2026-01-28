@@ -2,6 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react-vite'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
 import { IdWitness } from '@xyo-network/id-plugin'
+import type { WitnessInstance } from '@xyo-network/witness-model'
 import React from 'react'
 
 import { WitnessCard } from './Card.tsx'
@@ -19,7 +20,7 @@ const IdWitnessTemplate: StoryFn<typeof WitnessCard> = () => {
 
   return (
     <FlexCol gap={2}>
-      <WitnessCard mod={witness} />
+      <WitnessCard mod={witness as unknown as WitnessInstance} />
     </FlexCol>
   )
 }

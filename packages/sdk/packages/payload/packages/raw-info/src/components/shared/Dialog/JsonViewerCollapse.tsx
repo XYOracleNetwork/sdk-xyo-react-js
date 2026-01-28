@@ -2,9 +2,9 @@ import type { CollapseProps } from '@mui/material'
 import {
   Button, Chip, Collapse, Typography,
 } from '@mui/material'
-import type { JsonValue } from '@xylabs/object'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
+import type { JsonValue } from '@xylabs/sdk-js'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
 import { isAnyPayload } from '@xyo-network/payload-model'
 import { useDataState } from '@xyo-network/react-shared'

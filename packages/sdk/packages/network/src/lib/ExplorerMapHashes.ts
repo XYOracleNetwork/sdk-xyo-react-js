@@ -1,4 +1,4 @@
-import type { Hash } from '@xylabs/hex'
+import type { Hash } from '@xylabs/sdk-js'
 export const ExplorerMapHashes: { animatedAnswerHashes: Hash[]; staticAnswerHash: Hash } = {
   animatedAnswerHashes: [
     '79af071f451fc7af10d009dc63236ef9a9b211732c1ee0c06f028fcecf2336c5',

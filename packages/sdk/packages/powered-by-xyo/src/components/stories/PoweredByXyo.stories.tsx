@@ -1,9 +1,9 @@
 import type { Meta, StoryFn } from '@storybook/react-vite'
 import { delay } from '@xylabs/delay'
-import type { Hash } from '@xylabs/hex'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { usePromise } from '@xylabs/react-promise'
+import type { Hash } from '@xylabs/sdk-js'
 import { asArchivistInstance } from '@xyo-network/archivist-model'
 import type { PackageManifestPayload } from '@xyo-network/manifest'
 import { ManifestWrapper } from '@xyo-network/manifest'
@@ -34,7 +34,7 @@ const TemplateWithNodeContainer: StoryFn<typeof PoweredByXyo> = (props: PoweredB
   useAsyncEffect(
     async () => {
       const wallet = await HDWallet.random()
-      const manifest = new ManifestWrapper(simpleNodeInlineManifest as PackageManifestPayload, wallet, new ModuleFactoryLocator())
+      const manifest = new ManifestWrapper(simpleNodeInlineManifest as unknown as PackageManifestPayload, wallet, new ModuleFactoryLocator())
       const [node] = await manifest.loadNodes()
       setNode(node)
     },

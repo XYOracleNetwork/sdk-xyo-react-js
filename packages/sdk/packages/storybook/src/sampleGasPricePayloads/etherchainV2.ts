@@ -1,3 +1,5 @@
+import { asSchema } from '@xyo-network/payload-model'
+
 export const sampleEtherchainV2GasPricePayload = {
   code: 200,
   data: {
@@ -8,6 +10,6 @@ export const sampleEtherchainV2GasPricePayload = {
     standard: 21_366_997_291,
     timestamp: 1_670_437_795_342,
   },
-  schema: 'network.xyo.blockchain.ethereum.gas.etherchain.v2',
+  schema: asSchema('network.xyo.blockchain.ethereum.gas.etherchain.v2', true),
   timestamp: 1_670_437_800_338,
 }

@@ -1,6 +1,6 @@
-import type { Hash } from '@xylabs/hex'
 import type { ContextExProviderProps } from '@xylabs/react-shared'
 import { useMounted } from '@xylabs/react-shared'
+import type { Hash } from '@xylabs/sdk-js'
 import type { ArchivistInstance } from '@xyo-network/archivist-model'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { PayloadBuilder } from '@xyo-network/payload-builder'

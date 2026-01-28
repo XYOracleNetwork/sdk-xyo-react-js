@@ -2,6 +2,7 @@ import { Typography } from '@mui/material'
 import type {
   Decorator, Meta, StoryFn,
 } from '@storybook/react-vite'
+import { asSchema } from '@xyo-network/payload-model'
 import React from 'react'
 
 import type { EmbedPluginState } from '../EmbedPluginContext/index.ts'
@@ -58,8 +59,8 @@ const Template: StoryFn<React.FC<ValidatePayloadProviderPropsEx>> = (props) => {
   )
 }
 
-const InvalidPayload = { schema: 'network.xyo.schema' }
-const ValidPayload = { definition: { $id: 'test.schema' }, schema: 'network.xyo.schema' }
+const InvalidPayload = { schema: asSchema('network.xyo.schema', true) }
+const ValidPayload = { definition: { $id: 'test.schema' }, schema: asSchema('network.xyo.schema', true) }
 const stubProviderDefaultValue = { provided: true }
 
 const Default = Template.bind({})

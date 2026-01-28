@@ -1,4 +1,4 @@
-import { isUndefinedOrNull } from '@xylabs/typeof'
+import { isUndefinedOrNull } from '@xylabs/sdk-js'
 
 export const appendSvg = (iconSrc?: string, container?: HTMLElement | null) => {
   if (isUndefinedOrNull(iconSrc) || isUndefinedOrNull(container)) return null

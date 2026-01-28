@@ -1,7 +1,7 @@
 import { usePromise } from '@xylabs/react-promise'
 import {
   isDefined, isDefinedNotNull, isTruthy,
-} from '@xylabs/typeof'
+} from '@xylabs/sdk-js'
 import type { ModuleInstance } from '@xyo-network/module-model'
 import {
   useCallback, useEffect, useState,

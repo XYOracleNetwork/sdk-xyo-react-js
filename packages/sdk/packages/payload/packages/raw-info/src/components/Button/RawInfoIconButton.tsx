@@ -1,6 +1,6 @@
 import type { IconButtonProps } from '@mui/material'
 import { IconButton } from '@mui/material'
-import { toSafeJson } from '@xylabs/object'
+import { toSafeJson } from '@xylabs/sdk-js'
 import type { MouseEventHandler, ReactNode } from 'react'
 import React, { useMemo, useState } from 'react'
 

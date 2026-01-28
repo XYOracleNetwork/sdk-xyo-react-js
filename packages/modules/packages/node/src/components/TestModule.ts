@@ -1,9 +1,11 @@
 import { AbstractModuleInstance } from '@xyo-network/module-abstract'
 import type { ModuleConfig, ModuleParams } from '@xyo-network/module-model'
-import type { Query, Schema } from '@xyo-network/payload-model'
+import {
+  asSchema, type Query, type Schema,
+} from '@xyo-network/payload-model'
 
-export type TestModuleConfigSchema = 'network.xyo.test.module'
-export const TestModuleConfigSchema: TestModuleConfigSchema = 'network.xyo.test.module'
+export const TestModuleConfigSchema = asSchema('network.xyo.test.module', true)
+export type TestModuleConfigSchema = typeof TestModuleConfigSchema
 
 export class TestModule extends AbstractModuleInstance<ModuleParams<ModuleConfig<{ schema: TestModuleConfigSchema }>>> {
   static override readonly configSchemas: Schema[] = [...super.configSchemas, TestModuleConfigSchema]

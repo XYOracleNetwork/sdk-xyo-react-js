@@ -1,6 +1,6 @@
 import { usePromise } from '@xylabs/react-promise'
 import { type Utm, UtmSchema } from '@xyo-network/advertising-payload-plugins'
-import type { Payload } from '@xyo-network/payload-model'
+import { asSchema, type Payload } from '@xyo-network/payload-model'
 import { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
@@ -19,7 +19,7 @@ export const useCaptureUtmLocation = (removeAfterCapture = true) => {
 
   const utmPayload = useMemo(() => {
     // Construct the base UTM payload
-    const utm: Payload<Utm, UtmSchema> = { schema: UtmSchema }
+    const utm: Payload<Utm> = { schema: asSchema(UtmSchema, true) }
 
     // determine if there's a utm field that still has a value
     // if there is none, it means that either the page loaded

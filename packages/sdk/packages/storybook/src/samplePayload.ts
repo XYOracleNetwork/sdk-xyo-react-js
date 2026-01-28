@@ -1,21 +1,24 @@
-import type { Payload } from '@xyo-network/payload-model'
+import { asSchema, type Payload } from '@xyo-network/payload-model'
+
+const TempSchema = asSchema('network.xyo.temp', true)
+type TempSchema = typeof TempSchema
 
 type TestPayload = Payload<
   {
     test: string
   },
-  'network.xyo.temp'
+  TempSchema
 >
 
 // needs to be in a function since cjs doesn't support top level awaits
 export const samplePayloadFromBuilder = {
-  ...({ schema: 'network.xyo.temp', test: 'hello' } as TestPayload),
+  ...({ schema: TempSchema, test: 'hello' } as TestPayload),
   _archive: 'temp',
 }
 
 export const sampleIdPayload = {
   salt: '81b2372a-b4f0-4ab5-8642-c4e6de46a1cf',
-  schema: 'network.xyo.id',
+  schema: asSchema('network.xyo.id', true),
 }
 
 export const sampleSystemInfoBrowserPayload = {
@@ -33,5 +36,5 @@ export const sampleSystemInfoBrowserPayload = {
     },
     platform: { type: 'desktop' },
   },
-  schema: 'network.xyo.system.info.browser',
+  schema: asSchema('network.xyo.system.info.browser', true),
 }

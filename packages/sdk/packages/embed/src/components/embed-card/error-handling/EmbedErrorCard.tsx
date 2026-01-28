@@ -2,7 +2,7 @@ import type { AlertProps, CardProps } from '@mui/material'
 import {
   Alert, AlertTitle, Card, CardContent, Typography,
 } from '@mui/material'
-import { isDefined } from '@xylabs/typeof'
+import { isDefined } from '@xylabs/sdk-js'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
 

@@ -1,5 +1,5 @@
-import type { Address } from '@xylabs/hex'
 import { usePromise } from '@xylabs/react-promise'
+import type { Address } from '@xylabs/sdk-js'
 import type { SchemaListPayload, SchemaListQueryPayload } from '@xyo-network/diviner-schema-list-model'
 import { SchemaListQuerySchema } from '@xyo-network/diviner-schema-list-model'
 import { useWeakDivinerFromNode } from '@xyo-network/react-diviner'

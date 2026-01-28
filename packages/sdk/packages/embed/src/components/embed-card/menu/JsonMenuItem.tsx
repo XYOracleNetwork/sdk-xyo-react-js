@@ -3,7 +3,7 @@ import type { MenuItemProps } from '@mui/material'
 import {
   ListItemIcon, ListItemText, MenuItem,
 } from '@mui/material'
-import { isDefined } from '@xylabs/typeof'
+import { isDefined } from '@xylabs/sdk-js'
 import React from 'react'
 
 import { useResolvePayload } from '../../../contexts/index.ts'
