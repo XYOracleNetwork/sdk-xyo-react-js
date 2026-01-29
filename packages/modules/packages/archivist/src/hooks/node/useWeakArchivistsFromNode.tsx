@@ -1,4 +1,4 @@
-import { exists } from '@xylabs/exists'
+import { exists } from '@xylabs/sdk-js'
 import type { ArchivistInstance } from '@xyo-network/archivist-model'
 import { asArchivistInstance } from '@xyo-network/archivist-model'
 import type { ModuleIdentifier } from '@xyo-network/module-model'

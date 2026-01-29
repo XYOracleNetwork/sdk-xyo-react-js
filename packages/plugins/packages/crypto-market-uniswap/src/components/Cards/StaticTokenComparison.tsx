@@ -1,7 +1,7 @@
 import type { PaperProps } from '@mui/material'
 import { Link, Paper } from '@mui/material'
-import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { useIsDark } from '@xylabs/react-theme'
+import { toDecimalPrecision } from '@xylabs/sdk-js'
 import {
   getTokenData,
   TokenBar, TokenSummary,

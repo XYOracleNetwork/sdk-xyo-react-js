@@ -1,5 +1,5 @@
-import type { EnumValue } from '@xylabs/enum'
-import { Enum } from '@xylabs/enum'
+import type { EnumValue } from '@xylabs/sdk-js'
+import { Enum } from '@xylabs/sdk-js'
 
 export const SystemControlsType = Enum({
   Left: 'Left',

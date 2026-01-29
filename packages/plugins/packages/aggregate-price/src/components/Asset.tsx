@@ -2,10 +2,10 @@ import type { CardProps, PaperProps } from '@mui/material'
 import {
   Card, CardContent, Divider, Link, Paper,
 } from '@mui/material'
-import { toDecimalPrecision } from '@xylabs/decimal-precision'
 import { FlexCol } from '@xylabs/react-flexbox'
 import { QuickTipButton } from '@xylabs/react-quick-tip-button'
 import { useIsDark } from '@xylabs/react-theme'
+import { toDecimalPrecision } from '@xylabs/sdk-js'
 import type { AssetInfo } from '@xyo-network/crypto-asset-payload-plugin'
 import {
   getTokenData,

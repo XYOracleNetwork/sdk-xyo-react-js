@@ -1,6 +1,5 @@
-import { assertEx } from '@xylabs/assert'
-import { delay } from '@xylabs/delay'
 import { forget } from '@xylabs/forget'
+import { assertEx, delay } from '@xylabs/sdk-js'
 import { GeoJson } from '@xyo-network/sdk-geo'
 import type { Feature, Polygon } from 'geojson'
 import type {

@@ -1,4 +1,4 @@
-import { exists } from '@xylabs/exists'
+import { exists } from '@xylabs/sdk-js'
 import type { DivinerInstance } from '@xyo-network/diviner-model'
 import { asDivinerInstance } from '@xyo-network/diviner-model'
 import type { ModuleIdentifier } from '@xyo-network/module-model'

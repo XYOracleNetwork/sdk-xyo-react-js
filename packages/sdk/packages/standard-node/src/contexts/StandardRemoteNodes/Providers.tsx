@@ -1,6 +1,6 @@
-import { assertDefinedEx } from '@xylabs/assert'
 import { useResetState } from '@xylabs/react-hooks'
 import { usePromise } from '@xylabs/react-promise'
+import { assertDefinedEx } from '@xylabs/sdk-js'
 import type { MemoryNode } from '@xyo-network/node-memory'
 import { useWalletContext } from '@xyo-network/react-wallet'
 import type { WalletInstance } from '@xyo-network/wallet-model'

@@ -1,4 +1,4 @@
-import { assertDefinedEx } from '@xylabs/assert'
+import { assertDefinedEx } from '@xylabs/sdk-js'
 import type { AccountInstance } from '@xyo-network/account-model'
 import type { ArchivistModuleInstance } from '@xyo-network/archivist-model'
 import { asArchivistInstance } from '@xyo-network/archivist-model'

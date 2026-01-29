@@ -1,4 +1,4 @@
-import { assertDefinedEx } from '@xylabs/assert'
+import { assertDefinedEx } from '@xylabs/sdk-js'
 import type { MemoryNode } from '@xyo-network/node-memory'
 import { defaultNetworkConfigs } from '@xyo-network/react-network'
 import type { WalletInstance } from '@xyo-network/wallet-model'

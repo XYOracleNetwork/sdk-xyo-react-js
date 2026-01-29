@@ -43,8 +43,8 @@
     "src"
   ],
   "dependencies": {
-    "@xylabs/react-flexbox": "~7.1.9",
-    "@xylabs/react-theme": "~7.1.9",
+    "@xylabs/react-flexbox": "~7.1.12",
+    "@xylabs/react-theme": "~7.1.12",
     "@xyo-network/react-shared": "7.5.0"
   },
   "devDependencies": {
@@ -62,14 +62,16 @@
     "react-router-dom": "^7.13.0",
     "storybook": "~10.2.1",
     "typescript": "^5.9.3",
-    "vite": "~7.3.1"
+    "vite": "~7.3.1",
+    "zod": "^4.3.6"
   },
   "peerDependencies": {
     "@mui/icons-material": ">=6 <8",
     "@mui/material": ">=6 <8",
     "react": "^19",
     "react-dom": "^19",
-    "react-router-dom": "^7"
+    "react-router-dom": "^7",
+    "zod": "^4"
   },
   "publishConfig": {
     "access": "public"

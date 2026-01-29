@@ -1,7 +1,7 @@
 import { Extension as ExtensionIcon } from '@mui/icons-material'
-import { delay } from '@xylabs/delay'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol, FlexRow } from '@xylabs/react-flexbox'
+import { delay } from '@xylabs/sdk-js'
 import type { ModuleInstance } from '@xyo-network/module-model'
 import { useWeakModulesFromNode } from '@xyo-network/react-node'
 import { TypographyEx } from '@xyo-network/react-shared'

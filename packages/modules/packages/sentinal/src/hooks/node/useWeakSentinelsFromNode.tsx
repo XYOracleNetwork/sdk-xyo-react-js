@@ -1,4 +1,4 @@
-import { exists } from '@xylabs/exists'
+import { exists } from '@xylabs/sdk-js'
 import type { ModuleIdentifier } from '@xyo-network/module-model'
 import type { ModuleFromNodeConfig } from '@xyo-network/react-node'
 import { useWeakModulesFromNode } from '@xyo-network/react-node'

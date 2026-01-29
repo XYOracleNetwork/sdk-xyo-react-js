@@ -1,8 +1,8 @@
 import { MenuItem } from '@mui/material'
-import { assertEx } from '@xylabs/assert'
 import type { SelectExProps } from '@xylabs/react-select'
 import { SelectEx } from '@xylabs/react-select'
 import { useBreakpoint } from '@xylabs/react-shared'
+import { assertEx } from '@xylabs/sdk-js'
 import React from 'react'
 
 import { useNetwork } from '../../contexts/index.ts'

@@ -1,4 +1,4 @@
-import { exists } from '@xylabs/exists'
+import { exists } from '@xylabs/sdk-js'
 import type { NetworkLocationHeatmapQuadkeyAnswerPayload } from '@xyo-network/react-map-model'
 import { GeoJson } from '@xyo-network/sdk-geo'
 import type { Feature, Geometry } from 'geojson'

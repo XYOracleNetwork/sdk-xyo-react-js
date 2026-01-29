@@ -1,4 +1,4 @@
-import { assertEx } from '@xylabs/assert'
+import { assertEx } from '@xylabs/sdk-js'
 import { GeoJson } from '@xyo-network/sdk-geo'
 import type { Feature, Geometry } from 'geojson'
 import type { GeoJSONSource, Map } from 'mapbox-gl'

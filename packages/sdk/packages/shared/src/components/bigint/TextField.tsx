@@ -4,8 +4,7 @@ import type {
 import {
   FormControl, FormHelperText, TextField,
 } from '@mui/material'
-import { toFixedPoint } from '@xylabs/decimal-precision'
-import { isDefined } from '@xylabs/sdk-js'
+import { isDefined, toFixedPoint } from '@xylabs/sdk-js'
 import type { FocusEventHandler } from 'react'
 import React, {
   useEffect, useMemo, useState,

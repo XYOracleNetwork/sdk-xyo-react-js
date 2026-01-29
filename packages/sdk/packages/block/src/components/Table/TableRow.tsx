@@ -2,10 +2,9 @@ import type { TableRowProps } from '@mui/material'
 import {
   Link, TableCell, TableRow,
 } from '@mui/material'
-import { exists } from '@xylabs/exists'
 import { usePromise } from '@xylabs/react-promise'
 import { useBreakpoint } from '@xylabs/react-shared'
-import { isDefined } from '@xylabs/sdk-js'
+import { exists, isDefined } from '@xylabs/sdk-js'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { useEvent } from '@xyo-network/react-event'

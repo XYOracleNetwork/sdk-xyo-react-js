@@ -2,7 +2,7 @@ import { Button, Typography } from '@mui/material'
 import type {
   Decorator, Meta, StoryFn,
 } from '@storybook/react-vite'
-import { delay } from '@xylabs/delay'
+import { delay } from '@xylabs/sdk-js'
 import { asSchema, type Payload } from '@xyo-network/payload-model'
 import { useEvent } from '@xyo-network/react-event'
 import React, { useEffect, useState } from 'react'

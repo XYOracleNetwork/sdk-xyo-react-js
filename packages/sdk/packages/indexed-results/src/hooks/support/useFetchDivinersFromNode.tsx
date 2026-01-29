@@ -1,5 +1,5 @@
-import { exists } from '@xylabs/exists'
 import { usePromise } from '@xylabs/react-promise'
+import { exists } from '@xylabs/sdk-js'
 import type { DivinerInstance } from '@xyo-network/diviner-model'
 import { isDivinerInstance } from '@xyo-network/diviner-model'
 import { useProvidedNode } from '@xyo-network/react-node'

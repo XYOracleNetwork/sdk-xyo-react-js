@@ -1,5 +1,5 @@
-import { assertEx } from '@xylabs/assert'
 import { usePromise } from '@xylabs/react-promise'
+import { assertEx } from '@xylabs/sdk-js'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessValidator } from '@xyo-network/boundwitness-validator'
 import { isAnyPayload } from '@xyo-network/payload-model'

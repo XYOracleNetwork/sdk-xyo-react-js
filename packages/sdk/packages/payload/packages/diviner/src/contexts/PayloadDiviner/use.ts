@@ -1,6 +1,6 @@
-import { exists } from '@xylabs/exists'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
 import { useContextEx } from '@xylabs/react-shared'
+import { exists } from '@xylabs/sdk-js'
 import type { HuriPayload } from '@xyo-network/diviner-huri'
 import { HuriSchema } from '@xyo-network/diviner-huri'
 import type { Payload } from '@xyo-network/payload-model'

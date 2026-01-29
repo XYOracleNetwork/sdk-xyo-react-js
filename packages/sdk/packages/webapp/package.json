@@ -44,11 +44,11 @@
   ],
   "dependencies": {
     "@mui/material": "~7.3.7",
-    "@xylabs/react-async-effect": "~7.1.9",
-    "@xylabs/react-button": "~7.1.9",
-    "@xylabs/react-flexbox": "~7.1.9",
-    "@xylabs/react-pixel": "~7.1.9",
-    "@xylabs/react-webapp": "~7.1.9",
+    "@xylabs/react-async-effect": "~7.1.12",
+    "@xylabs/react-button": "~7.1.12",
+    "@xylabs/react-flexbox": "~7.1.12",
+    "@xylabs/react-pixel": "~7.1.12",
+    "@xylabs/react-webapp": "~7.1.12",
     "@xyo-network/react-appbar": "7.5.0",
     "@xyo-network/react-footer": "7.5.0",
     "@xyo-network/react-shared": "7.5.0",
@@ -61,11 +61,11 @@
     "@storybook/react-vite": "~10.2.1",
     "@types/react": "^19.2.10",
     "@types/react-helmet": "~6.1.11",
-    "@xylabs/react-appbar": "~7.1.9",
-    "@xylabs/react-button": "~7.1.9",
-    "@xylabs/react-flexbox": "~7.1.9",
-    "@xylabs/react-link": "~7.1.9",
-    "@xylabs/react-pixel": "~7.1.9",
+    "@xylabs/react-appbar": "~7.1.12",
+    "@xylabs/react-button": "~7.1.12",
+    "@xylabs/react-flexbox": "~7.1.12",
+    "@xylabs/react-link": "~7.1.12",
+    "@xylabs/react-pixel": "~7.1.12",
     "@xylabs/ts-scripts-yarn3": "~7.3.2",
     "@xylabs/tsconfig": "~7.3.2",
     "@xylabs/tsconfig-dom": "~7.3.2",
@@ -73,11 +73,13 @@
     "react-dom": "^19.2.4",
     "storybook": "~10.2.1",
     "typescript": "^5.9.3",
-    "vite": "~7.3.1"
+    "vite": "~7.3.1",
+    "zod": "^4.3.6"
   },
   "peerDependencies": {
     "@mui/icons-material": ">=6 <8",
-    "react-dom": "^19"
+    "react-dom": "^19",
+    "zod": "^4"
   },
   "publishConfig": {
     "access": "public"

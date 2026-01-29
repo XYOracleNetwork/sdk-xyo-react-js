@@ -1,4 +1,4 @@
-import { assertEx } from '@xylabs/assert'
+import { assertEx } from '@xylabs/sdk-js'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
 import type { AnyPayload, Payload } from '@xyo-network/payload-model'
 import { isAnyPayload } from '@xyo-network/payload-model'

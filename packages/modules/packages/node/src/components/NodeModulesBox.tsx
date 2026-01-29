@@ -1,6 +1,6 @@
-import { exists } from '@xylabs/exists'
 import type { FlexBoxProps } from '@xylabs/react-flexbox'
 import { FlexCol } from '@xylabs/react-flexbox'
+import { exists } from '@xylabs/sdk-js'
 import type { NodeInstance } from '@xyo-network/node-model'
 import React from 'react'
 

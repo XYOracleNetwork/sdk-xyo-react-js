@@ -1,4 +1,4 @@
-import { assertDefinedEx, assertEx } from '@xylabs/assert'
+import { assertDefinedEx, assertEx } from '@xylabs/sdk-js'
 
 /** @deprecated import from @xylabs/react-app-settings instead */
 export class AppSettingsStorageBase {

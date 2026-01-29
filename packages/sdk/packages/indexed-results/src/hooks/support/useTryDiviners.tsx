@@ -1,4 +1,4 @@
-import { exists } from '@xylabs/exists'
+import { exists } from '@xylabs/sdk-js'
 import type { DivinerInstance } from '@xyo-network/diviner-model'
 import { isDivinerInstance } from '@xyo-network/diviner-model'
 import type { Payload } from '@xyo-network/payload-model'

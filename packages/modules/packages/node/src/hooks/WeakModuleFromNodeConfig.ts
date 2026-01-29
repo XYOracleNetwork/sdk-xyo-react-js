@@ -1,4 +1,4 @@
-import type { Logger } from '@xylabs/logger'
+import type { Logger } from '@xylabs/sdk-js'
 import type { ModuleFilterOptions } from '@xyo-network/module-model'
 import type { NodeInstance } from '@xyo-network/node-model'
 

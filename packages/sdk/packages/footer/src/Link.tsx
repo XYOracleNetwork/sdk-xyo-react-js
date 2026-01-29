@@ -1,6 +1,6 @@
-import { assertEx } from '@xylabs/assert'
 import type { LinkExProps } from '@xylabs/react-link'
 import { LinkEx } from '@xylabs/react-link'
+import { assertEx } from '@xylabs/sdk-js'
 import React from 'react'
 
 /**

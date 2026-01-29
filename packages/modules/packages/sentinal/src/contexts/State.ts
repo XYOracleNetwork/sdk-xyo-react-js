@@ -1,6 +1,6 @@
-import type { EnumValue } from '@xylabs/enum'
-import { Enum } from '@xylabs/enum'
 import type { ContextExState } from '@xylabs/react-shared'
+import type { EnumValue } from '@xylabs/sdk-js'
+import { Enum } from '@xylabs/sdk-js'
 import type { ArchivistModuleInstance } from '@xyo-network/archivist-model'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import type { SentinelModule } from '@xyo-network/sentinel-model'

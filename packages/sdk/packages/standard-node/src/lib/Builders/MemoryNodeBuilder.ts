@@ -1,4 +1,4 @@
-import { assertDefinedEx } from '@xylabs/assert'
+import { assertDefinedEx } from '@xylabs/sdk-js'
 import type { AccountInstance } from '@xyo-network/account-model'
 import type { MemoryArchivistConfig } from '@xyo-network/archivist-memory'
 import { MemoryArchivist, MemoryArchivistConfigSchema } from '@xyo-network/archivist-memory'

@@ -1,8 +1,8 @@
 import { Typography, useTheme } from '@mui/material'
-import { assertEx } from '@xylabs/assert'
 import { FlexRow } from '@xylabs/react-flexbox'
 import type { LinkExProps } from '@xylabs/react-link'
 import { LinkEx } from '@xylabs/react-link'
+import { assertEx } from '@xylabs/sdk-js'
 import React from 'react'
 
 import { Logo } from './Logo.tsx'

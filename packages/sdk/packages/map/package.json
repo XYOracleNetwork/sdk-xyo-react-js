@@ -43,14 +43,11 @@
     "src"
   ],
   "dependencies": {
-    "@xylabs/assert": "~5.0.64",
-    "@xylabs/delay": "~5.0.64",
-    "@xylabs/exists": "~5.0.64",
-    "@xylabs/forget": "~5.0.64",
-    "@xylabs/react-app-settings": "~7.1.9",
-    "@xylabs/react-flexbox": "~7.1.9",
-    "@xylabs/react-shared": "~7.1.9",
-    "@xylabs/react-theme": "~7.1.9",
+    "@xylabs/react-app-settings": "~7.1.12",
+    "@xylabs/react-flexbox": "~7.1.12",
+    "@xylabs/react-shared": "~7.1.12",
+    "@xylabs/react-theme": "~7.1.12",
+    "@xylabs/sdk-js": "~5.0.64",
     "@xyo-network/react-archivist": "7.5.0",
     "@xyo-network/react-map-model": "7.5.0",
     "@xyo-network/sdk-geo": "~3.0.3",
@@ -72,14 +69,16 @@
     "react-router-dom": "^7.13.0",
     "storybook": "~10.2.1",
     "typescript": "^5.9.3",
-    "vite": "~7.3.1"
+    "vite": "~7.3.1",
+    "zod": "^4.3.6"
   },
   "peerDependencies": {
     "@mui/icons-material": ">=6 <8",
     "@mui/material": ">=6 <8",
     "react": "^19",
     "react-dom": "^19",
-    "react-router-dom": "^7"
+    "react-router-dom": "^7",
+    "zod": "^4"
   },
   "publishConfig": {
     "access": "public"

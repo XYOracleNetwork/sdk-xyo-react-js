@@ -1,5 +1,5 @@
-import { exists } from '@xylabs/exists'
 import { usePromise } from '@xylabs/react-promise'
+import { exists } from '@xylabs/sdk-js'
 import type { ModuleIdentifier, ModuleInstance } from '@xyo-network/module-model'
 import { useState } from 'react'
 

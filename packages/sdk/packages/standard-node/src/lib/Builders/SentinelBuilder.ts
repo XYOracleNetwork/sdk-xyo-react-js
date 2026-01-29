@@ -1,4 +1,4 @@
-import { assertDefinedEx } from '@xylabs/assert'
+import { assertDefinedEx } from '@xylabs/sdk-js'
 import type { AccountInstance } from '@xyo-network/account-model'
 import type { MemorySentinelParams } from '@xyo-network/sentinel-memory'
 import { MemorySentinel } from '@xyo-network/sentinel-memory'

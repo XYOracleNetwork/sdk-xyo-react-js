@@ -1,4 +1,4 @@
-import { assertEx } from '@xylabs/assert'
+import { assertEx } from '@xylabs/sdk-js'
 
 import type { CreditCardInput } from '../../models/index.ts'
 import { CreditCardInputSchema } from '../../models/index.ts'
