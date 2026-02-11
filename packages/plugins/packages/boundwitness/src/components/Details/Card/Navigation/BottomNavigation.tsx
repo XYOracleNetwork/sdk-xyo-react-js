@@ -5,7 +5,9 @@ import {
 } from '@mui/material'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { BoundWitnessSchema } from '@xyo-network/boundwitness-model'
-import type { Dispatch, SetStateAction } from 'react'
+import type {
+  Dispatch, SetStateAction, SyntheticEvent,
+} from 'react'
 import React from 'react'
 import { FaSignature } from 'react-icons/fa'
 import { VscSymbolMethod, VscSymbolNamespace } from 'react-icons/vsc'
@@ -28,7 +30,7 @@ const BoundWitnessBottomNavigation = ({
       showLabels
       value={activeTab}
 
-      onChange={(_event, newValue) => {
+      onChange={(_event: SyntheticEvent, newValue: number) => {
         setActiveTab?.(newValue)
       }}
       ref={ref}
