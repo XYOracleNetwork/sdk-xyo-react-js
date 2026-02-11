@@ -1,4 +1,4 @@
-import { LayerBase } from '@xyo-network/sdk-geo'
+import { LayerBase } from '@xylabs/geo'
 import type { FillLayerSpecification } from 'mapbox-gl'
 
 export class FillLayerBuilder extends LayerBase<FillLayerSpecification> {

@@ -19,7 +19,7 @@ const StorybookEntry = {
 } as Meta<typeof ModuleCard>
 
 const Template: StoryFn<typeof ModuleCard> = () => {
-  const [mod, setModule] = useState<ArchivistInstance>()
+  const [mod, setMod] = useState<ArchivistInstance>()
 
   useAsyncEffect(
 
@@ -27,7 +27,7 @@ const Template: StoryFn<typeof ModuleCard> = () => {
       if (!mod) {
         const newModule = await MemoryArchivist.create({})
         if (mounted()) {
-          setModule(newModule)
+          setMod(newModule)
         }
       }
     },

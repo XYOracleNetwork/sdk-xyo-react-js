@@ -104,6 +104,7 @@ export const SentinelProvider: React.FC<PropsWithChildren<SentinelProviderProps>
           )
         }
       setSentinel(sentinel as MemorySentinel)
+      setHistory(sentinel?.history as BoundWitness[])
       return () => {
         // unsubscribe from events
         for (const callback of offCallbacks) {
@@ -114,10 +115,6 @@ export const SentinelProvider: React.FC<PropsWithChildren<SentinelProviderProps>
 
     [account, archivist, witnesses],
   )
-
-  useEffect(() => {
-    setHistory(sentinel?.history as BoundWitness[])
-  }, [sentinel])
 
   const value: SentinelContextState = useMemo(() => ({
     history, progress, provided: true, reportingErrors, sentinel, status,

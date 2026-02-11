@@ -1,4 +1,4 @@
-import { GeoJson } from '@xyo-network/sdk-geo'
+import { GeoJson } from '@xylabs/geo'
 import type { Feature, Geometry } from 'geojson'
 
 import type { NetworkElevationQuadkeyAnswerPayload } from '../types.ts'

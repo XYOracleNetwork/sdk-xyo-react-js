@@ -37,7 +37,6 @@ export const useWeakModulesFromNode = (
       return await refreshModules()
     }
     console.log('Result: No Node')
-    return
   }, [node, ids])
   return [result, nodeError ?? error]
 }

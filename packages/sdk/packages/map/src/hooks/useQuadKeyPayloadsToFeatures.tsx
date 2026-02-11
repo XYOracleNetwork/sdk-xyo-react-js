@@ -1,6 +1,6 @@
+import { GeoJson } from '@xylabs/geo'
 import { exists } from '@xylabs/sdk-js'
 import type { NetworkLocationHeatmapQuadkeyAnswerPayload } from '@xyo-network/react-map-model'
-import { GeoJson } from '@xyo-network/sdk-geo'
 import type { Feature, Geometry } from 'geojson'
 import { useMemo, useState } from 'react'
 

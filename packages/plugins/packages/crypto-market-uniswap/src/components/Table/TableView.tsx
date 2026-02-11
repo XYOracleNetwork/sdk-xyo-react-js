@@ -148,8 +148,8 @@ export const UniswapPairsTableView: React.FC<UniswapPairsRendererProps> = ({ pay
             {[...(uniswapPayload?.pairs ?? [])]
               // .sort(getComparator(order, orderBy))
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((pair, index: number) => {
-                return <UniswapTableRowRender key={index} tokenPair={pair} />
+              .map((pair) => {
+                return <UniswapTableRowRender key={uniswapPayload?.pairs.indexOf(pair)} tokenPair={pair} />
               })}
             {emptyRows > 0 && (
               <TableRow>

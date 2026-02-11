@@ -1,4 +1,4 @@
-import { LayerBase } from '@xyo-network/sdk-geo'
+import { LayerBase } from '@xylabs/geo'
 import type { CircleLayerSpecification } from 'mapbox-gl'
 
 export class CircleLayerBuilder extends LayerBase<CircleLayerSpecification> {

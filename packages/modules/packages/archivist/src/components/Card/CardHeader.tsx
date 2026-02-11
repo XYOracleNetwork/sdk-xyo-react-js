@@ -8,12 +8,13 @@ import React, { useMemo } from 'react'
 import { MemoryArchivistsStats } from './components/index.ts'
 
 const ArchivistStats = (archivist?: ArchivistInstance) => {
-  switch (archivist?.config.schema) {
+  const { config } = archivist ?? {}
+  switch (config?.schema) {
     case MemoryArchivistConfigSchema: {
       return <MemoryArchivistsStats archivist={archivist} />
     }
     default: {
-      return <></>
+      return
     }
   }
 }

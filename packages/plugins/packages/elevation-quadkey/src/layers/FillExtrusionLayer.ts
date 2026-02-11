@@ -1,4 +1,4 @@
-import { LayerBase } from '@xyo-network/sdk-geo'
+import { LayerBase } from '@xylabs/geo'
 import type { FillExtrusionLayerSpecification } from 'mapbox-gl'
 
 export class FillExtrusionLayerBuilder extends LayerBase<FillExtrusionLayerSpecification> {

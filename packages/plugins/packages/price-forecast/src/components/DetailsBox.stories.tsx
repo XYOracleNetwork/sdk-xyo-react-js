@@ -28,7 +28,7 @@ const StorybookEntry = {
   title: 'plugin/price-forecast/DetailsBox',
 } as Meta<typeof PriceForecastDetailsBox>
 
-const Template: StoryFn<typeof PriceForecastDetailsBox> = (args) => {
+const Template: StoryFn<typeof PriceForecastDetailsBox> = ({ payload, ...args }) => {
   const [showPayloads, setShowPayloads] = useState(false)
   const forecastPayloadRef = useRef<HTMLParagraphElement>(null)
   const sourcePayloadsRef = useRef<HTMLParagraphElement>(null)
@@ -38,7 +38,7 @@ const Template: StoryFn<typeof PriceForecastDetailsBox> = (args) => {
   }
   return (
     <>
-      <PriceForecastDetailsBox mb={3} {...args} />
+      <PriceForecastDetailsBox mb={3} payload={payload} {...args} />
       <FlexCol>
         <ButtonGroup>
           <Button variant="contained" onClick={() => handleClick(forecastPayloadRef)}>
@@ -53,7 +53,7 @@ const Template: StoryFn<typeof PriceForecastDetailsBox> = (args) => {
         <Typography ref={forecastPayloadRef}>
           ForecastPayload:
           {' '}
-          <code>{JSON.stringify(args.payload, null, 2)}</code>
+          <code>{JSON.stringify(payload, null, 2)}</code>
         </Typography>
       </pre>
       <pre>

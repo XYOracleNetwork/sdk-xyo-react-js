@@ -17,6 +17,7 @@ const StorybookEntry = {
 } as Meta<typeof AddressRenderRowBox>
 
 const Template: StoryFn<typeof AddressRenderRowBox> = (args) => {
+  const { name: argsName } = args
   const [ref] = useEvent<HTMLLIElement>((noun, verb, data) => {
     console.log(`${noun}|${verb}|${data}`)
     const parsedEvent = JSON.parse(data ?? '') as FavoriteItemEvent
@@ -26,7 +27,7 @@ const Template: StoryFn<typeof AddressRenderRowBox> = (args) => {
       setName(undefined)
     }
   })
-  const [name, setName] = useState(args.name)
+  const [name, setName] = useState(argsName)
   return <AddressRenderRowBox {...args} name={name} ref={ref} />
 }
 

@@ -24,8 +24,8 @@ export const UniswapPairsCardView: React.FC<UniswapPairsCardsProps> = ({ payload
       {/* Bring back once Dynamic view is more mature */}
       {/* <CardViewToggle cardViewStyle={cardViewStyle} setCardViewStyle={setCardViewStyle} /> */}
       <Grid container spacing={1}>
-        {uniswapPayload?.pairs.map((pair: UniswapCryptoPair, index) => (
-          <Grid size={{ xs: 12, md: 4 }} key={index}>
+        {uniswapPayload?.pairs.map((pair: UniswapCryptoPair) => (
+          <Grid size={{ xs: 12, md: 4 }} key={uniswapPayload.pairs.indexOf(pair)}>
             <Card style={{ width: '100%' }}>
               <CardContent>
                 {cardViewStyle == CardViewType.Static

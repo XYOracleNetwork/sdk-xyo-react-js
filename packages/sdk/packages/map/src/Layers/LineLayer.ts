@@ -1,4 +1,4 @@
-import { LayerBase } from '@xyo-network/sdk-geo'
+import { LayerBase } from '@xylabs/geo'
 import type { LineLayerSpecification } from 'mapbox-gl'
 
 export class LineLayerBuilder extends LayerBase<LineLayerSpecification> {

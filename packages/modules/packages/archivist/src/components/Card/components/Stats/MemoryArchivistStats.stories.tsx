@@ -18,7 +18,7 @@ const StorybookEntry = {
 } as Meta<typeof MemoryArchivistsStats>
 
 const Template: StoryFn<typeof MemoryArchivistsStats> = () => {
-  const [mod, setModule] = useState<ArchivistInstance>()
+  const [mod, setMod] = useState<ArchivistInstance>()
 
   useAsyncEffect(
     async () => {
@@ -44,7 +44,7 @@ const Template: StoryFn<typeof MemoryArchivistsStats> = () => {
         await node.register(newModule)
         await node.attach(newModule.address)
         await newModule.insert([insertQueryBoundWitness, ...payloads])
-        setModule(newModule)
+        setMod(newModule)
       }
     },
     [mod],

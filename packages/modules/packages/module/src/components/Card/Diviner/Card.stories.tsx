@@ -10,7 +10,7 @@ import { DivinerCard } from './Card.tsx'
 const StorybookEntry = { title: 'modules/diviner/DivinerCard' } as Meta<typeof DivinerCard>
 
 const Template: StoryFn<typeof DivinerCard> = () => {
-  const [mod, setModule] = useState<DivinerInstance>()
+  const [mod, setMod] = useState<DivinerInstance>()
 
   useAsyncEffect(
 
@@ -24,7 +24,7 @@ const Template: StoryFn<typeof DivinerCard> = () => {
           },
         })) as DivinerInstance
         if (mounted()) {
-          setModule(newModule)
+          setMod(newModule)
         }
       }
     },
