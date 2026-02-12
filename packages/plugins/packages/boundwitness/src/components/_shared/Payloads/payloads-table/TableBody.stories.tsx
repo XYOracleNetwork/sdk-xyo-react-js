@@ -1,3 +1,4 @@
+import { Table } from '@mui/material'
 import type { Meta, StoryFn } from '@storybook/react-vite'
 import {
   type EventNoun, type ExtendEventNoun,
@@ -11,8 +12,10 @@ const data = {
   payloadHashes: [
     '1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
     'abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890',
+    'abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890',
   ],
   payloadSchemas: [
+    'network.xyo.test',
     'network.xyo.test',
     'network.xyo.test',
   ],
@@ -29,7 +32,7 @@ const Template: StoryFn<typeof BoundWitnessPayloadTableBody<EventNoun>> = (args)
   const [ref] = useEvent<HTMLTableSectionElement>((noun, verb, data) => {
     alert(`${noun}|${verb}|${data}`)
   })
-  return <BoundWitnessPayloadTableBody ref={ref} {...args} />
+  return <Table><BoundWitnessPayloadTableBody ref={ref} {...args} /></Table>
 }
 
 const TemplateWithCustomNouns: StoryFn<typeof BoundWitnessPayloadTableBody<CustomNoun>>
@@ -37,7 +40,7 @@ const TemplateWithCustomNouns: StoryFn<typeof BoundWitnessPayloadTableBody<Custo
     const [ref] = useEvent<HTMLTableSectionElement>((noun, verb, data) => {
       alert(`${noun}|${verb}|${data}`)
     })
-    return <BoundWitnessPayloadTableBody<CustomNoun> ref={ref} {...args} />
+    return <Table><BoundWitnessPayloadTableBody<CustomNoun> ref={ref} {...args} /></Table>
   }
 
 const Default = Template.bind({})
