@@ -1,5 +1,5 @@
 import type { EventListener } from '@xylabs/events'
-import { forget } from '@xylabs/forget'
+import { forget } from '@xylabs/sdk-js'
 import type { Payload } from '@xyo-network/payload-model'
 
 import type { ControlValueAccessorBaseEvents } from './control/index.ts'

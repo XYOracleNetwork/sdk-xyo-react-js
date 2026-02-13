@@ -2,8 +2,8 @@ import { ContentCopy as ContentCopyIcon, Visibility as VisibilityIcon } from '@m
 import {
   Dialog, DialogActions, DialogContent, DialogTitle,
 } from '@mui/material'
-import { forget } from '@xylabs/forget'
 import { ButtonEx } from '@xylabs/react-button'
+import { forget } from '@xylabs/sdk-js'
 import { PayloadBuilder } from '@xyo-network/payload-builder'
 import type { Payload } from '@xyo-network/payload-model'
 import type { PropertyAction, PropertyProps } from '@xyo-network/react-property'

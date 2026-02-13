@@ -2,7 +2,7 @@ import { CopyAllRounded } from '@mui/icons-material'
 import {
   type ButtonProps, CircularProgress, IconButton, Tooltip,
 } from '@mui/material'
-import { forget } from '@xylabs/forget'
+import { forget } from '@xylabs/sdk-js'
 import React, { useState } from 'react'
 
 import type { ShareLinkProps } from './lib/index.ts'

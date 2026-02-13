@@ -1,6 +1,7 @@
-import { forget } from '@xylabs/forget'
 import { GeoJson } from '@xylabs/geo'
-import { assertEx, delay } from '@xylabs/sdk-js'
+import {
+  assertEx, delay, forget,
+} from '@xylabs/sdk-js'
 import type { Feature, Polygon } from 'geojson'
 import type {
   DataDrivenPropertyValueSpecification,

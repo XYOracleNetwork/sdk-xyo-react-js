@@ -1,8 +1,8 @@
 import {
   Alert, Button, MenuItem, Select, TextField,
 } from '@mui/material'
-import { forget } from '@xylabs/forget'
 import { FlexCol } from '@xylabs/react-flexbox'
+import { forget } from '@xylabs/sdk-js'
 import type { BoundWitness } from '@xyo-network/boundwitness-model'
 import { asDivinerInstance } from '@xyo-network/diviner-model'
 import { PayloadDivinerQuerySchema } from '@xyo-network/diviner-payload-model'

@@ -1,4 +1,4 @@
-import { forget } from '@xylabs/forget'
+import { forget } from '@xylabs/sdk-js'
 
 import type {
   ControlValueAccessorBaseEvents,

@@ -1,5 +1,5 @@
-import { forget } from '@xylabs/forget'
 import { useAsyncEffect } from '@xylabs/react-async-effect'
+import { forget } from '@xylabs/sdk-js'
 import type { AttachableModuleInstance, ModuleParams } from '@xyo-network/module-model'
 import { MemoryNode } from '@xyo-network/node-memory'
 import type { NodeConfig } from '@xyo-network/node-model'

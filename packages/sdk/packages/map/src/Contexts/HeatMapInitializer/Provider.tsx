@@ -1,4 +1,4 @@
-import { forget } from '@xylabs/forget'
+import { forget } from '@xylabs/sdk-js'
 import type { AnimatedHeatMapColorProps, HeatMapColorProps } from '@xyo-network/react-map-model'
 import type { Feature, Polygon } from 'geojson'
 import type { PropsWithChildren } from 'react'

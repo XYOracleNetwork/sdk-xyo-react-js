@@ -1,5 +1,5 @@
 import type { BaseParams } from '@xylabs/base'
-import { forget } from '@xylabs/forget'
+import { forget } from '@xylabs/sdk-js'
 import { ModuleBaseEmitter } from '@xyo-network/module-event-emitter'
 
 import type {

@@ -165,7 +165,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.28.4, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.7":
+"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.28.4, @babel/runtime@npm:^7.28.6, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.7":
   version: 7.28.6
   resolution: "@babel/runtime@npm:7.28.6"
   checksum: 10/fbcd439cb74d4a681958eb064c509829e3f46d8a4bfaaf441baa81bb6733d1e680bccc676c813883d7741bcaada1d0d04b15aa320ef280b5734e2192b50decf9
@@ -830,7 +830,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@isaacs/brace-expansion@npm:^5.0.0, @isaacs/brace-expansion@npm:^5.0.1":
+"@isaacs/brace-expansion@npm:^5.0.1":
   version: 5.0.1
   resolution: "@isaacs/brace-expansion@npm:5.0.1"
   dependencies:
@@ -1009,9 +1009,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@microsoft/api-extractor@npm:~7.55.5":
-  version: 7.55.5
-  resolution: "@microsoft/api-extractor@npm:7.55.5"
+"@microsoft/api-extractor@npm:~7.56.3":
+  version: 7.56.3
+  resolution: "@microsoft/api-extractor@npm:7.56.3"
   dependencies:
     "@microsoft/api-extractor-model": "npm:7.32.2"
     "@microsoft/tsdoc": "npm:~0.16.0"
@@ -1019,17 +1019,17 @@ __metadata:
     "@rushstack/node-core-library": "npm:5.19.1"
     "@rushstack/rig-package": "npm:0.6.0"
     "@rushstack/terminal": "npm:0.21.0"
-    "@rushstack/ts-command-line": "npm:5.1.7"
+    "@rushstack/ts-command-line": "npm:5.2.0"
     diff: "npm:~8.0.2"
-    lodash: "npm:~4.17.15"
-    minimatch: "npm:10.0.3"
+    lodash: "npm:~4.17.23"
+    minimatch: "npm:10.1.2"
     resolve: "npm:~1.22.1"
     semver: "npm:~7.5.4"
     source-map: "npm:~0.6.1"
     typescript: "npm:5.8.2"
   bin:
     api-extractor: bin/api-extractor
-  checksum: 10/7017f71b225df339d9b27e1243d4720d29c3e590555710daa8ce350f4920227de8d7b6b80827e7efa0abf2e0945f46eb1b703e4b02e5138a52434a5f1bd2e29e
+  checksum: 10/bb6deae976063eb4c242f8809908bf6d5da04097668f0476ec16107fa6f463bc30c9d3c2145b937920b452f359ca16a444b3e60651e589e14c9391df2c212038
   languageName: node
   linkType: hard
 
@@ -1110,38 +1110,38 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/core-downloads-tracker@npm:^7.3.7":
-  version: 7.3.7
-  resolution: "@mui/core-downloads-tracker@npm:7.3.7"
-  checksum: 10/a0e87ea873f50009cd646c9304ef5f24c461bbd249d34b888af013e955a2ecfa304eb82ef0d7dfeba0e7e2415e31306de608337e743dcfe6b247963e5a5a849a
+"@mui/core-downloads-tracker@npm:^7.3.8":
+  version: 7.3.8
+  resolution: "@mui/core-downloads-tracker@npm:7.3.8"
+  checksum: 10/17f4896bddd81b35eeb9053f54e49011f1ec09b6b3703acf2a84b1d9948d829f90256dcd0497890c87c02f81fb151f231c3747da3e92590f0fb2452a206cf551
   languageName: node
   linkType: hard
 
-"@mui/icons-material@npm:~7.3.7":
-  version: 7.3.7
-  resolution: "@mui/icons-material@npm:7.3.7"
+"@mui/icons-material@npm:~7.3.8":
+  version: 7.3.8
+  resolution: "@mui/icons-material@npm:7.3.8"
   dependencies:
-    "@babel/runtime": "npm:^7.28.4"
+    "@babel/runtime": "npm:^7.28.6"
   peerDependencies:
-    "@mui/material": ^7.3.7
+    "@mui/material": ^7.3.8
     "@types/react": ^17.0.0 || ^18.0.0 || ^19.0.0
     react: ^17.0.0 || ^18.0.0 || ^19.0.0
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10/d29ca152d997d1f1114075de2d9ba9c3da2941ea8bd0216db6e0a19f68276d57448b9b64d54433ce43b628e68f571e0415c6c84db2360b2d09e37b6c0f2600ac
+  checksum: 10/0a26f81a7d4104dfd475444ea45e7db5945ec21507288ce40c763de9566e65ae2f33944d44bac451a1e4a04e4b71223cc51e36e8db113bb8e092a1da4ad62ea0
   languageName: node
   linkType: hard
 
-"@mui/material@npm:~7.3.7":
-  version: 7.3.7
-  resolution: "@mui/material@npm:7.3.7"
+"@mui/material@npm:~7.3.8":
+  version: 7.3.8
+  resolution: "@mui/material@npm:7.3.8"
   dependencies:
-    "@babel/runtime": "npm:^7.28.4"
-    "@mui/core-downloads-tracker": "npm:^7.3.7"
-    "@mui/system": "npm:^7.3.7"
-    "@mui/types": "npm:^7.4.10"
-    "@mui/utils": "npm:^7.3.7"
+    "@babel/runtime": "npm:^7.28.6"
+    "@mui/core-downloads-tracker": "npm:^7.3.8"
+    "@mui/system": "npm:^7.3.8"
+    "@mui/types": "npm:^7.4.11"
+    "@mui/utils": "npm:^7.3.8"
     "@popperjs/core": "npm:^2.11.8"
     "@types/react-transition-group": "npm:^4.4.12"
     clsx: "npm:^2.1.1"
@@ -1152,7 +1152,7 @@ __metadata:
   peerDependencies:
     "@emotion/react": ^11.5.0
     "@emotion/styled": ^11.3.0
-    "@mui/material-pigment-css": ^7.3.7
+    "@mui/material-pigment-css": ^7.3.8
     "@types/react": ^17.0.0 || ^18.0.0 || ^19.0.0
     react: ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -1165,16 +1165,16 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 10/bdd0af14eb305fb9b0ba7ac07a22465ee173e31e8d3e11a66cc41749edc15269be222b199511867d7cda653f4127e43542d6ba989db55804bad9a93778252842
+  checksum: 10/5426ad9b602f75b0f25a210efe64a578e4c3d181db1df5e8669bae726ca9bc6f5623b906f438938c2983c436c89f9f137b42a3c5c943c96906e00e75e2e947f9
   languageName: node
   linkType: hard
 
-"@mui/private-theming@npm:^7.3.7":
-  version: 7.3.7
-  resolution: "@mui/private-theming@npm:7.3.7"
+"@mui/private-theming@npm:^7.3.8":
+  version: 7.3.8
+  resolution: "@mui/private-theming@npm:7.3.8"
   dependencies:
-    "@babel/runtime": "npm:^7.28.4"
-    "@mui/utils": "npm:^7.3.7"
+    "@babel/runtime": "npm:^7.28.6"
+    "@mui/utils": "npm:^7.3.8"
     prop-types: "npm:^15.8.1"
   peerDependencies:
     "@types/react": ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -1182,15 +1182,15 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10/ee2cfc322ff6838be745c59e44a7141c0d04081353af9544f03fa2cc3c0fbf060607d5029d240df5c932ad543ad79046336db985a9fadc52e057e06c976752a6
+  checksum: 10/1dd8c22a8953980a14ddf0ffb96da7b208dd003b6e68cd091de2ebad84eff1e19030f3e18afbd74f601934b7be1dc51460b1bc8c9ed6ca867a5598f560e611a2
   languageName: node
   linkType: hard
 
-"@mui/styled-engine@npm:^7.3.7":
-  version: 7.3.7
-  resolution: "@mui/styled-engine@npm:7.3.7"
+"@mui/styled-engine@npm:^7.3.8":
+  version: 7.3.8
+  resolution: "@mui/styled-engine@npm:7.3.8"
   dependencies:
-    "@babel/runtime": "npm:^7.28.4"
+    "@babel/runtime": "npm:^7.28.6"
     "@emotion/cache": "npm:^11.14.0"
     "@emotion/serialize": "npm:^1.3.3"
     "@emotion/sheet": "npm:^1.4.0"
@@ -1205,19 +1205,19 @@ __metadata:
       optional: true
     "@emotion/styled":
       optional: true
-  checksum: 10/daf7b1e45c8771f92d2bb0200927f5d4269e514a7edb49d099f995b654861eadf6f51e98f24057787ad9ebd18950850c901cea8a809de1892501b414fd5e04a1
+  checksum: 10/f183eac7331bc4234b3d21cd064be7fd460282d17898174feb9ca9c6d221f6fc7fcdfaf532dc1b1e72fdd540737276882f1cd5794ecb82a1215ba3704d905c6a
   languageName: node
   linkType: hard
 
-"@mui/system@npm:^7.3.7, @mui/system@npm:~7.3.7":
-  version: 7.3.7
-  resolution: "@mui/system@npm:7.3.7"
+"@mui/system@npm:^7.3.8, @mui/system@npm:~7.3.8":
+  version: 7.3.8
+  resolution: "@mui/system@npm:7.3.8"
   dependencies:
-    "@babel/runtime": "npm:^7.28.4"
-    "@mui/private-theming": "npm:^7.3.7"
-    "@mui/styled-engine": "npm:^7.3.7"
-    "@mui/types": "npm:^7.4.10"
-    "@mui/utils": "npm:^7.3.7"
+    "@babel/runtime": "npm:^7.28.6"
+    "@mui/private-theming": "npm:^7.3.8"
+    "@mui/styled-engine": "npm:^7.3.8"
+    "@mui/types": "npm:^7.4.11"
+    "@mui/utils": "npm:^7.3.8"
     clsx: "npm:^2.1.1"
     csstype: "npm:^3.2.3"
     prop-types: "npm:^15.8.1"
@@ -1233,30 +1233,30 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 10/93db1bdf767be18141b1ae2fa26306d247dd0307fd28e24d35ca03d8c08c2bcaf6e245eae7ad1e6863c4ee13fb6e6a93954fb472c1c7906526a9cb94007716fd
+  checksum: 10/59011dc18f8c742a17252fb4d1cb7d25f89bdb60b8479974b4afc0ace435afd2938822a22475b20c8320b9fa0aac693dcdc1f74e92d7eaa4e8130d86b098d15e
   languageName: node
   linkType: hard
 
-"@mui/types@npm:^7.4.10":
-  version: 7.4.10
-  resolution: "@mui/types@npm:7.4.10"
+"@mui/types@npm:^7.4.11":
+  version: 7.4.11
+  resolution: "@mui/types@npm:7.4.11"
   dependencies:
-    "@babel/runtime": "npm:^7.28.4"
+    "@babel/runtime": "npm:^7.28.6"
   peerDependencies:
     "@types/react": ^17.0.0 || ^18.0.0 || ^19.0.0
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10/7492c6aa0b55e1d3c2bcbac7d3e0a41fe684aa5927a26911d9b6bef5d1ad85e578614af5da1f61e7ea0b37318d3c595bff29ae9af6f345572ad8d23cbd2211d0
+  checksum: 10/d09ae7ef68c83ca88642a913ff84ae2ade4aabf896a0ec29924305e442819c006312c47f8ecf6d4c83a12f29ee0cdde93e71fe4514d3979f759d80988e653dd3
   languageName: node
   linkType: hard
 
-"@mui/utils@npm:^7.3.5, @mui/utils@npm:^7.3.7":
-  version: 7.3.7
-  resolution: "@mui/utils@npm:7.3.7"
+"@mui/utils@npm:^7.3.5, @mui/utils@npm:^7.3.8":
+  version: 7.3.8
+  resolution: "@mui/utils@npm:7.3.8"
   dependencies:
-    "@babel/runtime": "npm:^7.28.4"
-    "@mui/types": "npm:^7.4.10"
+    "@babel/runtime": "npm:^7.28.6"
+    "@mui/types": "npm:^7.4.11"
     "@types/prop-types": "npm:^15.7.15"
     clsx: "npm:^2.1.1"
     prop-types: "npm:^15.8.1"
@@ -1267,7 +1267,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10/8b4110df220c7a3f4feee4e88b870fef20ac22499d24d572597f78ea6b586e28b19aac7f7cd2ed0b500d1b0b54b3b8b57d8d63cfa4f5a5cbae1c4527fbd77cbe
+  checksum: 10/265ceb8385432dd81b873dce73897a7321f5d7a0898b86bc6a3d3f77a9f2b70f712aeaeb3565ae4c02a78e8f92485370efa565c5f3db6b014ca8282e067b8d1a
   languageName: node
   linkType: hard
 
@@ -1285,9 +1285,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-tree-view@npm:~8.26.0":
-  version: 8.26.0
-  resolution: "@mui/x-tree-view@npm:8.26.0"
+"@mui/x-tree-view@npm:~8.27.1":
+  version: 8.27.1
+  resolution: "@mui/x-tree-view@npm:8.27.1"
   dependencies:
     "@babel/runtime": "npm:^7.28.4"
     "@base-ui/utils": "npm:^0.2.3"
@@ -1309,7 +1309,7 @@ __metadata:
       optional: true
     "@emotion/styled":
       optional: true
-  checksum: 10/23215cdda0291614747db6561729599c1b58db5b267a58bdfebd626bb47de636b67bf1541fac1d564b9e486998bae1260d255581e361614929d365ba9edc410c
+  checksum: 10/9948762952779b6bf927ebb3206f30d0e41632dfe604a6dd1ce9a4f963aa26325e27ab2839a8d185c98d6320da420496a9570cfff7b55650cbd0d2e6eeaaeea1
   languageName: node
   linkType: hard
 
@@ -2190,15 +2190,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rushstack/ts-command-line@npm:5.1.7":
-  version: 5.1.7
-  resolution: "@rushstack/ts-command-line@npm:5.1.7"
+"@rushstack/ts-command-line@npm:5.2.0":
+  version: 5.2.0
+  resolution: "@rushstack/ts-command-line@npm:5.2.0"
   dependencies:
     "@rushstack/terminal": "npm:0.21.0"
     "@types/argparse": "npm:1.0.38"
     argparse: "npm:~1.0.9"
     string-argv: "npm:~0.3.1"
-  checksum: 10/fee27c1a3717bdc7b5ce33d9e5ae12ee918359ffee10434bf0a5d7fcecfd709f8b083e1a6dc0f5af455779fca7d85ca499c4837d643d4724797a019e23dbdb51
+  checksum: 10/96b754b605fbc25b71416e2731c0f8dc2284c15c13b54463c64c1a7e99b0ec48c965ff5d9bd49cf31e0aadbe644f527df017dbc423d933dca989b614eba21171
   languageName: node
   linkType: hard
 
@@ -2313,7 +2313,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-docs@npm:~10.2.1":
+"@storybook/addon-docs@npm:~10.2.8":
   version: 10.2.8
   resolution: "@storybook/addon-docs@npm:10.2.8"
   dependencies:
@@ -2330,7 +2330,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-links@npm:~10.2.1":
+"@storybook/addon-links@npm:~10.2.8":
   version: 10.2.8
   resolution: "@storybook/addon-links@npm:10.2.8"
   dependencies:
@@ -2410,7 +2410,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react-vite@npm:~10.2.1":
+"@storybook/react-vite@npm:~10.2.8":
   version: 10.2.8
   resolution: "@storybook/react-vite@npm:10.2.8"
   dependencies:
@@ -2464,6 +2464,22 @@ __metadata:
   peerDependencies:
     eslint: ">=9.0.0"
   checksum: 10/df50c60e111e79342c2a677c05fff13b02206a0480e3b3fe17e1faf901147e1a2339994b1106a38cc835d20b7b313f1e3e6c9b111b117128ad15cecc9b107c1c
+  languageName: node
+  linkType: hard
+
+"@stylistic/eslint-plugin@npm:~5.8.0":
+  version: 5.8.0
+  resolution: "@stylistic/eslint-plugin@npm:5.8.0"
+  dependencies:
+    "@eslint-community/eslint-utils": "npm:^4.9.1"
+    "@typescript-eslint/types": "npm:^8.54.0"
+    eslint-visitor-keys: "npm:^4.2.1"
+    espree: "npm:^10.4.0"
+    estraverse: "npm:^5.3.0"
+    picomatch: "npm:^4.0.3"
+  peerDependencies:
+    eslint: ">=9.0.0"
+  checksum: 10/a9c4ae419b1673717a3dcf44cc4ffbec8741d0b860d0da80ac788a372cddc92a7c5d5a3388c0455a62d3bfe3d07d2490ae00f2754a065c28e22da45955747993
   languageName: node
   linkType: hard
 
@@ -3026,12 +3042,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:~25.1.0":
-  version: 25.1.0
-  resolution: "@types/node@npm:25.1.0"
+"@types/node@npm:~25.2.3":
+  version: 25.2.3
+  resolution: "@types/node@npm:25.2.3"
   dependencies:
     undici-types: "npm:~7.16.0"
-  checksum: 10/ad15db75cfaec9e6311a1db7f3a91799be4c2698e1cfb0f74cc4d6e4398361550d00a4070921e1de7d9a10db83e41fd29f3a640dfacdabbd1c74ae16d8ce943a
+  checksum: 10/46962e3c1c0205da5b637c2e924f4eb03ce16f384af686b69afeb5fd4f8274d9a570375f8a24de2750633b69cb7ac33f0e458d9c3f20a66e12eb3a569499062d
   languageName: node
   linkType: hard
 
@@ -3083,7 +3099,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^19.2.10":
+"@types/react@npm:*, @types/react@npm:^19.2.14":
   version: 19.2.14
   resolution: "@types/react@npm:19.2.14"
   dependencies:
@@ -3165,19 +3181,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:~8.54.0":
-  version: 8.54.0
-  resolution: "@typescript-eslint/parser@npm:8.54.0"
+"@typescript-eslint/parser@npm:~8.55.0":
+  version: 8.55.0
+  resolution: "@typescript-eslint/parser@npm:8.55.0"
   dependencies:
-    "@typescript-eslint/scope-manager": "npm:8.54.0"
-    "@typescript-eslint/types": "npm:8.54.0"
-    "@typescript-eslint/typescript-estree": "npm:8.54.0"
-    "@typescript-eslint/visitor-keys": "npm:8.54.0"
+    "@typescript-eslint/scope-manager": "npm:8.55.0"
+    "@typescript-eslint/types": "npm:8.55.0"
+    "@typescript-eslint/typescript-estree": "npm:8.55.0"
+    "@typescript-eslint/visitor-keys": "npm:8.55.0"
     debug: "npm:^4.4.3"
   peerDependencies:
     eslint: ^8.57.0 || ^9.0.0
     typescript: ">=4.8.4 <6.0.0"
-  checksum: 10/d2e09462c9966ef3deeba71d9e41d1d4876c61eea65888c93a3db6fba48b89a2165459c6519741d40e969da05ed98d3f4c87a7f56c5521ab5699743cc315f6cb
+  checksum: 10/f6140b163ce1fd460fbcc51c79fdaf2825d95764741c2d73271416e13d2302c25fa578fc1e46cb0f4a78867264f7df5ed424c500737cc49084fe0af8ad33c541
   languageName: node
   linkType: hard
 
@@ -3191,19 +3207,6 @@ __metadata:
   peerDependencies:
     typescript: ">=4.8.4 <6.0.0"
   checksum: 10/e450cda2cb30426d55ebbbb5ecad40ba91e68f913ec7df3008ce4c1be524f7cde8411f4ea3c0a3e12fb43655def0e2473315897e410520e496f3fbb3c450ea08
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/project-service@npm:8.54.0":
-  version: 8.54.0
-  resolution: "@typescript-eslint/project-service@npm:8.54.0"
-  dependencies:
-    "@typescript-eslint/tsconfig-utils": "npm:^8.54.0"
-    "@typescript-eslint/types": "npm:^8.54.0"
-    debug: "npm:^4.4.3"
-  peerDependencies:
-    typescript: ">=4.8.4 <6.0.0"
-  checksum: 10/93f0483f6bbcf7cf776a53a130f7606f597fba67cf111e1897873bf1531efaa96e4851cfd461da0f0cc93afbdb51e47bcce11cf7dd4fb68b7030c7f9f240b92f
   languageName: node
   linkType: hard
 
@@ -3230,16 +3233,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/scope-manager@npm:8.54.0":
-  version: 8.54.0
-  resolution: "@typescript-eslint/scope-manager@npm:8.54.0"
-  dependencies:
-    "@typescript-eslint/types": "npm:8.54.0"
-    "@typescript-eslint/visitor-keys": "npm:8.54.0"
-  checksum: 10/3474f3197e8647754393dee62b3145c9de71eaa66c8a68f61c8283aa332141803885db9c96caa6a51f78128ad9ef92f774a90361655e57bd951d5b57eb76f914
-  languageName: node
-  linkType: hard
-
 "@typescript-eslint/scope-manager@npm:8.55.0, @typescript-eslint/scope-manager@npm:^8.55.0":
   version: 8.55.0
   resolution: "@typescript-eslint/scope-manager@npm:8.55.0"
@@ -3259,16 +3252,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/tsconfig-utils@npm:8.54.0":
-  version: 8.54.0
-  resolution: "@typescript-eslint/tsconfig-utils@npm:8.54.0"
-  peerDependencies:
-    typescript: ">=4.8.4 <6.0.0"
-  checksum: 10/e9d6b29538716f007919bfcee94f09b7f8e7d2b684ad43d1a3c8d43afb9f0539c7707f84a34f42054e31c8c056b0ccf06575d89e860b4d34632ffefaefafe1fc
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/tsconfig-utils@npm:8.55.0, @typescript-eslint/tsconfig-utils@npm:^8.53.1, @typescript-eslint/tsconfig-utils@npm:^8.54.0, @typescript-eslint/tsconfig-utils@npm:^8.55.0":
+"@typescript-eslint/tsconfig-utils@npm:8.55.0, @typescript-eslint/tsconfig-utils@npm:^8.53.1, @typescript-eslint/tsconfig-utils@npm:^8.55.0":
   version: 8.55.0
   resolution: "@typescript-eslint/tsconfig-utils@npm:8.55.0"
   peerDependencies:
@@ -3316,13 +3300,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:8.54.0":
-  version: 8.54.0
-  resolution: "@typescript-eslint/types@npm:8.54.0"
-  checksum: 10/c25cc0bdf90fb150cf6ce498897f43fe3adf9e872562159118f34bd91a9bfab5f720cb1a41f3cdf253b2e840145d7d372089b7cef5156624ef31e98d34f91b31
-  languageName: node
-  linkType: hard
-
 "@typescript-eslint/types@npm:8.55.0, @typescript-eslint/types@npm:^8.35.0, @typescript-eslint/types@npm:^8.53.1, @typescript-eslint/types@npm:^8.54.0, @typescript-eslint/types@npm:^8.55.0":
   version: 8.55.0
   resolution: "@typescript-eslint/types@npm:8.55.0"
@@ -3346,25 +3323,6 @@ __metadata:
   peerDependencies:
     typescript: ">=4.8.4 <6.0.0"
   checksum: 10/fb1e0016292b82a873df1d4d95f9ecc441b443bdd83236eb7c118a88e500b9466e29bba4a6a5c3526d37c3cb189b427ea9f45d49f988fbc6dc4f238d58cfadb9
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/typescript-estree@npm:8.54.0":
-  version: 8.54.0
-  resolution: "@typescript-eslint/typescript-estree@npm:8.54.0"
-  dependencies:
-    "@typescript-eslint/project-service": "npm:8.54.0"
-    "@typescript-eslint/tsconfig-utils": "npm:8.54.0"
-    "@typescript-eslint/types": "npm:8.54.0"
-    "@typescript-eslint/visitor-keys": "npm:8.54.0"
-    debug: "npm:^4.4.3"
-    minimatch: "npm:^9.0.5"
-    semver: "npm:^7.7.3"
-    tinyglobby: "npm:^0.2.15"
-    ts-api-utils: "npm:^2.4.0"
-  peerDependencies:
-    typescript: ">=4.8.4 <6.0.0"
-  checksum: 10/3a545037c6f9319251d3ba44cf7a3216b1372422469e27f7ed3415244ebf42553da1ab4644da42d3f0ae2706a8cad12529ffebcb2e75406f74e3b30b812d010d
   languageName: node
   linkType: hard
 
@@ -3424,16 +3382,6 @@ __metadata:
     "@typescript-eslint/types": "npm:8.53.1"
     eslint-visitor-keys: "npm:^4.2.1"
   checksum: 10/9498ecd42de7ce5746faee88f67edebd92781d35b31c1da355207b42b564a5974c1a5314d01cd7aea865c5e948b15b3aa043d724b2e51b4f8bc26e0b3711a8b2
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/visitor-keys@npm:8.54.0":
-  version: 8.54.0
-  resolution: "@typescript-eslint/visitor-keys@npm:8.54.0"
-  dependencies:
-    "@typescript-eslint/types": "npm:8.54.0"
-    eslint-visitor-keys: "npm:^4.2.1"
-  checksum: 10/cca5380ee30250302ee1459e5a0a38de8c16213026dbbff3d167fa7d71d012f31d60ac4483ad45ebd13f2ac963d1ca52dd5f22759a68d4ee57626e421769187a
   languageName: node
   linkType: hard
 
@@ -3582,7 +3530,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-react-swc@npm:~4.2.2":
+"@vitejs/plugin-react-swc@npm:~4.2.3":
   version: 4.2.3
   resolution: "@vitejs/plugin-react-swc@npm:4.2.3"
   dependencies:
@@ -3744,7 +3692,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/arraybuffer@npm:~5.0.64, @xylabs/arraybuffer@npm:~5.0.79":
+"@xylabs/arraybuffer@npm:~5.0.79":
   version: 5.0.79
   resolution: "@xylabs/arraybuffer@npm:5.0.79"
   dependencies:
@@ -3773,7 +3721,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/base@npm:~5.0.64, @xylabs/base@npm:~5.0.79":
+"@xylabs/base@npm:~5.0.79":
   version: 5.0.79
   resolution: "@xylabs/base@npm:5.0.79"
   dependencies:
@@ -3892,7 +3840,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/eth-address@npm:~5.0.64, @xylabs/eth-address@npm:~5.0.65, @xylabs/eth-address@npm:~5.0.79":
+"@xylabs/eth-address@npm:~5.0.65, @xylabs/eth-address@npm:~5.0.79":
   version: 5.0.79
   resolution: "@xylabs/eth-address@npm:5.0.79"
   dependencies:
@@ -3902,7 +3850,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/events@npm:~5.0.64, @xylabs/events@npm:~5.0.79":
+"@xylabs/events@npm:~5.0.79":
   version: 5.0.79
   resolution: "@xylabs/events@npm:5.0.79"
   dependencies:
@@ -4018,7 +3966,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/pixel@npm:~5.0.64, @xylabs/pixel@npm:~5.0.65":
+"@xylabs/pixel@npm:~5.0.65, @xylabs/pixel@npm:~5.0.79":
   version: 5.0.79
   resolution: "@xylabs/pixel@npm:5.0.79"
   dependencies:
@@ -4075,7 +4023,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-app-settings@npm:~7.1.12, @xylabs/react-app-settings@npm:~7.1.15":
+"@xylabs/react-app-settings@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-app-settings@npm:7.1.15"
   dependencies:
@@ -4089,7 +4037,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-appbar@npm:~7.1.12, @xylabs/react-appbar@npm:~7.1.15":
+"@xylabs/react-appbar@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-appbar@npm:7.1.15"
   dependencies:
@@ -4108,7 +4056,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-async-effect@npm:~7.1.12, @xylabs/react-async-effect@npm:~7.1.15":
+"@xylabs/react-async-effect@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-async-effect@npm:7.1.15"
   dependencies:
@@ -4119,7 +4067,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-button@npm:~7.1.12, @xylabs/react-button@npm:~7.1.15":
+"@xylabs/react-button@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-button@npm:7.1.15"
   dependencies:
@@ -4136,7 +4084,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-crypto@npm:~7.1.12":
+"@xylabs/react-crypto@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-crypto@npm:7.1.15"
   dependencies:
@@ -4177,7 +4125,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-error@npm:~7.1.12, @xylabs/react-error@npm:~7.1.15":
+"@xylabs/react-error@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-error@npm:7.1.15"
   dependencies:
@@ -4200,7 +4148,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-flexbox@npm:~7.1.12, @xylabs/react-flexbox@npm:~7.1.15":
+"@xylabs/react-flexbox@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-flexbox@npm:7.1.15"
   dependencies:
@@ -4215,7 +4163,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-hooks@npm:~7.1.12":
+"@xylabs/react-hooks@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-hooks@npm:7.1.15"
   peerDependencies:
@@ -4228,7 +4176,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-identicon@npm:~7.1.12, @xylabs/react-identicon@npm:~7.1.15":
+"@xylabs/react-identicon@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-identicon@npm:7.1.15"
   dependencies:
@@ -4242,14 +4190,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-invertible-theme@npm:~7.1.12":
+"@xylabs/react-invertible-theme@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-invertible-theme@npm:7.1.15"
   checksum: 10/b5abf9b760a5481bb852c90c5b55d62af61e4ccabff97de4b12b58fda7dca99d0499bda51445e69776d7ba14bbad0c5ff3e7f4a19dfefce3309bbf6a9e689b5f
   languageName: node
   linkType: hard
 
-"@xylabs/react-link@npm:~7.1.12, @xylabs/react-link@npm:~7.1.15":
+"@xylabs/react-link@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-link@npm:7.1.15"
   dependencies:
@@ -4265,7 +4213,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-number-status@npm:~7.1.12":
+"@xylabs/react-number-status@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-number-status@npm:7.1.15"
   dependencies:
@@ -4281,7 +4229,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-pixel@npm:~7.1.12, @xylabs/react-pixel@npm:~7.1.15":
+"@xylabs/react-pixel@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-pixel@npm:7.1.15"
   dependencies:
@@ -4296,7 +4244,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-promise@npm:~7.1.12, @xylabs/react-promise@npm:~7.1.15":
+"@xylabs/react-promise@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-promise@npm:7.1.15"
   dependencies:
@@ -4307,7 +4255,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-quick-tip-button@npm:~7.1.12, @xylabs/react-quick-tip-button@npm:~7.1.15":
+"@xylabs/react-quick-tip-button@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-quick-tip-button@npm:7.1.15"
   dependencies:
@@ -4322,7 +4270,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-select@npm:~7.1.12":
+"@xylabs/react-select@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-select@npm:7.1.15"
   dependencies:
@@ -4335,7 +4283,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-shared@npm:~7.1.12, @xylabs/react-shared@npm:~7.1.15":
+"@xylabs/react-shared@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-shared@npm:7.1.15"
   dependencies:
@@ -4349,7 +4297,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-theme@npm:~7.1.12, @xylabs/react-theme@npm:~7.1.15":
+"@xylabs/react-theme@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-theme@npm:7.1.15"
   dependencies:
@@ -4368,7 +4316,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/react-webapp@npm:~7.1.12":
+"@xylabs/react-webapp@npm:~7.1.15":
   version: 7.1.15
   resolution: "@xylabs/react-webapp@npm:7.1.15"
   dependencies:
@@ -4403,7 +4351,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/sdk-js@npm:~5.0.64, @xylabs/sdk-js@npm:~5.0.65":
+"@xylabs/sdk-js@npm:~5.0.64, @xylabs/sdk-js@npm:~5.0.65, @xylabs/sdk-js@npm:~5.0.79":
   version: 5.0.79
   resolution: "@xylabs/sdk-js@npm:5.0.79"
   dependencies:
@@ -4503,7 +4451,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xylabs/timer@npm:~5.0.64, @xylabs/timer@npm:~5.0.79":
+"@xylabs/timer@npm:~5.0.79":
   version: 5.0.79
   resolution: "@xylabs/timer@npm:5.0.79"
   dependencies:
@@ -6037,12 +5985,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-access-gate@workspace:packages/sdk/packages/access-gate"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6050,7 +5998,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6070,18 +6018,18 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-async-effect": "npm:~7.1.12"
-    "@xylabs/react-error": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-hooks": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/react-quick-tip-button": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-async-effect": "npm:~7.1.15"
+    "@xylabs/react-error": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-hooks": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/react-quick-tip-button": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6102,7 +6050,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6122,11 +6070,11 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6138,7 +6086,7 @@ __metadata:
     ethers: "npm:~6.16.0"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6156,14 +6104,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-address-render@workspace:packages/sdk/packages/address/packages/render"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-hooks": "npm:~7.1.12"
-    "@xylabs/react-identicon": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-hooks": "npm:~7.1.15"
+    "@xylabs/react-identicon": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6174,7 +6122,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6194,9 +6142,9 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xyo-network/react-address-history": "npm:7.5.3"
     "@xyo-network/react-address-render": "npm:7.5.3"
@@ -6217,10 +6165,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-advertising@workspace:packages/sdk/packages/advertising"
   dependencies:
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-promise": "npm:~7.1.12"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-promise": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6230,7 +6178,7 @@ __metadata:
     "@xyo-network/payload-model": "npm:~5.3.2"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6248,16 +6196,16 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
     "@types/luxon": "npm:~3.7.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/react-quick-tip-button": "npm:~7.1.12"
-    "@xylabs/react-theme": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/react-quick-tip-button": "npm:~7.1.15"
+    "@xylabs/react-theme": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6266,13 +6214,13 @@ __metadata:
     "@xyo-network/payload-model": "npm:~5.3.2"
     "@xyo-network/react-payload-plugin": "npm:7.5.3"
     "@xyo-network/react-shared": "npm:7.5.3"
-    axios: "npm:^1.13.4"
+    axios: "npm:^1.13.5"
     jsonpath-plus: "npm:^10.3.0"
     luxon: "npm:^3.7.2"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6293,10 +6241,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-app-settings@workspace:packages/sdk/packages/app-settings"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
@@ -6313,16 +6261,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-appbar@workspace:packages/sdk/packages/appbar"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-appbar": "npm:~7.1.12"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-link": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-appbar": "npm:~7.1.15"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-link": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6334,7 +6282,7 @@ __metadata:
     react-dom: "npm:^19.2.4"
     react-icons: "npm:~5.5.0"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6352,16 +6300,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-archivist@workspace:packages/modules/packages/archivist"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/events": "npm:~5.0.64"
-    "@xylabs/react-async-effect": "npm:~7.1.12"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/events": "npm:~5.0.79"
+    "@xylabs/react-async-effect": "npm:~7.1.15"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6382,7 +6330,7 @@ __metadata:
     react-dom: "npm:^19.2.4"
     react-icons: "npm:^5.5.0"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6402,18 +6350,18 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/arraybuffer": "npm:~5.0.64"
-    "@xylabs/eth-address": "npm:~5.0.64"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-error": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/arraybuffer": "npm:~5.0.79"
+    "@xylabs/eth-address": "npm:~5.0.79"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-error": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6433,7 +6381,7 @@ __metadata:
     react-dom: "npm:^19.2.4"
     react-icons: "npm:~5.5.0"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6453,20 +6401,20 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/arraybuffer": "npm:~5.0.64"
-    "@xylabs/eth-address": "npm:~5.0.64"
-    "@xylabs/react-error": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-hooks": "npm:~7.1.12"
-    "@xylabs/react-identicon": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/react-quick-tip-button": "npm:~7.1.12"
-    "@xylabs/react-theme": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/arraybuffer": "npm:~5.0.79"
+    "@xylabs/eth-address": "npm:~5.0.79"
+    "@xylabs/react-error": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-hooks": "npm:~7.1.15"
+    "@xylabs/react-identicon": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/react-quick-tip-button": "npm:~7.1.15"
+    "@xylabs/react-theme": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6489,7 +6437,7 @@ __metadata:
     react-dom: "npm:^19.2.4"
     react-icons: "npm:~5.5.0"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6507,12 +6455,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-card@workspace:packages/sdk/packages/card"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-theme": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-theme": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6522,7 +6470,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6542,10 +6490,10 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6557,7 +6505,7 @@ __metadata:
     "@xyo-network/react-shared": "npm:7.5.3"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6574,13 +6522,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-connected-accounts@workspace:packages/sdk/packages/connected-accounts"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-crypto": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-crypto": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6589,7 +6537,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6609,13 +6557,13 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-theme": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-theme": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6627,7 +6575,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6646,11 +6594,11 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6663,7 +6611,7 @@ __metadata:
     "@xyo-network/uniswap-crypto-market-payload-plugin": "npm:~5.3.1"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6680,12 +6628,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-debug@workspace:packages/sdk/packages/debug"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-error": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-error": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6695,7 +6643,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6749,7 +6697,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-diviner@workspace:packages/modules/packages/diviner"
   dependencies:
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6772,17 +6720,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-drawer@workspace:packages/sdk/packages/drawer"
   dependencies:
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
     "@xylabs/tsconfig-react": "npm:~7.3.2"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
   peerDependencies:
@@ -6796,15 +6744,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-elevation-map-quadkey-plugin@workspace:packages/plugins/packages/elevation-quadkey"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
     "@types/geojson": "npm:~7946.0.16"
-    "@types/react": "npm:^19.2.10"
+    "@types/react": "npm:^19.2.14"
     "@xylabs/geo": "npm:~5.0.79"
-    "@xylabs/react-async-effect": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
+    "@xylabs/react-async-effect": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6812,13 +6760,13 @@ __metadata:
     "@xyo-network/payload-model": "npm:~5.3.2"
     "@xyo-network/react-map": "npm:7.5.3"
     "@xyo-network/react-map-model": "npm:7.5.3"
-    axios: "npm:^1.13.4"
+    axios: "npm:^1.13.5"
     geojson: "npm:~0.5.0"
     mapbox-gl: "npm:~3.18.1"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6839,17 +6787,17 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-async-effect": "npm:~7.1.12"
-    "@xylabs/react-error": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-hooks": "npm:~7.1.12"
-    "@xylabs/react-select": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-async-effect": "npm:~7.1.15"
+    "@xylabs/react-error": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-hooks": "npm:~7.1.15"
+    "@xylabs/react-select": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6865,7 +6813,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6884,14 +6832,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-error@workspace:packages/sdk/packages/error"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
     "@rollbar/react": "npm:~1.0.0"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-error": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-error": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6902,7 +6850,7 @@ __metadata:
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
     rollbar: "npm:~2.26.5"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6926,11 +6874,11 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6943,7 +6891,7 @@ __metadata:
     "@xyo-network/react-storybook": "npm:7.5.3"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -6980,11 +6928,11 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -6997,7 +6945,7 @@ __metadata:
     "@xyo-network/react-storybook": "npm:7.5.3"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7016,11 +6964,11 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7033,7 +6981,7 @@ __metadata:
     "@xyo-network/react-storybook": "npm:7.5.3"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7052,11 +7000,11 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7069,7 +7017,7 @@ __metadata:
     "@xyo-network/react-storybook": "npm:7.5.3"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7088,11 +7036,11 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7105,7 +7053,7 @@ __metadata:
     "@xyo-network/react-storybook": "npm:7.5.3"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7124,9 +7072,9 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xyo-network/react-ethereum-gas-price-blocknative-plugin": "npm:7.5.3"
     "@xyo-network/react-ethereum-gas-price-etherchain-plugins": "npm:7.5.3"
@@ -7154,12 +7102,12 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-quick-tip-button": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-quick-tip-button": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7172,7 +7120,7 @@ __metadata:
     "@xyo-network/react-storybook": "npm:7.5.3"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7189,7 +7137,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-event@workspace:packages/sdk/packages/event"
   dependencies:
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     typescript: "npm:^5.9.3"
   peerDependencies:
@@ -7202,14 +7150,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-footer@workspace:packages/sdk/packages/footer"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-link": "npm:~7.1.12"
-    "@xylabs/react-theme": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-link": "npm:~7.1.15"
+    "@xylabs/react-theme": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7218,7 +7166,7 @@ __metadata:
     react-dom: "npm:^19.2.4"
     react-icons: "npm:~5.5.0"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7236,15 +7184,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-form-credit-card@workspace:packages/sdk/packages/form/packages/credit-card"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-error": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-error": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7257,7 +7205,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7275,14 +7223,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-form-group@workspace:packages/sdk/packages/form/packages/group"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/base": "npm:~5.0.64"
-    "@xylabs/events": "npm:~5.0.64"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/base": "npm:~5.0.79"
+    "@xylabs/events": "npm:~5.0.79"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7292,7 +7240,7 @@ __metadata:
     "@xyo-network/payload-model": "npm:~5.3.2"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7331,11 +7279,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-gas-price@workspace:packages/sdk/packages/gas-price"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7344,7 +7292,7 @@ __metadata:
     "@xyo-network/react-shared": "npm:7.5.3"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7361,16 +7309,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-indexed-results@workspace:packages/sdk/packages/indexed-results"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/retry": "npm:~5.0.64"
-    "@xylabs/sdk-js": "npm:~5.0.64"
-    "@xylabs/timer": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/retry": "npm:~5.0.79"
+    "@xylabs/sdk-js": "npm:~5.0.79"
+    "@xylabs/timer": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7403,7 +7351,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7423,13 +7371,13 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
     "@types/geojson": "npm:~7946.0.16"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-error": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-error": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7441,7 +7389,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7461,12 +7409,12 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
     "@types/geojson": "npm:~7946.0.16"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7480,7 +7428,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7500,12 +7448,12 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
     "@types/geojson": "npm:~7946.0.16"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7517,7 +7465,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7535,12 +7483,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-manifest@workspace:packages/sdk/packages/manifest"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
     "@scure/bip39": "npm:~2.0.1"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-promise": "npm:~7.1.12"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-promise": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7558,7 +7506,7 @@ __metadata:
     "@xyo-network/witness-timestamp": "npm:~5.3.2"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:~4.3.6"
@@ -7575,12 +7523,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-map-model@workspace:packages/sdk/packages/map-model"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
     "@types/geojson": "npm:7946.0.16"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7605,16 +7553,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-map@workspace:packages/sdk/packages/map"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
     "@types/geojson": "npm:7946.0.16"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-app-settings": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/react-theme": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/geo": "npm:~5.0.79"
+    "@xylabs/react-app-settings": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/react-theme": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7627,7 +7576,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7645,17 +7594,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-module@workspace:packages/modules/packages/module"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/eth-address": "npm:~5.0.64"
-    "@xylabs/react-async-effect": "npm:~7.1.12"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-crypto": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/eth-address": "npm:~5.0.79"
+    "@xylabs/react-async-effect": "npm:~7.1.15"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-crypto": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7671,7 +7620,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7691,9 +7640,9 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7721,14 +7670,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-network@workspace:packages/sdk/packages/network"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-select": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-select": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7737,7 +7686,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7754,11 +7703,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-nft-score-plugin@workspace:packages/plugins/packages/nft-score"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7771,7 +7720,7 @@ __metadata:
     "@xyo-network/react-storybook": "npm:7.5.3"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7788,9 +7737,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-node-context@workspace:packages/modules/packages/node/packages/context"
   dependencies:
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-shared": "npm:~7.1.12"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-shared": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7812,12 +7761,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-node-provider@workspace:packages/modules/packages/node/packages/provider"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-async-effect": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-async-effect": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7841,20 +7790,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-node-renderer@workspace:packages/sdk/packages/node-renderer"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
     "@types/cytoscape": "npm:~3.31.0"
-    "@types/react": "npm:^19.2.10"
+    "@types/react": "npm:^19.2.14"
     "@types/react-dom": "npm:~19.2.3"
-    "@xylabs/events": "npm:~5.0.64"
-    "@xylabs/react-async-effect": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-identicon": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/react-theme": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@xylabs/events": "npm:~5.0.79"
+    "@xylabs/react-async-effect": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-identicon": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/react-theme": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7887,7 +7836,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7907,16 +7856,16 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@mui/system": "npm:~7.3.7"
-    "@mui/x-tree-view": "npm:~8.26.0"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-async-effect": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@mui/system": "npm:~7.3.8"
+    "@mui/x-tree-view": "npm:~8.27.1"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-async-effect": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7932,7 +7881,7 @@ __metadata:
     "@xyo-network/react-wallet": "npm:7.5.3"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -7949,11 +7898,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-os@workspace:packages/sdk/packages/os"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7962,7 +7911,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
   peerDependencies:
@@ -7977,13 +7926,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-context@workspace:packages/sdk/packages/payload/packages/context"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -7996,7 +7945,7 @@ __metadata:
     "@xyo-network/react-shared": "npm:7.5.3"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -8015,15 +7964,15 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/react-quick-tip-button": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/react-quick-tip-button": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -8039,7 +7988,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -8058,14 +8007,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-diviner@workspace:packages/sdk/packages/payload/packages/diviner"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-async-effect": "npm:~7.1.12"
-    "@xylabs/react-error": "npm:~7.1.12"
-    "@xylabs/react-hooks": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-async-effect": "npm:~7.1.15"
+    "@xylabs/react-error": "npm:~7.1.15"
+    "@xylabs/react-hooks": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xyo-network/diviner-huri": "npm:~5.3.2"
     "@xyo-network/diviner-payload-abstract": "npm:~5.3.2"
@@ -8089,10 +8038,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-payload-huri@workspace:packages/sdk/packages/payload/packages/huri"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-promise": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-promise": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xyo-network/diviner-huri": "npm:~5.3.2"
     "@xyo-network/diviner-model": "npm:~5.3.2"
@@ -8117,12 +8066,12 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-hooks": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-hooks": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xyo-network/payload-model": "npm:~5.3.2"
     "@xyo-network/payload-plugin": "npm:~5.3.2"
@@ -8149,11 +8098,11 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-identicon": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-identicon": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xyo-network/payload-model": "npm:~5.3.2"
     "@xyo-network/react-payload-details": "npm:7.5.3"
@@ -8177,16 +8126,16 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
     "@textea/json-viewer": "npm:~4.0.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/react-theme": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/react-theme": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -8197,13 +8146,14 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
+    "@textea/json-viewer": ^4
     react: ^19
     react-dom: ^19
     react-router-dom: ^7
@@ -8217,15 +8167,15 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-error": "npm:~7.1.12"
-    "@xylabs/react-hooks": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-error": "npm:~7.1.15"
+    "@xylabs/react-hooks": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -8244,7 +8194,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -8264,9 +8214,9 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xyo-network/react-payload-context": "npm:7.5.3"
     "@xyo-network/react-payload-details": "npm:7.5.3"
@@ -8297,21 +8247,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-pixel@workspace:packages/sdk/packages/pixel"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/pixel": "npm:~5.0.64"
-    "@xylabs/react-shared": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/pixel": "npm:~5.0.79"
+    "@xylabs/react-shared": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
     "@xylabs/tsconfig-react": "npm:~7.3.2"
+    axios: "npm:^1.13.5"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     typescript: "npm:^5.9.3"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
+    axios: ^1
     react: ^19
     react-dom: ^19
   languageName: unknown
@@ -8323,9 +8275,9 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -8366,10 +8318,10 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xyo-network/payload-model": "npm:~5.3.2"
     "@xyo-network/react-payload-details": "npm:7.5.3"
@@ -8393,15 +8345,15 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-async-effect": "npm:~7.1.12"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-async-effect": "npm:~7.1.15"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xyo-network/account": "npm:~5.3.2"
     "@xyo-network/archivist-model": "npm:~5.3.2"
@@ -8422,7 +8374,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -8441,13 +8393,13 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-async-effect": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-theme": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-async-effect": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-theme": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -8462,7 +8414,7 @@ __metadata:
     react-chartjs-2: "npm:~5.3.1"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -8481,15 +8433,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-property@workspace:packages/sdk/packages/property"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-identicon": "npm:~7.1.12"
-    "@xylabs/react-quick-tip-button": "npm:~7.1.12"
-    "@xylabs/react-theme": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-identicon": "npm:~7.1.15"
+    "@xylabs/react-quick-tip-button": "npm:~7.1.15"
+    "@xylabs/react-theme": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -8499,7 +8451,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -8517,11 +8469,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-sample-node@workspace:packages/sdk/packages/sample-node"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-async-effect": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-async-effect": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -8532,7 +8484,7 @@ __metadata:
     "@xyo-network/react-standard-node": "npm:7.5.3"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
   peerDependencies:
@@ -8549,10 +8501,10 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xyo-network/payload-model": "npm:~5.3.2"
     "@xyo-network/react-payload-details": "npm:7.5.3"
@@ -8577,18 +8529,18 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-async-effect": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-hooks": "npm:~7.1.12"
-    "@xylabs/react-link": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/react-select": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-async-effect": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-hooks": "npm:~7.1.15"
+    "@xylabs/react-link": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/react-select": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -8613,7 +8565,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -8632,10 +8584,10 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/pixel": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/pixel": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -8672,6 +8624,7 @@ __metadata:
     "@xyo-network/react-wallet": "npm:7.5.3"
     "@xyo-network/react-wallet-service": "npm:7.5.3"
     "@xyo-network/react-xns": "npm:7.5.3"
+    axios: "npm:^1.13.5"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
@@ -8681,6 +8634,7 @@ __metadata:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
     "@xylabs/pixel": ~2
+    axios: ^1
     react: ^19
     react-dom: ^19
     react-router-dom: ^7
@@ -8694,16 +8648,16 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-async-effect": "npm:~7.1.12"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-async-effect": "npm:~7.1.15"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -8729,7 +8683,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -8750,22 +8704,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-share@workspace:packages/sdk/packages/share"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
     "@types/react-helmet": "npm:~6.1.11"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-error": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-link": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-error": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-link": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-helmet: "npm:~6.1.0"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -8783,20 +8737,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-shared@workspace:packages/sdk/packages/shared"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-appbar": "npm:~7.1.12"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-hooks": "npm:~7.1.12"
-    "@xylabs/react-link": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/react-quick-tip-button": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/react-theme": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-appbar": "npm:~7.1.15"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-hooks": "npm:~7.1.15"
+    "@xylabs/react-link": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/react-quick-tip-button": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/react-theme": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -8808,7 +8762,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -8826,14 +8780,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-standard-node@workspace:packages/sdk/packages/standard-node"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-async-effect": "npm:~7.1.12"
-    "@xylabs/react-hooks": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-async-effect": "npm:~7.1.15"
+    "@xylabs/react-hooks": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -8857,7 +8811,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     zod: "npm:^4.3.6"
   peerDependencies:
@@ -8874,11 +8828,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-storybook@workspace:packages/sdk/packages/storybook"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -8887,7 +8841,7 @@ __metadata:
     "@xyo-network/payload-model": "npm:~5.3.2"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -8904,12 +8858,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-table@workspace:packages/sdk/packages/table"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-hooks": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-hooks": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -8918,7 +8872,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -8936,8 +8890,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-theme@workspace:packages/sdk/packages/theme"
   dependencies:
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
@@ -8955,15 +8909,15 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@mui/system": "npm:~7.3.7"
-    "@mui/x-tree-view": "npm:~8.26.0"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@mui/system": "npm:~7.3.8"
+    "@mui/x-tree-view": "npm:~8.27.1"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -8972,7 +8926,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typedoc: "npm:~0.28.16"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
@@ -8990,17 +8944,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-user-events@workspace:packages/sdk/packages/user-events"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
     "@types/mixpanel-browser": "npm:~2.66.0"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/pixel": "npm:~5.0.64"
-    "@xylabs/react-pixel": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/pixel": "npm:~5.0.79"
+    "@xylabs/react-pixel": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
     "@xylabs/tsconfig-react": "npm:~7.3.2"
+    axios: "npm:^1.13.5"
     mixpanel-browser: "npm:~2.74.0"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
@@ -9011,6 +8966,7 @@ __metadata:
     "@mui/icons-material": ">=6 <8"
     "@mui/material": ">=6 <8"
     "@xylabs/pixel": ~2
+    axios: ^1
     react: ^19
     react-dom: ^19
     react-router-dom: ^7
@@ -9022,16 +8978,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-wallet-service@workspace:packages/sdk/packages/wallet-service"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xyo-network/metamask-connector": "npm:~5.3.2"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     typescript: "npm:^5.9.3"
+    webextension-polyfill: "npm:^0.12.0"
     zod: "npm:^4.3.6"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
@@ -9046,24 +9003,24 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-wallet@workspace:packages/sdk/packages/wallet"
   dependencies:
-    "@microsoft/api-extractor": "npm:~7.55.5"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
+    "@microsoft/api-extractor": "npm:~7.56.3"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
     "@scure/bip39": "npm:~2.0.1"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/eth-address": "npm:~5.0.64"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-crypto": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-hooks": "npm:~7.1.12"
-    "@xylabs/react-identicon": "npm:~7.1.12"
-    "@xylabs/react-number-status": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/react-quick-tip-button": "npm:~7.1.12"
-    "@xylabs/react-select": "npm:~7.1.12"
-    "@xylabs/react-shared": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/eth-address": "npm:~5.0.79"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-crypto": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-hooks": "npm:~7.1.15"
+    "@xylabs/react-identicon": "npm:~7.1.15"
+    "@xylabs/react-number-status": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/react-quick-tip-button": "npm:~7.1.15"
+    "@xylabs/react-select": "npm:~7.1.15"
+    "@xylabs/react-shared": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -9078,7 +9035,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -9096,18 +9053,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-webapp@workspace:packages/sdk/packages/webapp"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
     "@types/react-helmet": "npm:~6.1.11"
-    "@xylabs/react-appbar": "npm:~7.1.12"
-    "@xylabs/react-async-effect": "npm:~7.1.12"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-link": "npm:~7.1.12"
-    "@xylabs/react-pixel": "npm:~7.1.12"
-    "@xylabs/react-webapp": "npm:~7.1.12"
+    "@xylabs/react-appbar": "npm:~7.1.15"
+    "@xylabs/react-async-effect": "npm:~7.1.15"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-link": "npm:~7.1.15"
+    "@xylabs/react-pixel": "npm:~7.1.15"
+    "@xylabs/react-webapp": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -9119,7 +9076,7 @@ __metadata:
     react-dom: "npm:^19.2.4"
     react-helmet: "npm:~6.1.0"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -9136,14 +9093,14 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-promise": "npm:~7.1.12"
-    "@xylabs/sdk-js": "npm:~5.0.64"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-promise": "npm:~7.1.15"
+    "@xylabs/sdk-js": "npm:~5.0.79"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -9158,7 +9115,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -9176,15 +9133,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xyo-network/react-xns@workspace:packages/sdk/packages/xns"
   dependencies:
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@types/react": "npm:^19.2.10"
-    "@xylabs/react-button": "npm:~7.1.12"
-    "@xylabs/react-flexbox": "npm:~7.1.12"
-    "@xylabs/react-link": "npm:~7.1.12"
-    "@xylabs/react-pixel": "npm:~7.1.12"
-    "@xylabs/react-theme": "npm:~7.1.12"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@types/react": "npm:^19.2.14"
+    "@xylabs/react-button": "npm:~7.1.15"
+    "@xylabs/react-flexbox": "npm:~7.1.15"
+    "@xylabs/react-link": "npm:~7.1.15"
+    "@xylabs/react-pixel": "npm:~7.1.15"
+    "@xylabs/react-theme": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -9193,7 +9150,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
-    storybook: "npm:~10.2.1"
+    storybook: "npm:~10.2.8"
     typescript: "npm:^5.9.3"
     vite: "npm:~7.3.1"
     zod: "npm:^4.3.6"
@@ -9259,20 +9216,20 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:~11.14.0"
     "@emotion/styled": "npm:~11.14.1"
-    "@mui/icons-material": "npm:~7.3.7"
-    "@mui/material": "npm:~7.3.7"
-    "@storybook/addon-docs": "npm:~10.2.1"
-    "@storybook/addon-links": "npm:~10.2.1"
-    "@storybook/react-vite": "npm:~10.2.1"
-    "@stylistic/eslint-plugin": "npm:~5.7.1"
-    "@types/node": "npm:~25.1.0"
-    "@types/react": "npm:^19.2.10"
-    "@typescript-eslint/parser": "npm:~8.54.0"
-    "@vitejs/plugin-react-swc": "npm:~4.2.2"
+    "@mui/icons-material": "npm:~7.3.8"
+    "@mui/material": "npm:~7.3.8"
+    "@storybook/addon-docs": "npm:~10.2.8"
+    "@storybook/addon-links": "npm:~10.2.8"
+    "@storybook/react-vite": "npm:~10.2.8"
+    "@stylistic/eslint-plugin": "npm:~5.8.0"
+    "@types/node": "npm:~25.2.3"
+    "@types/react": "npm:^19.2.14"
+    "@typescript-eslint/parser": "npm:~8.55.0"
+    "@vitejs/plugin-react-swc": "npm:~4.2.3"
     "@xylabs/eslint-config-flat": "npm:~7.3.2"
     "@xylabs/eslint-config-react-flat": "npm:~7.3.2"
-    "@xylabs/react-invertible-theme": "npm:~7.1.12"
-    "@xylabs/react-theme": "npm:~7.1.12"
+    "@xylabs/react-invertible-theme": "npm:~7.1.15"
+    "@xylabs/react-theme": "npm:~7.1.15"
     "@xylabs/ts-scripts-yarn3": "npm:~7.3.2"
     "@xylabs/tsconfig": "npm:~7.3.2"
     "@xylabs/tsconfig-dom": "npm:~7.3.2"
@@ -9281,14 +9238,14 @@ __metadata:
     "@xyo-network/react-modules": "npm:7.5.3"
     "@xyo-network/react-plugins": "npm:7.5.3"
     "@xyo-network/react-sdk": "npm:7.5.3"
-    axios: "npm:^1.13.4"
+    axios: "npm:^1.13.5"
     chromatic: "npm:~13.3.5"
     copyfiles: "npm:~2.4.1"
-    dotenv: "npm:~17.2.3"
+    dotenv: "npm:~17.3.1"
     eslint: "npm:~9.39.2"
     eslint-import-resolver-typescript: "npm:~4.4.4"
-    eslint-plugin-storybook: "npm:10.2.1"
-    knip: "npm:~5.82.1"
+    eslint-plugin-storybook: "npm:10.2.8"
+    knip: "npm:~5.83.1"
     luxon: "npm:~3.7.2"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
@@ -9296,8 +9253,8 @@ __metadata:
     react-is: "npm:^19.2.4"
     react-router-dom: "npm:^7.13.0"
     rimraf: "npm:~6.1.2"
-    rollup: "npm:~4.57.0"
-    storybook: "npm:~10.2.1"
+    rollup: "npm:~4.57.1"
+    storybook: "npm:~10.2.8"
     ts-api-utils: "npm:~2.4.0"
     typedoc: "npm:~0.28.16"
     typescript: "npm:^5.9.3"
@@ -9305,7 +9262,7 @@ __metadata:
     vite-plugin-checker: "npm:~0.12.0"
     vite-plugin-svgr: "npm:^4.5.0"
     vite-plugin-top-level-await: "npm:~1.6.0"
-    vite-tsconfig-paths: "npm:~6.0.5"
+    vite-tsconfig-paths: "npm:~6.1.1"
     vitest: "npm:~4.0.18"
   peerDependencies:
     "@mui/icons-material": ">=6 <8"
@@ -9842,7 +9799,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.13.3, axios@npm:^1.13.4":
+"axios@npm:^1.13.3, axios@npm:^1.13.5":
   version: 1.13.5
   resolution: "axios@npm:1.13.5"
   dependencies:
@@ -10978,10 +10935,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:~17.2.3":
-  version: 17.2.4
-  resolution: "dotenv@npm:17.2.4"
-  checksum: 10/3b0fdfb40aebfec3a3b4421990b5874cb93c5a259d20ef637ead237a360cbaf753879d3a66e5c044147658824d86ffead6a4090e8ebb727782e5717fcdb636dd
+"dotenv@npm:~17.3.1":
+  version: 17.3.1
+  resolution: "dotenv@npm:17.3.1"
+  checksum: 10/4dde6571dff22c2323a3e33ac25e1e7d51c4b6d60dc884f59e3efe85c8fd3cc8800d6b3925d05c46b19dca08cba821a0a24e22f75a1b9b768c859b98bb927b04
   languageName: node
   linkType: hard
 
@@ -11496,15 +11453,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-storybook@npm:10.2.1":
-  version: 10.2.1
-  resolution: "eslint-plugin-storybook@npm:10.2.1"
+"eslint-plugin-storybook@npm:10.2.8":
+  version: 10.2.8
+  resolution: "eslint-plugin-storybook@npm:10.2.8"
   dependencies:
     "@typescript-eslint/utils": "npm:^8.48.0"
   peerDependencies:
     eslint: ">=8"
-    storybook: ^10.2.1
-  checksum: 10/16609a407bcae48742a43f2394a3635c2fbf50dd7b53710972797452a4d4ac3d78dc650a81a5a8d49d11288d322b2d60ca18aa7baeb955aa0f0b3588351838d3
+    storybook: ^10.2.8
+  checksum: 10/c1d0c6b94a39a6deb1e23dc7ddb48614f7f7a6699600c751ac87b52c852fccb5d396f5937fbe22f72a5eb586bc454c50cbd9eea9e8813a57c5e1550dfa9d82be
   languageName: node
   linkType: hard
 
@@ -12863,9 +12820,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"knip@npm:~5.82.1":
-  version: 5.82.1
-  resolution: "knip@npm:5.82.1"
+"knip@npm:~5.83.1":
+  version: 5.83.1
+  resolution: "knip@npm:5.83.1"
   dependencies:
     "@nodelib/fs.walk": "npm:^1.2.3"
     fast-glob: "npm:^3.3.3"
@@ -12885,7 +12842,7 @@ __metadata:
   bin:
     knip: bin/knip.js
     knip-bun: bin/knip-bun.js
-  checksum: 10/e41549af9dc9b8921b393cab881f848ce06c7fd915214cb1806ee01aec7155b4e045684bc8d1a396a588e8fe284693912a50edc5680312b1859a1f949dd4c37a
+  checksum: 10/d4783b22eacbcb726790211cb6e7cfb966cbb42c4737ae71fbe766523add2e9b8c7eb389a14f9418742d7722f26b107b036c6f0e1af4b56d86a7097f62172a54
   languageName: node
   linkType: hard
 
@@ -12991,7 +12948,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.15, lodash@npm:~4.17.15":
+"lodash@npm:^4.17.15, lodash@npm:~4.17.23":
   version: 4.17.23
   resolution: "lodash@npm:4.17.23"
   checksum: 10/82504c88250f58da7a5a4289f57a4f759c44946c005dd232821c7688b5fcfbf4a6268f6a6cdde4b792c91edd2f3b5398c1d2a0998274432cff76def48735e233
@@ -13252,15 +13209,6 @@ __metadata:
   version: 1.0.1
   resolution: "min-indent@npm:1.0.1"
   checksum: 10/bfc6dd03c5eaf623a4963ebd94d087f6f4bbbfd8c41329a7f09706b0cb66969c4ddd336abeb587bc44bc6f08e13bf90f0b374f9d71f9f01e04adc2cd6f083ef1
-  languageName: node
-  linkType: hard
-
-"minimatch@npm:10.0.3":
-  version: 10.0.3
-  resolution: "minimatch@npm:10.0.3"
-  dependencies:
-    "@isaacs/brace-expansion": "npm:^5.0.0"
-  checksum: 10/d5b8b2538b367f2cfd4aeef27539fddeee58d1efb692102b848e4a968a09780a302c530eb5aacfa8c57f7299155fb4b4e85219ad82664dcef5c66f657111d9b8
   languageName: node
   linkType: hard
 
@@ -14721,7 +14669,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^4.34.8, rollup@npm:^4.43.0, rollup@npm:~4.57.0":
+"rollup@npm:^4.34.8, rollup@npm:^4.43.0, rollup@npm:~4.57.1":
   version: 4.57.1
   resolution: "rollup@npm:4.57.1"
   dependencies:
@@ -15297,7 +15245,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@npm:~10.2.1":
+"storybook@npm:~10.2.8":
   version: 10.2.8
   resolution: "storybook@npm:10.2.8"
   dependencies:
@@ -16216,16 +16164,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-tsconfig-paths@npm:~6.0.5":
-  version: 6.0.5
-  resolution: "vite-tsconfig-paths@npm:6.0.5"
+"vite-tsconfig-paths@npm:~6.1.1":
+  version: 6.1.1
+  resolution: "vite-tsconfig-paths@npm:6.1.1"
   dependencies:
     debug: "npm:^4.1.1"
     globrex: "npm:^0.1.2"
     tsconfck: "npm:^3.0.3"
   peerDependencies:
     vite: "*"
-  checksum: 10/1c3d38102ed34d057fc602c332bfd059bfedd0b378ee87b1a73eac89e20f6d81ee4bd9639557287e275cae2230f1d9225d2d7d83a2fa355a380cf77568f2cd31
+  checksum: 10/f752bce4f3c5707f0df7af8a20294b1f325e26f50578b82c8262d851028616ebb1a3e73ab0789c55cf3c8da8d985e843193c0bec2cb31662c567ccdf137f1fd0
   languageName: node
   linkType: hard
 
@@ -16382,6 +16330,13 @@ __metadata:
     d3-shape: "npm:^1.3.5"
     d3-timer: "npm:^1.0.5"
   checksum: 10/a61f560ab0c8bf4dab7c03a47917d075ab2df2489c39aaaaf95f7dbbc275da20316568b71afc632c28bc398fd13b1a3ed2cdab7e8822162693e8fac8792d54a6
+  languageName: node
+  linkType: hard
+
+"webextension-polyfill@npm:^0.12.0":
+  version: 0.12.0
+  resolution: "webextension-polyfill@npm:0.12.0"
+  checksum: 10/77e648b958b573ef075e75a0c180e2bbd74dee17b3145e86d21fcbb168c4999e4a311654fe634b8178997bee9b35ea5808d8d3d3e5ff2ad138f197f4f0ea75d9
   languageName: node
   linkType: hard
 
