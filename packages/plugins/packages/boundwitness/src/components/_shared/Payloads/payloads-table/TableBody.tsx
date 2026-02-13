@@ -68,11 +68,11 @@ export const BoundWitnessPayloadTableBody = <
         ? <NoResultRowComponent />
         : null}
       {payloadHashes && payloadSchemas && payloadHashes.length > 0
-        ? hashes?.map(({ hash, id }) => {
+        ? hashes?.map(({ hash, id }, index) => {
             return (
               <TableRow ref={tableRowRef} key={id}>
                 <TableCell title={hash}>
-                  <RenderedCell field="schema" value={hash} />
+                  <RenderedCell field="schema" value={payloadSchemas[index]} />
                 </TableCell>
                 <HashTableCell title={hash} value={hash}>
                   <RenderedCell field="hash" value={hash} />
