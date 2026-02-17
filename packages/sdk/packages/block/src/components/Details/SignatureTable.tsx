@@ -4,7 +4,7 @@ import {
 } from '@mui/material'
 import { usePromise } from '@xylabs/react-promise'
 import type { BoundWitness, Signed } from '@xyo-network/boundwitness-model'
-import { PayloadHasher } from '@xyo-network/hash'
+import { PayloadBuilder } from '@xyo-network/payload-builder'
 import { ScrollTableOnSm } from '@xyo-network/react-shared'
 import React from 'react'
 
@@ -37,7 +37,7 @@ const signatureDataFromBoundWitness = (boundWitness: Signed<BoundWitness>) => {
 /** @deprecated use from @xyo-network/react-default-plugin instead */
 export const BlockSignatureTable: React.FC<BlockSignatureTableProps> = ({ block, ...props }) => {
   const signatureData = block ? signatureDataFromBoundWitness(block) : []
-  const [hash] = usePromise(async () => block ? await PayloadHasher.hash(block) : undefined, [block])
+  const [hash] = usePromise(async () => block ? await PayloadBuilder.hash(block) : undefined, [block])
 
   return (
     <ScrollTableOnSm>
