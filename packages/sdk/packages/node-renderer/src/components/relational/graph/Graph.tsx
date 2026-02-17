@@ -84,7 +84,7 @@ export const NodeRelationalGraphFlexBox: React.FC<NodeRelationalGraphProps> = ({
   const theme = useTheme()
   const [cy, setCy] = useState<Core>()
   const cytoscapeRef = useRef<HTMLDivElement>(null)
-  const [hoverPosition, setHoverBoundingBox] = useState<{ x1: number; x2: number; y1: number; y2: number }>()
+  const [hoverBoundingBox, setHoverBoundingBox] = useState<{ x1: number; x2: number; y1: number; y2: number }>()
   const [hoverAddress, setHoverAddress] = useState<Address>()
 
   const [moduleInstance] = useWeakModuleFromNode(hoverAddress, { node })
@@ -145,9 +145,9 @@ export const NodeRelationalGraphFlexBox: React.FC<NodeRelationalGraphProps> = ({
 
   return (
     <FlexCol id="relational-graph-wrapper" {...props}>
-      {hoverAddress && hoverPosition
+      {hoverAddress && hoverBoundingBox
         ? (
-            <Box position="absolute" top={hoverPosition.y1} left={hoverPosition.x1} zIndex={100}>
+            <Box position="absolute" top={hoverBoundingBox.y1} left={hoverBoundingBox.x1} zIndex={100}>
               <ModuleHoverDetails address={hoverAddress} name={moduleInstance?.deref()?.id ?? 'Unknown'} />
             </Box>
           )

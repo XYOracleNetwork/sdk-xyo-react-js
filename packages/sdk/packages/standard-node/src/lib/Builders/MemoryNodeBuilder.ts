@@ -60,7 +60,7 @@ export class MemoryNodeBuilder {
       const bridge = await HttpBridge.create({
         account,
         config: {
-          name: moduleName, nodeUrl: `${apiDomain}/node`, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true },
+          name: moduleName, client: { url: `${apiDomain}/node` }, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true },
         },
       })
       await this.attach(bridge, true)

@@ -21,7 +21,7 @@ import { useSchemaList } from '../useSchemaList.tsx'
 import { useSchemaStats } from '../useSchemaStats.tsx'
 
 const apiConfig = { apiDomain: 'https://api.archivist.xyo.network' }
-const nodeUrl = 'http://localhost:8080/node'
+const client = { url: 'http://localhost:8080/node' }
 
 const MemoryNodeDecorator: Decorator = (Story, args) => {
   const [node, setNode] = useState<MemoryNode>()
@@ -31,7 +31,7 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
       const node = await MemoryNode.create({ config: { schema: NodeConfigSchema } })
       const bridge = await HttpBridge.create({
         config: {
-          nodeUrl, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true },
+          client, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true },
         },
       })
       await node.register(bridge)

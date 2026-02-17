@@ -21,11 +21,11 @@ const UseGetSchemaComponent: React.FC<{ schema: string }> = ({ schema }) => {
     <>
       <Typography variant="body1" fontWeight="bold" mb={2}>
         Example schemas to test:
-        {exampleSchemas.map((schema, index) => (
+        {exampleSchemas.map(schema => (
           <Typography
             component="span"
             mx={1}
-            key={index}
+            key={exampleSchemas.indexOf(schema)}
             onClick={() => setSchemaFieldValue(schema)}
             sx={{ cursor: 'pointer', textDecoration: 'underline' }}
           >

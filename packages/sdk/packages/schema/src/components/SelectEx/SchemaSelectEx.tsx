@@ -30,9 +30,9 @@ export const SchemaSelectEx: React.FC<SchemaSelectExProps> = ({
       }}
       {...props}
     >
-      {schemaList?.map((schema, index) => {
+      {schemaList?.map((schema) => {
         return (
-          <MenuItem key={index} value={schema}>
+          <MenuItem key={schemaList.indexOf(schema)} value={schema}>
             {schema}
           </MenuItem>
         )

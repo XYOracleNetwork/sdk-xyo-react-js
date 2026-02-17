@@ -16,7 +16,7 @@ import React, { useState } from 'react'
 
 import { ModuleGraphFlexBoxWithProvider } from './GraphFlexBox.tsx'
 
-const nodeUrl = 'http://localhost:8080/node'
+const client = { url: 'http://localhost:8080/node' }
 
 const MemoryNodeDecorator: Decorator = (Story, args) => {
   const [node, setNode] = useState<MemoryNode>()
@@ -29,7 +29,7 @@ const MemoryNodeDecorator: Decorator = (Story, args) => {
         const node1 = await MemoryNode.create({ config: { name: 'ChildNode', schema: NodeConfigSchema } })
         const bridge = await HttpBridge.create({
           config: {
-            name: 'Bridge', nodeUrl, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true },
+            name: 'Bridge', client, schema: HttpBridgeConfigSchema, security: { allowAnonymous: true },
           },
         })
         await node.register(bridge)

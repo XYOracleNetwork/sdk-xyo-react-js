@@ -1,5 +1,5 @@
 import { useAsyncEffect } from '@xylabs/react-async-effect'
-import type { Address } from '@xylabs/sdk-js'
+import { type Address, isDefined } from '@xylabs/sdk-js'
 import type {
   SchemaStatsPayload,
   SchemaStatsQueryPayload,
@@ -13,7 +13,7 @@ import type { WithSources } from '@xyo-network/payload-model'
 import { isPayloadOfSchemaType } from '@xyo-network/payload-model'
 import { useWeakDivinerFromNode } from '@xyo-network/react-diviner'
 import type { Dispatch, SetStateAction } from 'react'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 
 export const useSchemaStats = (
   statsAddress?: Address,
@@ -26,18 +26,10 @@ export const useSchemaStats = (
 
   const [schemaList, setSchemaList] = useState<WithSources<SchemaStatsPayload>[]>()
 
-  const query: SchemaStatsQueryPayload = useMemo(
-    () => ({
-      address: statsAddress,
-      schema: SchemaStatsQuerySchema,
-    }),
-    [statsAddress],
-  )
-
   useAsyncEffect(
     async (mounted) => {
       const instance = diviner?.deref()
-      if (instance) {
+      if (isDefined(instance) && isDefined(statsAddress)) {
         if (divinerError) {
           if (mounted()) {
             setError(divinerError)
@@ -45,6 +37,10 @@ export const useSchemaStats = (
           }
         } else {
           try {
+            const query = {
+              address: statsAddress,
+              schema: SchemaStatsQuerySchema,
+            }
             const schemas = (await instance.divine([query])).filter(isPayloadOfSchemaType(SchemaStatsDivinerSchema)) as WithSources<
               SchemaStatsPayload
             >[]
@@ -59,7 +55,7 @@ export const useSchemaStats = (
         }
       }
     },
-    [diviner, refresh, divinerError, query],
+    [diviner, refresh, divinerError, statsAddress],
   )
 
   return [schemaList, error, refreshHistory]

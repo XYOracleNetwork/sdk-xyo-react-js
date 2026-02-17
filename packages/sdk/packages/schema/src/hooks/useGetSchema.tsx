@@ -12,7 +12,7 @@ import { useState } from 'react'
  */
 const useGetSchemaPayload = (schema?: string) => {
   const [notFound, setNotFound] = useState(false)
-  const [xyoError, setError] = useState<WithSources<ModuleError>>()
+  const [xyoError, setXyoError] = useState<WithSources<ModuleError>>()
   const [schemaCacheEntry, setSchemaCacheEntry] = useState<SchemaCacheEntry | null | undefined>()
   const [schemaLocal, setSchemaLocal] = useState<string>()
 
@@ -32,7 +32,7 @@ const useGetSchemaPayload = (schema?: string) => {
           const error = e as Error
           console.error(e)
           if (mounted()) {
-            setError({
+            setXyoError({
               message: error.message, schema: ModuleErrorSchema, $sources: [],
             })
           }
