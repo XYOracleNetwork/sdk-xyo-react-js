@@ -1,3 +1,4 @@
+import type { UsePromiseState } from '@xylabs/react-promise'
 import {
   assertEx, isDefined, isDefinedNotNull,
 } from '@xylabs/sdk-js'
@@ -17,6 +18,7 @@ export interface ParsedPriceWidgetResult extends PriceWidgetConfigFields {
   relativeTime?: string | null
   result?: CryptoMarketAssetPayload
   retry?: () => void
+  state?: UsePromiseState
   timestamp?: number
 }
 
@@ -40,7 +42,7 @@ export const useParsePriceWidgetConfig = (payload?: Payload) => {
     [payload],
   )
 
-  const [result, error, , retry] = useApiCall<CryptoMarketAssetPayload>(priceWidgetConfig?.source)
+  const [result, error, state, retry] = useApiCall<CryptoMarketAssetPayload>(priceWidgetConfig?.source)
 
   const ret: ParsedPriceWidgetResult = useMemo(() => {
     if (!result) return {} as ParsedPriceWidgetResult
@@ -64,6 +66,7 @@ export const useParsePriceWidgetConfig = (payload?: Payload) => {
           relativeTime: DateTime.fromMillis(normalizedTimestamp).toRelative(),
           result,
           retry,
+          state,
           timestamp: normalizedTimestamp,
         })
       : ({} as ParsedPriceWidgetResult)
